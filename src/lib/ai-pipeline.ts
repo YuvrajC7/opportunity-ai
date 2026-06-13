@@ -8,7 +8,7 @@ function getGenAI() {
 }
 
 // We use the extremely fast and cheap flash model
-const MODEL_NAME = 'gemini-1.5-flash';
+const MODEL_NAME = 'gemini-2.0-flash';
 
 export async function preWarmPipeline() {
   if (!getGenAI()) {
