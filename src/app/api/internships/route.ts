@@ -13,12 +13,12 @@ export async function GET(req: Request) {
   const session = await getServerSession(authOptions);
   
   // @ts-ignore
-  if (!session || !session.accessToken) {
+  if (!session || !session.accessToken || !session.user?.email) {
     return NextResponse.json({ error: 'Unauthorized. Please sign in.' }, { status: 401 });
   }
   try {
     const user = await prisma.user.findUnique({
-      where: { email: session.user.email }
+      where: { email: session.user.email as string }
     });
     
     if (!user) {
