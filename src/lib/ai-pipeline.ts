@@ -51,7 +51,7 @@ export async function generateAITitlePipeline(subject: string, bodySnippet: stri
     });
     
     // Hard 5-second timeout for title to prevent Vercel crashes
-    const res = await withTimeout(generatePromise, 5000, null);
+    const res: any = await withTimeout(generatePromise, 5000, null);
     if (!res) return subject;
     
     let title = res[0].generated_text.trim();
@@ -78,7 +78,7 @@ export async function generateAISummaryPipeline(bodySnippet: string): Promise<st
     });
     
     // Hard 7-second timeout for summary (Vercel max is 10s)
-    const res = await withTimeout(generatePromise, 7000, null);
+    const res: any = await withTimeout(generatePromise, 7000, null);
     if (!res) return fallback;
 
     let summary = res[0].generated_text.trim();
@@ -103,7 +103,7 @@ export async function generateAIDeadlinePipeline(bodySnippet: string): Promise<s
     });
     
     // Hard 4-second timeout for deadline
-    const res = await withTimeout(generatePromise, 4000, null);
+    const res: any = await withTimeout(generatePromise, 4000, null);
     if (!res) return null;
 
     let output = res[0].generated_text.trim();
