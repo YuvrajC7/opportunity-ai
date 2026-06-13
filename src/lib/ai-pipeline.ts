@@ -17,25 +17,54 @@ export async function generateAITitlePipeline(subject: string, bodySnippet: stri
 
 export async function generateAISummaryPipeline(bodySnippet: string): Promise<string> {
   // Use a smart heuristic summary for Vercel
-  const cleanBody = bodySnippet.replace(/\s+/g, ' ');
+  let cleanBody = bodySnippet.replace(/\s+/g, ' ').trim();
   
-  // Try to find the first actual sentence that isn't a greeting
-  const sentences = cleanBody.split(/[.!?]\s+/);
-  let summary = '';
+  // 1. Remove common greetings and boilerplate
+  const greetings = [
+    /^(?:kind attention|dear|hello|greetings|hi|to whom|hope this)[^.]*[.!?,]\s*/i,
+    /^(?:dear students|dear student|dear all)[^.]*[.!?,]\s*/i,
+    /^(?:greetings from)[^.]*[.!?,]\s*/i,
+    /^[A-Z][a-z]+,\s*/, // Matches "Balachandran, "
+    /^Greetings from [^,]+,\s*/i
+  ];
   
-  for (const sentence of sentences) {
-    if (sentence.length > 30 && !sentence.toLowerCase().includes('dear') && !sentence.toLowerCase().includes('hello')) {
-      summary = sentence.trim();
-      break;
+  for (let i = 0; i < 3; i++) { // Loop a few times to strip multiple stacked greetings
+    for (const regex of greetings) {
+      cleanBody = cleanBody.replace(regex, '');
     }
   }
   
-  if (!summary) {
-    summary = cleanBody.substring(0, 150);
+  // 2. Try to grab the first 2-3 substantive sentences
+  const sentences = cleanBody.match(/[^.!?]+[.!?]+/g) || [];
+  let summary = '';
+  
+  if (sentences.length > 0) {
+    // Filter out extremely short sentences or purely administrative links
+    const validSentences = sentences.filter(s => 
+      s.trim().length > 30 && 
+      !s.toLowerCase().includes('unsubscribe') &&
+      !s.toLowerCase().includes('click here') &&
+      !s.toLowerCase().includes('view this email')
+    );
+    
+    if (validSentences.length > 0) {
+      // Grab up to 3 valid sentences to make it nice and meaty
+      summary = validSentences.slice(0, 3).join(' ').trim();
+    }
   }
   
-  // Ensure it ends nicely
-  if (!summary.endsWith('.')) summary += '...';
+  // 3. Fallback if regex completely fails to parse sentences
+  if (!summary || summary.length < 50) {
+    summary = cleanBody.substring(0, 350).trim();
+  } else if (summary.length > 450) {
+    // Trim if it's way too long
+    summary = summary.substring(0, 450).trim() + '...';
+  }
+  
+  // 4. Ensure it ends nicely
+  if (!summary.endsWith('.') && !summary.endsWith('!') && !summary.endsWith('?') && !summary.endsWith('...')) {
+    summary += '...';
+  }
   
   return summary;
 }
