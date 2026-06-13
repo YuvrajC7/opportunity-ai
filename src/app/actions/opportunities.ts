@@ -32,7 +32,7 @@ export async function getOpportunities() {
   });
 
   // Map to frontend Email interface
-  return opps.map(opp => {
+  return opps.map((opp: any) => {
     const bookmark = userId && (opp as any).bookmarks?.[0];
     
     return {
