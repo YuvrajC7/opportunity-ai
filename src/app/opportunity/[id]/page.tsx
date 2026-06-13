@@ -167,11 +167,11 @@ export default function OpportunityDetail() {
 
   const conf = CATEGORY_CONFIG[opp.category];
 
-  const handleBookmarkToggle = async () => {
+  const handleBookmark = async () => {
     if (!opp) return;
     const newStatus = !isBookmarked;
     setIsBookmarked(newStatus);
-    await toggleBookmarkAction(opp.id, newStatus ? 'SAVED' : 'NONE');
+    await toggleBookmarkAction(opp.id, 'SAVED');
   };
 
   const handleStatusChange = async (status: ApplicationStatus | 'none') => {
