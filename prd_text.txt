@@ -1,0 +1,1691 @@
+OpportunityAI
+AI-Powered Student Career Intelligence Platform
+PRODUCT REQUIREMENTS DOCUMENT
+ Comprehensive Edition  |  Version 2.0
+DOCUMENT STATUS:
+Final Draft
+CLASSIFICATION:
+Confidential - Internal
+PREPARED BY:
+Founding Team
+DATE:
+June 2026
+VISION
+To become the operating system for student careers by transforming
+fragmented opportunity discovery into a personalized AI-guided experience.
+OpportunityAI  |  Confidential  |  Version 2.0  |  2026
+
+---PAGE BREAK---
+OpportunityAI
+Product Requirements Document  |  v2.0
+Confidential — Internal Use Only
+Page 2
+Table of Contents
+01
+Executive Summary
+3
+02
+Problem Statement & Opportunity
+3
+03
+Vision & Mission
+4
+04
+Target Users & Personas
+4
+05
+Core MVP Features
+5
+06
+Advanced AI Features
+6
+07
+User Flows
+7
+08
+Functional Requirements
+7
+09
+Non-Functional Requirements
+9
+10
+AI & ML System Architecture
+9
+11
+System Architecture
+10
+12
+Database Schema
+11
+13
+Security & Privacy
+12
+14
+Recommendation Engine
+13
+15
+Notification Engine
+13
+16
+Analytics Dashboard
+14
+17
+Product Roadmap
+14
+18
+Business Model
+15
+19
+Success Metrics & KPIs
+16
+20
+Risk Register & Mitigations
+17
+21
+Future Vision (5-Year)
+18
+22
+Appendix
+18
+
+---PAGE BREAK---
+OpportunityAI
+Product Requirements Document  |  v2.0
+Confidential — Internal Use Only
+Page 3
+01
+Executive Summary
+OpportunityAI is a next-generation, AI-powered student opportunity intelligence platform designed to solve one of the
+most critical yet overlooked problems in student career development: information overload and missed opportunities.
+By securely integrating with a student's email account, OpportunityAI automatically discovers, extracts, categorises,
+prioritises, and surfaces internships, hackathons, scholarships, research programs, workshops, and competitions —
+transforming a cluttered inbox into a powerful, personalised career action dashboard.
+The platform leverages state-of-the-art large language models (LLMs), embedding-based matching, and rule-based
+intelligence to provide students with AI-generated summaries, deadline alerts, opportunity match scores, success
+probability predictions, and personalised career roadmaps. OpportunityAI is built for scale — starting with Indian
+university students and expanding to a global audience of early-career professionals.
+Product
+OpportunityAI — Student Career Intelligence Platform
+Version
+2.0 (Comprehensive PRD)
+Target Launch
+Q3 2026 (MVP)
+Primary Market
+Indian University Students (VIT Phase 1)
+Tech Stack
+Next.js · TypeScript · PostgreSQL · Prisma · Gemini/OpenAI · Vercel
+Business Model
+Freemium + Premium AI · University Partnerships · Recruiter Marketplace
+5-Year Goal
+Global AI Career Operating System for Students
+
+---PAGE BREAK---
+OpportunityAI
+Product Requirements Document  |  v2.0
+Confidential — Internal Use Only
+Page 4
+02
+Problem Statement & Opportunity
+The Core Problem
+Modern students are simultaneously over-communicated with and under-served by their digital tools. The average
+university student receives 50–150 emails per day from professors, departments, clubs, recruiters, and newsletters.
+Within this deluge lie career-changing opportunities — but identifying them requires time, attention, and organisation
+that most students simply cannot afford.
+  Information Overload: Critical opportunities are buried in promotional and administrative email noise, making
+manual discovery impractical.
+  Deadline Blindness: Internship, scholarship, and hackathon deadlines are scattered across emails with no
+centralised tracking.
+  Lack of Personalisation: Existing job boards and opportunity portals require manual searching and do not
+adapt to individual student profiles.
+  No Priority Signal: Students have no reliable way to assess which opportunities match their skills, year of study,
+or career goals.
+  Application Fragmentation: Managing applications across dozens of platforms without a unified tracker leads
+to missed follow-ups and duplicated effort.
+  Inequitable Access: Students without strong mentorship networks miss opportunities that well-connected peers
+discover via word-of-mouth.
+Market Opportunity
+ Metric
+ Estimate
+ Source / Basis
+ 
+Total university students globally
+235 million+
+UNESCO 2024
+Indian university students
+43 million+
+AISHE 2023-24
+Avg. career emails per student/week
+15-40 emails
+Founder research
+Students missing at least 1 deadline/month
+~68%
+Primary survey (VIT)
+Willingness to pay for premium career tools
+~34%
+Primary survey (VIT)
+Addressable market (India, premium tier)
+$120M+ annually
+Estimated
+
+---PAGE BREAK---
+OpportunityAI
+Product Requirements Document  |  v2.0
+Confidential — Internal Use Only
+Page 5
+03
+Vision & Mission
+Vision Statement
+  To become the operating system for student careers — transforming fragmented opportunity discovery
+into a personalised, AI-guided, and outcome-oriented experience for every student, everywhere.
+Mission Statement
+  OpportunityAI empowers students to never miss a career-defining moment by intelligently discovering,
+organising, and prioritising every opportunity in their inbox — so they can focus on applying, not searching.
+Core Values
+Student-First
+Every design and product decision prioritises student outcomes over platform metrics.
+Privacy by Design
+We request only what we need. Students retain full control of their data at all times.
+AI with Integrity
+Our AI recommendations are transparent, explainable, and free from undisclosed bias.
+Inclusive Access
+We build for the student without a mentor, not just the well-connected few.
+Relentless Iteration
+We ship fast, learn from users, and improve continuously.
+
+---PAGE BREAK---
+OpportunityAI
+Product Requirements Document  |  v2.0
+Confidential — Internal Use Only
+Page 6
+04
+Target Users & Personas
+OpportunityAI targets university students across three geographic phases. The platform is designed to serve four core
+user personas, each with distinct goals, behaviours, and opportunity preferences.
+Rollout Phases
+Phase
+ Geography
+ Timeline
+Target Reach
+Phase 1
+VIT Vellore & Chennai
+2026 Q3–Q4
+~25,000 students
+Phase 2
+Top 50 Indian Universities (IITs, NITs,
+Tier-1 privates)
+2027 Q1–Q2
+~2M students
+Phase 3
+Pan-India + South-East Asia
+2027 Q3–Q4
+~10M students
+Phase 4
+Global + Early-Career Professionals
+2028+
+235M+ students
+User Personas
+The Explorer (Year 1–2)
+Primary Goal: Discover beginner-friendly programs, clubs, and workshops
+Pain Point: Overwhelmed by college life; doesn't know where to start
+Behaviour: Checks email infrequently; misses department announcements
+Key Needs:
+  Curated, beginner-friendly opportunity feed
+  Simple onboarding with interest tagging
+  Low-pressure reminders
+  Explanatory AI summaries
+
+---PAGE BREAK---
+OpportunityAI
+Product Requirements Document  |  v2.0
+Confidential — Internal Use Only
+Page 7
+The Competitor (Year 2–3)
+Primary Goal: Maximise hackathon wins, internship offers, and competitive achievements
+Pain Point: Scattered information across email, WhatsApp, and LinkedIn
+Behaviour: Highly active; applies to 5–15 opportunities per semester
+Key Needs:
+  AI opportunity match scoring
+  Team formation for hackathons
+  Application tracker with status updates
+  Competitive intelligence
+The Researcher (Year 3–4 / Postgrad)
+Primary Goal: Find research internships, lab positions, and academic conferences
+Pain Point: Research opportunities are poorly advertised and hard to discover
+Behaviour: Detail-oriented; values quality over quantity
+Key Needs:
+  Research-specific category filter
+  Professor/lab recommendation engine
+  Academic conference & grant discovery
+  Publication opportunity alerts
+The Placer (Final Year)
+Primary Goal: Secure a full-time offer before graduation
+Pain Point: Placement season is chaotic; managing multiple processes simultaneously
+Behaviour: High urgency; tracks every application obsessively
+Key Needs:
+  Deadline urgency ranking
+  Resume skill-gap analysis
+  Mock interview resources
+  Offer comparison dashboard
+  Referral network insights
+
+---PAGE BREAK---
+OpportunityAI
+Product Requirements Document  |  v2.0
+Confidential — Internal Use Only
+Page 8
+05
+Core MVP Features
+The MVP is scoped to deliver the minimum viable set of features that create real, measurable value for students from
+day one. All MVP features are required for launch.
+ Feature
+ Priority
+ Description
+ 
+Google OAuth Login
+MUST HAVE
+Secure, one-click Google sign-in. No passwords stored. Read-only Gmail
+scope requested. Tokens encrypted at rest.
+Gmail Read-Only Integration
+MUST HAVE
+Scheduled inbox scans via Gmail API. Fetches emails from the past 90
+days on first login; incremental thereafter. Only opportunity-relevant
+emails are retained.
+AI Opportunity Extraction
+Engine
+MUST HAVE
+LLM-powered pipeline classifies emails, extracts opportunity title,
+organisation, type, deadline, application link, eligibility, and prize/stipend
+information.
+Deadline Detection &
+Parsing
+MUST HAVE
+Automatic detection of deadline dates from email body, subject, and
+attachments. Normalised to ISO 8601. Handles relative dates (e.g., 'by
+end of this month').
+Opportunity Dashboard
+MUST HAVE
+Centralised, filterable, and sortable dashboard displaying all extracted
+opportunities. Cards show title, category, deadline, match score, and
+quick-action buttons.
+Category Classification
+MUST HAVE
+Opportunities auto-classified into: Internship, Hackathon, Scholarship,
+Research, Workshop, Competition, Job, Event, Other.
+Search & Filters
+MUST HAVE
+Full-text search + filters by category, deadline range, match score, status
+(bookmarked, applied, saved).
+Bookmarks
+MUST HAVE
+Users can save opportunities. Bookmarks persist across sessions and are
+accessible from a dedicated tab.
+Application Status Tracking
+MUST HAVE
+Users manually update application status: Interested → Applied → Under
+Review → Offer Received / Rejected.
+Smart Reminders
+MUST HAVE
+Email and push notifications 7 days, 3 days, and 1 day before each
+tracked deadline. Urgency level adapts based on time remaining.
+AI Opportunity Summaries
+MUST HAVE
+One-paragraph AI-generated summary for each opportunity including:
+what it is, who it's for, key benefits, and next steps.
+User Profile & Interest
+Tagging
+MUST HAVE
+Students set their year, department, skills, and interest areas on
+onboarding. Profile drives recommendation personalisation.
+
+---PAGE BREAK---
+OpportunityAI
+Product Requirements Document  |  v2.0
+Confidential — Internal Use Only
+Page 9
+06
+Advanced AI Features
+Post-MVP, OpportunityAI evolves from an extraction tool into a fully intelligent career co-pilot. The following advanced
+features are planned across V2–V5 releases, grouped by functional domain.
+Intelligence & Matching
+ Feature
+ Versio
+n
+ Description
+ 
+Opportunity Match Score
+V2
+Composite score (0–100) based on student profile, skills, year, past
+applications, and opportunity requirements. Displayed on every card.
+Success Probability Prediction
+V2
+ML model trained on historical acceptance data to estimate likelihood of
+success. Factors in profile completeness, eligibility fit, and competition level.
+Duplicate Detection
+V2
+Identifies semantically duplicate opportunities across emails and sources using
+embedding similarity. Merges into a single canonical record.
+Opportunity Trend Forecasting
+V3
+Predicts which types of opportunities are emerging based on historical email
+frequency, industry trends, and seasonal patterns.
+Career Development Tools
+ Feature
+ Versio
+n
+ Description
+ 
+Resume Skill Gap Analysis
+V2
+Compares student's declared skills against requirements of top-matched
+opportunities. Generates a prioritised skill-building action list.
+AI Career Roadmap Generator
+V3
+Produces a personalised 1–4 year career roadmap based on declared goals,
+current profile, and opportunity engagement history.
+AI Application Advisor
+V2
+Provides tailored application tips, essay prompts, and preparation checklists for
+each specific opportunity.
+AI Cover Letter Generator
+V3
+Drafts personalised cover letters using student profile data and opportunity
+details. Editable in-platform.
+AI Resume Reviewer
+V3
+Analyses uploaded resume for ATS compatibility, skill alignment, and quality.
+Generates improvement recommendations.
+Discovery & Aggregation
+ Feature
+ Versio
+n
+ Description
+ 
+Scholarship Discovery Engine
+V2
+Dedicated ML pipeline trained to identify and extract scholarship-specific
+signals: GPA requirements, financial eligibility, essay topics.
+Research Opportunity Finder
+V2
+Discovers professor openings, lab positions, and academic fellowships from
+departmental emails and external sources.
+
+---PAGE BREAK---
+OpportunityAI
+Product Requirements Document  |  v2.0
+Confidential — Internal Use Only
+Page 10
+ Feature
+ Versio
+n
+ Description
+ 
+Public Opportunity Scraping
+V4
+Web crawlers aggregate opportunities from LinkedIn, Internshala, Devfolio,
+Unstop, and 50+ platforms. Combined with email data.
+Browser Extension
+V4
+Captures opportunity details from any webpage the student visits. One-click
+'Save to OpportunityAI' button.
+Collaboration & Social
+ Feature
+ Versio
+n
+ Description
+ 
+Team Formation for
+Hackathons
+V3
+Matches students seeking hackathon teammates based on skill sets,
+availability, and target competition type.
+Recruiter Marketplace
+V4
+Verified recruiters post opportunities directly on OpportunityAI. Students can
+apply in-platform. Two-sided trust layer.
+University Intelligence Layer
+V3
+University-specific opportunity feeds, department announcements, and
+placement cell integration per institution.
+
+---PAGE BREAK---
+OpportunityAI
+Product Requirements Document  |  v2.0
+Confidential — Internal Use Only
+Page 11
+07
+User Flows
+Primary Onboarding Flow
+Ste
+p
+ Stage
+ Description
+ 
+1
+Landing Page
+Student visits OpportunityAI.com. Views value proposition, social proof, and CTA.
+2
+Google Sign-In
+Clicks 'Connect with Google'. OAuth consent screen shows read-only Gmail scope.
+Student approves.
+3
+Profile Setup
+Enters: Name, University, Year of Study, Department, Skills (tag-based), Career Interests
+(multi-select). Takes ~90 seconds.
+4
+Initial Scan
+System triggers background job to scan past 90 days of emails. Progress indicator
+shown. First results appear in ~30–90 seconds.
+5
+Dashboard Reveal
+Student sees their personalised opportunity dashboard. AI summaries and match scores
+displayed. Guided tooltip tour offered.
+6
+First Action
+Student bookmarks first opportunity, sets a reminder, or updates application status.
+Activation complete.
+Recurring Email Scan Flow
+  Scheduler triggers scan every 4 hours (configurable) via background job
+  Gmail API fetches new emails since last scan timestamp
+  Classification model filters: Opportunity-relevant vs. Irrelevant
+  Relevant emails pass through Extraction Pipeline (title, deadline, link, category, skills)
+  Duplicate detection checks against existing opportunities for this user
+  New opportunities persisted to database; user notified if high-priority (urgency score > 80)
+  Dashboard updated in real-time via WebSocket or on next page load
+
+---PAGE BREAK---
+OpportunityAI
+Product Requirements Document  |  v2.0
+Confidential — Internal Use Only
+Page 12
+08
+Functional Requirements
+Authentication & Authorisation
+ID
+Priority
+ Requirement
+ 
+FR-01
+CRITICAL
+Users must authenticate exclusively via Google OAuth 2.0. No email/password authentication.
+FR-02
+CRITICAL
+System must request only Gmail read-only scope (gmail.readonly). No write permissions.
+FR-03
+CRITICAL
+OAuth tokens must be encrypted using AES-256 before database storage.
+FR-04
+HIGH
+Users must be able to revoke Gmail access at any time from Settings. Revocation must delete all
+scanned email data within 24 hours.
+FR-05
+HIGH
+Session tokens must expire after 24 hours of inactivity. Refresh token rotation required.
+Email Scanning & Extraction
+ID
+Priority
+ Requirement
+ 
+FR-06
+CRITICAL
+System must scan the past 90 days of Gmail on first login. Incremental scans thereafter (every 4
+hours, configurable).
+FR-07
+CRITICAL
+AI pipeline must extract: opportunity title, organisation name, opportunity type, application deadline,
+application link, eligibility criteria, and stipend/prize value (if present).
+FR-08
+CRITICAL
+Extraction accuracy must meet or exceed 90% precision and 85% recall on the internal benchmark
+dataset.
+FR-09
+HIGH
+System must handle multi-part MIME emails (HTML + plain text). Must parse deadline dates in at
+least 12 common formats.
+FR-10
+HIGH
+Duplicate opportunities (same title + org within 30 days) must be detected and merged. User shown
+single canonical record.
+FR-11
+MEDIUM
+System must process a full 90-day scan of up to 10,000 emails within 5 minutes.
+Dashboard & Discovery
+ID
+Priority
+ Requirement
+ 
+FR-12
+CRITICAL
+Dashboard must display all extracted opportunities in card format. Default sort: deadline ascending.
+FR-13
+CRITICAL
+Each opportunity card must show: title, organisation, category badge, deadline, match score, and
+bookmark/apply CTAs.
+FR-14
+HIGH
+Filters must include: category (multi-select), deadline range (date picker), match score range (slider),
+and application status.
+FR-15
+HIGH
+Full-text search must return results within 500ms. Search indexed on title, organisation, and AI
+summary.
+FR-16
+MEDIUM
+User must be able to manually add opportunities not found in email.
+
+---PAGE BREAK---
+OpportunityAI
+Product Requirements Document  |  v2.0
+Confidential — Internal Use Only
+Page 13
+Notifications & Reminders
+ID
+Priority
+ Requirement
+ 
+FR-17
+CRITICAL
+System must send email reminders at: 7 days, 3 days, and 24 hours before tracked deadlines.
+FR-18
+HIGH
+Push notifications must be supported via browser (PWA) and mobile (future native app).
+FR-19
+HIGH
+Users must be able to configure notification preferences: channels (email/push), frequency, and
+urgency threshold.
+FR-20
+MEDIUM
+Daily opportunity digest email sent at user-preferred time (default: 8:00 AM local).
+Application Tracking
+ID
+Priority
+ Requirement
+ 
+FR-21
+HIGH
+Users must be able to track application status across 5 states: Interested, Applied, Under Review,
+Offer Received, Rejected.
+FR-22
+HIGH
+Application status changes must be timestamped and displayed in a chronological activity log.
+FR-23
+MEDIUM
+System must provide a Kanban-style view for managing applications across status columns.
+FR-24
+MEDIUM
+Users must be able to attach notes, documents, and links to each tracked application.
+AI Recommendations
+ID
+Priority
+ Requirement
+ 
+FR-25
+HIGH
+System must compute and display a match score (0–100) for each opportunity based on student
+profile.
+FR-26
+HIGH
+Recommendation engine must surface at least 5 personalised opportunity suggestions on
+dashboard load.
+FR-27
+MEDIUM
+Users must be able to provide explicit feedback (thumbs up/down) on recommendations to improve
+future suggestions.
+FR-28
+MEDIUM
+AI summaries must be regeneratable on demand and editable by the user.
+
+---PAGE BREAK---
+OpportunityAI
+Product Requirements Document  |  v2.0
+Confidential — Internal Use Only
+Page 14
+09
+Non-Functional Requirements
+Performance
+Dashboard load time < 2s (P95). API response < 500ms. Email scan < 5 min for 10k emails.
+Availability
+99.5% uptime SLA. Planned maintenance during 2–4 AM IST only.
+Scalability
+Horizontal scaling via Vercel edge. Database connection pooling. Support 100k concurrent
+users by Q4 2027.
+Security
+OWASP Top 10 compliance. Pen testing quarterly. All data encrypted in transit (TLS 1.3) and at
+rest (AES-256).
+Accessibility
+WCAG 2.1 AA compliance. Full keyboard navigation. Screen reader support. Min contrast ratio
+4.5:1.
+Data Retention
+Email content not retained after extraction. Opportunity data retained for 12 months. User data
+deleted within 30 days of account deletion request.
+Internationalisation
+UTF-8 throughout. Date/time in user local timezone. Multi-language UI planned for V3 (Hindi,
+Tamil, Telugu priority).
+Browser Support
+Chrome 100+, Firefox 100+, Safari 15+, Edge 100+. Mobile: iOS Safari 15+, Chrome Android
+100+.
+API Rate Limits
+Gmail API: Max 1B units/day (quota managed). Internal API: 1000 req/min per user. Burst: 50
+req/sec.
+Error Handling
+All user-facing errors include actionable guidance. Error codes logged with trace IDs. P1 alerts
+< 5 min response.
+
+---PAGE BREAK---
+OpportunityAI
+Product Requirements Document  |  v2.0
+Confidential — Internal Use Only
+Page 15
+10
+AI & ML System Architecture
+AI Pipeline Overview
+The OpportunityAI extraction pipeline is a multi-stage LLM-powered system that transforms raw email content into
+structured, actionable opportunity records.
+Stage 1: Ingestion
+Raw email fetched from Gmail API. HTML stripped to clean text. Attachments flagged for separate processing.
+Stage 2: Binary Classification
+Fast classifier (fine-tuned BERT or LLM few-shot) determines: Is this email opportunity-relevant? Precision target:
+95%+. Latency target: <100ms/email.
+Stage 3: Structured Extraction
+LLM (Gemini 1.5 Flash or GPT-4o-mini) extracts: title, org, category, deadline, link, eligibility, stipend, skills required.
+Output: JSON schema.
+Stage 4: Deadline Normalisation
+Parsed dates validated and normalised to UTC ISO 8601. Relative dates resolved against email received_at.
+Ambiguous dates flagged for user review.
+Stage 5: Category Assignment
+Multi-label classifier assigns one or more categories from: [Internship, Hackathon, Scholarship, Research, Workshop,
+Competition, Job, Event, Other].
+Stage 6: Embedding Generation
+Opportunity text embedded using text-embedding-3-small (OpenAI) or equivalent. Stored in pgvector for similarity
+search.
+Stage 7: Match Score Computation
+Cosine similarity between opportunity embedding and student profile embedding. Weighted by: skills match (40%),
+year/level (20%), category preference (20%), historical engagement (20%).
+Stage 8: Recommendation Ranking
+Top-K opportunities ranked by composite score. Collaborative filtering layer (V2+) adds popularity signal. Re-ranked
+list served to dashboard.
+Model Selection & Rationale
+ Task
+ Model
+ Rationale
+ Latency Target
+Binary Classification
+Gemini Flash /
+GPT-4o-mini
+Cost-effective; high throughput
+needed
+<100ms
+Structured Extraction
+Gemini 1.5 Pro / GPT-4o
+Complex JSON output; high
+accuracy required
+<2s
+Embedding Generation
+text-embedding-3-small
+Low cost; 1536 dimensions; pgvector
+compatible
+<200ms
+Summary Generation
+Gemini Flash
+Fluent, concise prose; cacheable per
+opportunity
+<1s
+
+---PAGE BREAK---
+OpportunityAI
+Product Requirements Document  |  v2.0
+Confidential — Internal Use Only
+Page 16
+ Task
+ Model
+ Rationale
+ Latency Target
+Career Roadmap
+Gemini 1.5 Pro
+Long-context; multi-step reasoning
+required
+<5s
+Cover Letter Gen
+GPT-4o
+Best writing quality; tone adaptation
+<3s
+
+---PAGE BREAK---
+OpportunityAI
+Product Requirements Document  |  v2.0
+Confidential — Internal Use Only
+Page 17
+11
+System Architecture
+Technology Stack
+Layer
+ Technology
+ Justification
+ 
+Frontend
+Next.js 14 + TypeScript + Tailwind
+CSS
+App Router, SSR/SSG, type safety, rapid UI dev
+Backend
+Next.js API Routes + Node.js
+Unified codebase, serverless-ready, co-location
+Database
+PostgreSQL 16 + Prisma ORM
+ACID compliance, pgvector for embeddings, type-safe
+queries
+Vector Store
+pgvector (PostgreSQL extension)
+Co-located with primary DB; no additional infra
+Authentication
+Google OAuth 2.0 + NextAuth.js
+Industry standard; zero password risk
+AI / LLM
+Google Gemini API + OpenAI API
+Dual provider for redundancy and cost optimisation
+Email Integration
+Gmail API (Google Cloud)
+Official API; read-only scope; robust quota
+Background Jobs
+Vercel Cron Jobs + BullMQ (Redis)
+Scheduled scans; job queue for heavy processing
+Caching
+Redis (Upstash)
+Session cache, rate limiting, job queue broker
+File Storage
+Vercel Blob / AWS S3
+Resume uploads, attachment processing
+Deployment
+Vercel (Frontend + API) + Railway
+(workers)
+Zero-config CI/CD; global edge CDN
+Monitoring
+Sentry + Vercel Analytics + PostHog
+Error tracking, performance, product analytics
+Notifications
+Resend (transactional email) + Web
+Push
+Reliable delivery; DMARC compliant
+Architecture Diagram (Described)
+  Client Layer: Next.js 14 PWA served from Vercel Edge CDN. Supports browser and future mobile clients.
+  API Layer: Next.js API Routes handle all client requests. Rate-limited, authenticated, and request-validated.
+  Service Layer: Modular services: EmailService, ExtractionService, RecommendationService,
+NotificationService, UserService.
+  AI Orchestration Layer: LangChain-based orchestrator manages prompt routing, model fallbacks, and
+response parsing.
+  Data Layer: PostgreSQL (primary data + pgvector). Redis (cache + queues). S3-compatible blob storage.
+  External APIs: Gmail API, Google OAuth, Gemini API, OpenAI API, Resend Email API.
+  Background Workers: Dedicated Node.js worker processes managed via BullMQ. Handles scans, extractions,
+and digest sends.
+
+---PAGE BREAK---
+OpportunityAI
+Product Requirements Document  |  v2.0
+Confidential — Internal Use Only
+Page 18
+12
+Database Schema
+Table: users
+ Column
+ Type
+ Description
+ 
+id
+UUID
+PRIMARY KEY, auto-generated
+email
+VARCHAR(255)
+UNIQUE, NOT NULL — Google account email
+name
+VARCHAR(255)
+Full name from Google profile
+google_id
+VARCHAR(255)
+UNIQUE — Google sub claim
+university
+VARCHAR(255)
+University name (user-entered or inferred)
+year_of_study
+INTEGER
+1–6 (or NULL for postgrad)
+department
+VARCHAR(255)
+Branch / department
+skills
+TEXT[]
+Array of skill tags
+interests
+TEXT[]
+Array of interest/category preferences
+profile_embedding
+VECTOR(1536)
+pgvector — for similarity matching
+gmail_refresh_token
+TEXT
+Encrypted AES-256; nullable (revocation sets NULL)
+last_scan_at
+TIMESTAMPTZ
+Timestamp of most recent Gmail scan
+created_at
+TIMESTAMPTZ
+Account creation timestamp
+deleted_at
+TIMESTAMPTZ
+Soft delete; triggers data purge job
+
+---PAGE BREAK---
+OpportunityAI
+Product Requirements Document  |  v2.0
+Confidential — Internal Use Only
+Page 19
+Table: opportunities
+ Column
+ Type
+ Description
+ 
+id
+UUID
+PRIMARY KEY
+user_id
+UUID
+FK → users.id (owner)
+title
+VARCHAR(500)
+Extracted opportunity title
+organisation
+VARCHAR(255)
+Extracted organisation/company
+category
+opportunity_category
+ENUM: internship, hackathon, scholarship, research, etc.
+deadline
+DATE
+Normalised application deadline (UTC)
+deadline_confidence
+FLOAT
+0.0–1.0 confidence of deadline extraction
+application_link
+TEXT
+Primary application URL
+summary
+TEXT
+AI-generated opportunity summary
+raw_email_id
+UUID
+FK → emails.id (source)
+match_score
+INTEGER
+0–100 relevance score for this user
+skills_required
+TEXT[]
+Extracted required skills
+stipend_value
+VARCHAR(100)
+Prize/stipend text if found
+eligibility_text
+TEXT
+Raw eligibility criteria from email
+embedding
+VECTOR(1536)
+pgvector — for similarity search
+is_duplicate
+BOOLEAN
+TRUE if merged into another record
+canonical_id
+UUID
+FK → opportunities.id (master record)
+created_at
+TIMESTAMPTZ
+Extraction timestamp
+
+---PAGE BREAK---
+OpportunityAI
+Product Requirements Document  |  v2.0
+Confidential — Internal Use Only
+Page 20
+Table: applications
+ Column
+ Type
+ Description
+ 
+id
+UUID
+PRIMARY KEY
+user_id
+UUID
+FK → users.id
+opportunity_id
+UUID
+FK → opportunities.id
+status
+app_status
+ENUM: interested, applied, under_review, offer_received,
+rejected
+applied_at
+TIMESTAMPTZ
+NULL until status = applied
+notes
+TEXT
+User free-text notes
+updated_at
+TIMESTAMPTZ
+Last status change timestamp
+Table: notifications
+ Column
+ Type
+ Description
+ 
+id
+UUID
+PRIMARY KEY
+user_id
+UUID
+FK → users.id
+opportunity_id
+UUID
+FK → opportunities.id (nullable)
+type
+notification_type
+ENUM: deadline_reminder, new_opportunity, digest, system
+channel
+VARCHAR(20)
+email | push | in_app
+message
+TEXT
+Notification body
+sent_at
+TIMESTAMPTZ
+Delivery timestamp
+read_at
+TIMESTAMPTZ
+NULL until opened
+status
+VARCHAR(20)
+pending | sent | failed | read
+
+---PAGE BREAK---
+OpportunityAI
+Product Requirements Document  |  v2.0
+Confidential — Internal Use Only
+Page 21
+13
+Security & Privacy
+Security Principles
+  Least Privilege: Request only gmail.readonly scope. Never request write or send permissions.
+  Zero Password Storage: Authentication exclusively via Google OAuth. No credentials stored.
+  Data Minimisation: Only opportunity-relevant data persisted. Raw email content discarded post-extraction.
+  User Sovereignty: Users can revoke access and delete all data at any time. Processed within 30 days.
+  Transparency: Clear privacy policy. Audit log available to users on request.
+ Control
+ Implementation
+ Standard
+OAuth Token Storage
+AES-256 encryption; tokens stored in encrypted
+column; keys in environment secrets
+OWASP A02
+Transport Security
+TLS 1.3 enforced on all connections; HSTS
+preloading; no HTTP fallback
+OWASP A02
+SQL Injection Prevention
+Prisma ORM with parameterised queries; no raw SQL
+from user input
+OWASP A03
+XSS Prevention
+Next.js built-in CSP; React's DOM escaping; strict
+Content-Security-Policy header
+OWASP A03
+CSRF Protection
+SameSite=Strict cookies; CSRF tokens on
+state-changing API endpoints
+OWASP A01
+Rate Limiting
+1000 req/min per user; 50 req/sec burst;
+Redis-backed; 429 responses with retry headers
+OWASP A04
+Authentication Verification
+JWT validation on every API route; token expiry 24h;
+refresh rotation
+OWASP A07
+Role-Based Access Control
+Roles: Student, Admin, University Partner, Recruiter.
+Row-level security via Prisma middleware.
+OWASP A01
+Audit Logging
+All data access, modifications, and deletions logged
+with user ID, IP, timestamp, and action
+SOC 2 Type II
+Penetration Testing
+Quarterly automated scanning (OWASP ZAP); annual
+third-party pen test
+ISO 27001
+GDPR / DPDP Compliance
+Data Processing Agreement available; consent
+captured at onboarding; erasure within 30 days
+GDPR Art. 17
+Secret Management
+All API keys and secrets in Vercel Environment
+Variables; never in codebase or logs
+OWASP A02
+
+---PAGE BREAK---
+OpportunityAI
+Product Requirements Document  |  v2.0
+Confidential — Internal Use Only
+Page 22
+14
+Recommendation Engine
+The recommendation engine evolves through three maturity phases, each adding progressively more sophisticated
+signals:
+Phase 1 — Rule-Based (MVP)
+  Profile-keyword matching: student skills ∩ opportunity skills_required
+  Category preference weighting from onboarding interest selections
+  Deadline urgency boost: opportunities expiring within 7 days ranked higher
+  Eligibility filter: year_of_study and department hard constraints
+Phase 2 — Embedding-Based (V2)
+  Student profile vector generated from: skills, interests, past applications, browsing history
+  Opportunity vector generated from: title, summary, skills_required, organisation
+  Cosine similarity score (0–1.0) as primary ranking signal
+  Weighted composite: similarity (40%) + deadline urgency (20%) + category pref (20%) + recency (20%)
+Phase 3 — Collaborative Filtering (V3)
+  User-opportunity interaction matrix built from bookmark, apply, and view events
+  Implicit feedback: dwell time on opportunity cards, click-through on AI summaries
+  Matrix factorisation to surface opportunities popular with similar student profiles
+  Popularity signal: opportunities with high engagement from same university/department
+
+---PAGE BREAK---
+OpportunityAI
+Product Requirements Document  |  v2.0
+Confidential — Internal Use Only
+Page 23
+15
+Notification Engine
+Notification Type
+ Trigger
+ Channel
+Timing
+Deadline Reminder (High)
+Deadline ≤ 24 hours; application
+status = Interested or Applied
+Email + Push
+24h before
+Deadline Reminder (Medium)
+Deadline ≤ 3 days; opportunity
+bookmarked
+Email + Push
+3 days before
+Deadline Reminder (Low)
+Deadline ≤ 7 days; opportunity
+viewed
+Email
+7 days before
+New Opportunity Alert
+High match score (≥85)
+opportunity extracted
+Push + In-App
+Real-time
+Daily Digest
+Configurable; summarises new +
+expiring opportunities
+Email
+User-set time
+(default 8AM)
+Weekly Roundup
+Top 5 opportunities of the week +
+career tip
+Email
+Every Monday
+Application Milestone
+Status changed to Offer Received
+Email + In-App
+On event
+Scan Complete
+Initial 90-day scan finishes
+In-App
+On completion
+Smart Urgency Alert
+Urgency score crosses threshold
+(configurable)
+Push
+Real-time
+
+---PAGE BREAK---
+OpportunityAI
+Product Requirements Document  |  v2.0
+Confidential — Internal Use Only
+Page 24
+16
+Analytics Dashboard
+Student-Facing Analytics
+  Opportunities discovered (total + by category) — monthly trend chart
+  Deadlines met vs missed — success rate percentage
+  Applications submitted — funnel: Interested → Applied → Offer
+  Match score distribution — histogram of scored opportunities
+  Top categories for this student — donut chart
+  Upcoming deadlines calendar — 30-day forward view
+  Skill gap report — top 5 missing skills across bookmarked opportunities
+Admin / University Partner Analytics
+  Daily/Monthly Active Users (DAU/MAU) by university
+  Opportunities extracted per day — volume and quality trend
+  Email scan success rate — extraction accuracy tracking
+  Notification engagement rates — open rate, click-through rate
+  Recommendation click-through rate (CTR) — by category and score band
+  Top opportunities by engagement — most bookmarked / most applied
+  Cohort retention analysis — D1, D7, D30, D90
+  Placement outcomes (opt-in) — reported offer conversions
+
+---PAGE BREAK---
+OpportunityAI
+Product Requirements Document  |  v2.0
+Confidential — Internal Use Only
+Page 25
+17
+Product Roadmap
+Q3 2026 — MVP Launch [ACTIVE]
+  Google OAuth + Gmail integration
+  AI extraction pipeline (Gemini Flash)
+  Opportunity dashboard with filters
+  Deadline detection and reminders
+  Bookmarking and application status tracking
+  Basic user profile + interest tagging
+  VIT Vellore beta launch (500 users)
+Q4 2026 — V2 — Intelligence [PLANNED]
+  Embedding-based match scoring
+  AI opportunity summaries
+  Scholarship & research-specific pipelines
+  Resume skill gap analysis
+  Kanban application tracker
+  Daily digest email
+  Analytics dashboard (student-facing)
+  Expand to VIT Chennai + 5 partner universities
+Q1–Q2 2027 — V3 — Scale [PLANNED]
+  Multi-university rollout (50 universities)
+  Microsoft Outlook / Office 365 integration
+  AI career roadmap generator
+  AI cover letter generator
+  Hackathon team formation feature
+  University intelligence layer (per-institution feeds)
+  Mobile PWA enhancements
+
+---PAGE BREAK---
+OpportunityAI
+Product Requirements Document  |  v2.0
+Confidential — Internal Use Only
+Page 26
+Q3–Q4 2027 — V4 — Aggregation [FUTURE]
+  Public opportunity scraping (LinkedIn, Internshala, Devfolio, Unstop)
+  Browser extension (Chrome + Firefox)
+  Recruiter marketplace (beta)
+  Mobile native apps (iOS + Android)
+  Enterprise analytics portal for universities
+  Embedding-based collaborative filtering
+2028+ — V5 — Global Career OS [FUTURE]
+  Global opportunity marketplace
+  AI-powered application auto-fill (with consent)
+  Interview preparation AI coach
+  Salary benchmarking and offer evaluation
+  Alumni mentorship network integration
+  Early-career professional expansion (0–3 YOE)
+  B2B API for university career offices
+
+---PAGE BREAK---
+OpportunityAI
+Product Requirements Document  |  v2.0
+Confidential — Internal Use Only
+Page 27
+18
+Business Model
+Revenue Streams
+Stream
+ Description
+ Est. Launch
+Target ARR (Year 2)
+Freemium → Premium
+(Students)
+Free: 50 opps/month, basic filters. Premium
+(■199/mo): unlimited extractions, AI insights,
+career roadmap, priority support.
+Q3 2026
+■2.5 Cr
+University Partnerships
+Annual SaaS license per institution. Includes
+custom dashboard, student analytics,
+placement tracking, and API access.
+Q1 2027
+■3 Cr
+Recruiter / Company
+Partnerships
+Companies pay to post verified opportunities
+directly on OpportunityAI.
+Performance-based pricing (per-application
+or per-placement).
+Q3 2027
+■1.5 Cr
+Sponsored
+Opportunities
+Verified sponsors pay for featured placement
+on the dashboard. Clearly labelled as
+sponsored. CPM / CPC model.
+Q2 2027
+■0.8 Cr
+Premium AI Add-ons
+Standalone purchases: Resume Review
+(■99), Cover Letter Pack (■149), Mock
+Interview Prep (■299).
+Q1 2027
+■0.7 Cr
+Enterprise Analytics
+API
+Universities and government bodies access
+anonymised trend data and placement
+intelligence via API.
+2028
+■1.5 Cr
+Pricing Tiers
+ Feature
+ Free
+Premium (■199/mo)
+University (Custom)
+Opportunities / month
+50
+Unlimited
+Unlimited
+AI Summaries
+5/month
+Unlimited
+Unlimited
+Match Scoring
+Basic
+Advanced (weighted)
+Advanced + Custom
+weights
+Deadline Reminders
+Email only
+Email + Push
+Email + Push + SMS
+Application Tracker
+Up to 10
+Unlimited
+Unlimited
+Career Roadmap
+—
+✓
+✓
+Resume Skill Gap
+—
+✓
+✓
+Cover Letter AI
+—
+1/month
+Unlimited
+Analytics Dashboard
+Basic
+Full
+Full + Institution view
+
+---PAGE BREAK---
+OpportunityAI
+Product Requirements Document  |  v2.0
+Confidential — Internal Use Only
+Page 28
+ Feature
+ Free
+Premium (■199/mo)
+University (Custom)
+Support
+Community
+Priority email
+Dedicated CSM
+Data Export
+—
+CSV
+CSV + API
+
+---PAGE BREAK---
+OpportunityAI
+Product Requirements Document  |  v2.0
+Confidential — Internal Use Only
+Page 29
+19
+Success Metrics & KPIs
+Acquisition
+ KPI
+ Target (MVP)
+Target (6 Months)
+Target (12 Months)
+New Signups per Week
+100 (Q3 2026)
+1,000 (Q4 2026)
+10,000 (Q2 2027)
+Organic vs Paid Signup Ratio
+> 70% organic
+—
+—
+Referral Rate
+—
+> 15% of signups
+> 20% of signups
+Activation
+ KPI
+ Target (MVP)
+Target (6 Months)
+Target (12 Months)
+Gmail Connected Rate
+> 85% of signups
+> 90%
+> 92%
+First Opportunity Viewed
+> 90% within first
+session
+> 92%
+> 95%
+Profile Completion Rate
+> 70% complete
+onboarding
+> 80%
+> 85%
+Engagement
+ KPI
+ Target (MVP)
+Target (6 Months)
+Target (12 Months)
+Daily Active Users (DAU)
+200 (Month 1)
+2,000 (Month 3)
+20,000 (Month 12)
+Avg. Sessions per User / Week
+> 2.5
+> 3.0
+> 3.5
+Opportunities Bookmarked per
+DAU
+> 1.5/session
+> 2.0
+> 2.5
+Reminder Engagement Rate
+> 35% open rate
+> 40%
+> 45%
+Retention
+ KPI
+ Target (MVP)
+Target (6 Months)
+Target (12 Months)
+D7 Retention
+> 45%
+> 50%
+> 55%
+D30 Retention
+> 25%
+> 30%
+> 35%
+Monthly Churn (Premium)
+< 8%
+< 6%
+< 4%
+Revenue
+ KPI
+ Target (MVP)
+Target (6 Months)
+Target (12 Months)
+Free-to-Premium Conversion
+> 3% by M3
+> 5% by M6
+> 8% by M12
+
+---PAGE BREAK---
+OpportunityAI
+Product Requirements Document  |  v2.0
+Confidential — Internal Use Only
+Page 30
+ KPI
+ Target (MVP)
+Target (6 Months)
+Target (12 Months)
+Monthly Recurring Revenue (MRR)
+■50K (Q4 2026)
+■2L (Q2 2027)
+■20L (Q4 2027)
+Revenue per University Partner
+■3L ARR
+■5L ARR
+■10L ARR
+Product Quality
+ KPI
+ Target (MVP)
+Target (6 Months)
+Target (12 Months)
+Extraction Precision
+> 90%
+> 93%
+> 95%
+Extraction Recall
+> 85%
+> 88%
+> 90%
+Recommendation CTR
+> 12%
+> 18%
+> 25%
+NPS Score
+> 40
+> 50
+> 60
+
+---PAGE BREAK---
+OpportunityAI
+Product Requirements Document  |  v2.0
+Confidential — Internal Use Only
+Page 31
+20
+Risk Register & Mitigations
+ID
+ Risk
+ Likelihood
+Impact
+Severity
+R-01
+User Trust & Privacy Concerns
+HIGH
+HIGH
+CRITICAL
+R-02
+Gmail API Quota Exhaustion
+MEDIUM
+HIGH
+HIGH
+R-03
+Low Extraction Accuracy
+MEDIUM
+HIGH
+HIGH
+R-04
+User Acquisition Cost Escalation
+MEDIUM
+MEDIUM
+MEDIUM
+R-05
+Competitive Displacement
+MEDIUM
+MEDIUM
+MEDIUM
+R-06
+Regulatory / Compliance Risk
+LOW
+HIGH
+HIGH
+R-07
+AI Hallucination in Summaries
+HIGH
+MEDIUM
+MEDIUM
+R-08
+Infrastructure Cost Overrun
+MEDIUM
+MEDIUM
+MEDIUM
+Mitigation Strategies
+R-01 — User Trust & Privacy Concerns:
+Risk: Users reluctant to grant Gmail access; privacy fears.
+Mitigation: Clear, plain-language privacy policy. Gmail read-only scope only. On-device data processing where
+feasible. Third-party privacy audit pre-launch. 'No email storage' guarantee prominently displayed.
+R-02 — Gmail API Quota Exhaustion:
+Risk: Gmail API rate limits exceeded at scale, causing scan failures.
+Mitigation: Tiered scan scheduling (premium users scanned first). Exponential backoff and retry logic. Quota
+monitoring with auto-alerts at 70% usage. Request increase from Google Cloud as scale grows.
+R-03 — Low Extraction Accuracy:
+Risk: AI fails to correctly extract deadlines or links, eroding user trust.
+Mitigation: Continuous benchmark evaluation against labelled dataset (500+ emails). Human-in-the-loop validation for
+low-confidence extractions. A/B testing of prompts monthly. User feedback ('Report incorrect extraction') integrated
+into training pipeline.
+R-04 — User Acquisition Cost Escalation:
+Risk: CAC exceeds LTV if organic growth stalls.
+Mitigation: University ambassador program (peer-to-peer referrals). Free university partnership model for initial
+institutions. Content marketing (SEO + LinkedIn). Viral loop: share opportunity with peers.
+R-05 — Competitive Displacement:
+Risk: LinkedIn, Internshala, or a well-funded startup copies core functionality.
+Mitigation: First-mover advantage in Indian university email intelligence. Deep Gmail integration is a technical moat.
+University partnership lock-in. Network effects from team formation feature.
+
+---PAGE BREAK---
+OpportunityAI
+Product Requirements Document  |  v2.0
+Confidential — Internal Use Only
+Page 32
+R-06 — Regulatory / Compliance Risk:
+Risk: DPDP Act 2023 (India) or GDPR requirements create compliance overhead or fines.
+Mitigation: Legal counsel engaged pre-launch. Privacy-by-design architecture. Data residency in India (AWS Mumbai
+region). DPA available for institutional customers. Regular compliance review cycle.
+R-07 — AI Hallucination in Summaries:
+Risk: LLM generates incorrect or misleading opportunity summaries.
+Mitigation: Source attribution: every summary includes link to original email. Grounding: prompts explicitly reference
+extracted facts. User can flag 'Inaccurate Summary'. Temperature set to 0.2 for extraction tasks.
+R-08 — Infrastructure Cost Overrun:
+Risk: LLM API costs or compute costs scale faster than revenue.
+Mitigation: Cost-per-extraction tracked in real-time. Cheaper models (Flash/mini) for high-volume tasks. Caching of
+LLM responses (same email = same extraction). Freemium limits align with cost structure.
+
+---PAGE BREAK---
+OpportunityAI
+Product Requirements Document  |  v2.0
+Confidential — Internal Use Only
+Page 33
+21
+Future Vision (5-Year)
+OpportunityAI's long-term ambition extends far beyond email parsing. By 2030, we envision a world where every
+student — regardless of institution prestige, mentor network, or socioeconomic background — has access to the same
+quality of career intelligence as the most well-connected students at elite universities.
+2026
+Foundation MVP live at VIT. Core extraction and reminders working. 1,000 students onboarded.
+Product-market fit validated.
+2027
+Scale 50+ Indian universities. Recommendation engine v2. Outlook integration. ■2Cr ARR.
+University partnership model proven.
+2028
+Aggregation Public opportunity scraping live. Browser extension. Mobile apps. Recruiter
+marketplace. Global beta (UK, US, SEA). ■10Cr ARR.
+2029
+Intelligence AI application auto-fill. Interview prep coach. Placement outcome tracking (opt-in).
+1M+ users globally. Series A funding.
+2030
+Operating System Global career marketplace. AI-powered mentorship matching. Employer
+hiring intelligence. B2B enterprise API. 10M+ students. Category-defining platform.
+
+---PAGE BREAK---
+OpportunityAI
+Product Requirements Document  |  v2.0
+Confidential — Internal Use Only
+Page 34
+22
+Appendix
+A. Opportunity Category Definitions
+Category
+ Definition
+ Examples
+ 
+Internship
+Paid or unpaid work experience at a
+company, typically 1–6 months
+SDE Intern (Google), Marketing Intern
+(Startup)
+Hackathon
+Time-bounded competitive coding or
+innovation event
+Smart India Hackathon, HackMIT
+Scholarship
+Financial award based on merit, need, or
+identity criteria
+Tata Scholarship, Google Generation
+Scholarship
+Research
+Academic or industry research position,
+fellowship, or conference
+IISER Summer Research, DAAD Fellowship
+Workshop
+Skill-building session, typically 1–5 days
+AWS ML Workshop, Design Thinking
+Bootcamp
+Competition
+Non-hackathon competitive event with
+prizes or recognition
+Case competition, Robocon, Quant Challenge
+Job
+Full-time or part-time employment
+opportunity
+SDE-1 (Amazon), Analyst (McKinsey)
+Event
+Conference, summit, or networking event
+TechFest IIT Bombay, Nasscom Product
+Conclave
+Other
+Opportunities that don't fit above
+categories
+Open source contribution programs, volunteer
+work
+B. Glossary
+LLM
+Large Language Model — AI model trained on large text corpora to understand and generate natural
+language (e.g., Gemini, GPT-4).
+Embedding
+A numerical vector representation of text that captures semantic meaning. Similar texts have similar
+embeddings.
+pgvector
+An open-source PostgreSQL extension for storing and querying vector embeddings natively.
+OAuth 2.0
+An authorisation framework enabling third-party applications to access user data without exposing
+credentials.
+Match Score
+A composite 0–100 relevance score indicating how well an opportunity fits a specific student's profile.
+Extraction
+Pipeline
+The multi-stage AI process that converts raw email text into structured opportunity records.
+Cosine Similarity
+A mathematical measure of similarity between two vectors, ranging from -1 (opposite) to 1 (identical).
+BullMQ
+A Node.js library for managing Redis-backed background job queues with priority, retries, and scheduling.
+
+---PAGE BREAK---
+OpportunityAI
+Product Requirements Document  |  v2.0
+Confidential — Internal Use Only
+Page 35
+PWA
+Progressive Web App — a web application that behaves like a native mobile app with offline support and
+push notifications.
+DPDP
+Digital Personal Data Protection Act (India, 2023) — India's primary data protection legislation.
+DAU/MAU
+Daily Active Users / Monthly Active Users — standard engagement metrics for digital products.
+ATS
+Applicant Tracking System — software used by employers to manage job applications.
+C. Related Documents
+  OpportunityAI Technical Architecture Spec (v1.0)
+  OpportunityAI API Documentation
+  OpportunityAI Privacy Policy (Draft)
+  OpportunityAI User Research Report — VIT Beta
+  OpportunityAI Competitor Analysis
+  OpportunityAI Go-to-Market Strategy
+  OpportunityAI Brand Guidelines
+This document is confidential and intended solely for internal use by the OpportunityAI founding team and authorised stakeholders.
+ Unauthorised distribution is prohibited. For questions or contributions, contact the Product team.
+ 
+---PAGE BREAK---

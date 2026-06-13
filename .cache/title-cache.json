@@ -1,0 +1,907 @@
+{
+  "19ea5a8652cc457b": {
+    "title": "Amazon Wow Program Campus Hiring",
+    "generatedAt": "2026-06-08T07:37:48.671Z",
+    "method": "ai"
+  },
+  "19ea5a8e74bced7b": {
+    "title": "Claim For Raman Research Award For The Mon...",
+    "generatedAt": "2026-06-08T07:38:06.659Z",
+    "method": "ai"
+  },
+  "19ea56e579ae3dd3": {
+    "title": "Recall: 2026 Online Summer Global Virtual ...",
+    "generatedAt": "2026-06-08T07:38:32.546Z",
+    "method": "ai"
+  },
+  "19ea5a8652cc457b-deadline-v1": {
+    "title": "NO_DEADLINE",
+    "generatedAt": "2026-06-08T07:38:59.184Z",
+    "method": "heuristic"
+  },
+  "19ea5c6bffa313c7": {
+    "title": "Claim For Dr. APJ Abdul Kalam Award For Th...",
+    "generatedAt": "2026-06-08T07:39:12.112Z",
+    "method": "ai"
+  },
+  "19ea5a8e74bced7b-deadline-v1": {
+    "title": "2024-03-31T18:30:00.000Z",
+    "generatedAt": "2026-06-08T07:39:46.881Z",
+    "method": "heuristic"
+  },
+  "19ea56e579ae3dd3-deadline-v1": {
+    "title": "2026-06-09T18:30:00.000Z",
+    "generatedAt": "2026-06-08T07:40:00.050Z",
+    "method": "heuristic"
+  },
+  "19ea5c6bffa313c7-deadline-v1": {
+    "title": "2026-06-14T18:30:00.000Z",
+    "generatedAt": "2026-06-08T07:40:06.228Z",
+    "method": "heuristic"
+  },
+  "19ea561677f5804a": {
+    "title": "2026 Online Summer Global Virtual School A...",
+    "generatedAt": "2026-06-08T07:40:07.780Z",
+    "method": "ai"
+  },
+  "19e9feb3c37d0d74": {
+    "title": "IEEE Workshop 2026",
+    "generatedAt": "2026-06-08T07:40:19.755Z",
+    "method": "ai"
+  },
+  "19ea5116c39c4c60": {
+    "title": "ISRO Competition 2026",
+    "generatedAt": "2026-06-08T07:40:48.564Z",
+    "method": "ai"
+  },
+  "19e95ac30d5f5fe1": {
+    "title": "World Environment Day 2026 Events- Reg",
+    "generatedAt": "2026-06-08T07:41:19.350Z",
+    "method": "ai"
+  },
+  "19ea561677f5804a-deadline-v1": {
+    "title": "2026-06-09T18:30:00.000Z",
+    "generatedAt": "2026-06-08T07:41:35.838Z",
+    "method": "heuristic"
+  },
+  "19e9feb3c37d0d74-deadline-v1": {
+    "title": "2026-06-06T18:30:00.000Z",
+    "generatedAt": "2026-06-08T07:41:50.185Z",
+    "method": "heuristic"
+  },
+  "19ea5116c39c4c60-deadline-v1": {
+    "title": "2026-06-07T18:30:00.000Z",
+    "generatedAt": "2026-06-08T07:41:53.567Z",
+    "method": "heuristic"
+  },
+  "19e95ac30d5f5fe1-deadline-v1": {
+    "title": "2026-06-04T18:30:00.000Z",
+    "generatedAt": "2026-06-08T07:41:58.852Z",
+    "method": "heuristic"
+  },
+  "19e9c7055ad0aa53": {
+    "title": "Tata Internship 2026",
+    "generatedAt": "2026-06-08T07:42:03.544Z",
+    "method": "ai"
+  },
+  "19e9c7055ad0aa53-deadline-v1": {
+    "title": "2026-04-30T18:30:00.000Z",
+    "generatedAt": "2026-06-08T07:42:22.645Z",
+    "method": "ai"
+  },
+  "19e886b76c124254": {
+    "title": "Merit Rank Holders: Updation Of Bank Accou...",
+    "generatedAt": "2026-06-08T07:42:27.106Z",
+    "method": "ai"
+  },
+  "19e8afa146bf189a": {
+    "title": "Invitation TO Ho Chi Minh City University ...",
+    "generatedAt": "2026-06-08T07:42:34.544Z",
+    "method": "ai"
+  },
+  "19e8cfecfc611f02": {
+    "title": "Amazon Wow Program Campus Hiring 2027",
+    "generatedAt": "2026-06-08T07:42:53.118Z",
+    "method": "ai"
+  },
+  "19e903b49b6425f8": {
+    "title": "MCUT Summer Camp 2026",
+    "generatedAt": "2026-06-08T07:43:10.504Z",
+    "method": "ai"
+  },
+  "19e886b76c124254-deadline-v1": {
+    "title": "2026-05-04T18:30:00.000Z",
+    "generatedAt": "2026-06-08T07:43:45.879Z",
+    "method": "ai"
+  },
+  "19e8afa146bf189a-deadline-v1": {
+    "title": "2026-06-14T18:30:00.000Z",
+    "generatedAt": "2026-06-08T07:43:54.771Z",
+    "method": "heuristic"
+  },
+  "19e8cfecfc611f02-deadline-v1": {
+    "title": "NO_DEADLINE",
+    "generatedAt": "2026-06-08T07:43:56.179Z",
+    "method": "heuristic"
+  },
+  "19e8832fb6c906c0": {
+    "title": "These Upcoming Workshop 2026",
+    "generatedAt": "2026-06-08T07:43:56.886Z",
+    "method": "ai"
+  },
+  "19e903b49b6425f8-deadline-v1": {
+    "title": "2026-06-09T18:30:00.000Z",
+    "generatedAt": "2026-06-08T07:44:20.298Z",
+    "method": "heuristic"
+  },
+  "19e8832fb6c906c0-deadline-v1": {
+    "title": "2026-06-15T18:30:00.000Z",
+    "generatedAt": "2026-06-08T07:44:25.728Z",
+    "method": "heuristic"
+  },
+  "19e87336a1316421": {
+    "title": "IIT Madras Opportunity 2026",
+    "generatedAt": "2026-06-08T07:44:27.316Z",
+    "method": "ai"
+  },
+  "19e87c6f94bdd007": {
+    "title": "NUS Internship 2026",
+    "generatedAt": "2026-06-08T07:44:39.874Z",
+    "method": "ai"
+  },
+  "19e868dda7f5514f": {
+    "title": "Nutralipid3 Full-time Internship 2026",
+    "generatedAt": "2026-06-08T07:44:53.784Z",
+    "method": "ai"
+  },
+  "19e87c8a9820531f": {
+    "title": "Exchange In UPAEP Mexico Summer And Fall 2026",
+    "generatedAt": "2026-06-08T07:45:19.710Z",
+    "method": "ai"
+  },
+  "19e879c1b609597e": {
+    "title": "Master Of Social Work (MSW) Admission Flye...",
+    "generatedAt": "2026-06-08T07:45:30.836Z",
+    "method": "ai"
+  },
+  "19e87336a1316421-deadline-v1": {
+    "title": "2026-06-13T18:30:00.000Z",
+    "generatedAt": "2026-06-08T07:46:17.651Z",
+    "method": "heuristic"
+  },
+  "19e87c6f94bdd007-deadline-v1": {
+    "title": "2026-06-19T18:30:00.000Z",
+    "generatedAt": "2026-06-08T07:46:22.265Z",
+    "method": "heuristic"
+  },
+  "19e868dda7f5514f-deadline-v1": {
+    "title": "2026-05-31T18:30:00.000Z",
+    "generatedAt": "2026-06-08T07:46:23.524Z",
+    "method": "heuristic"
+  },
+  "19e87c8a9820531f-deadline-v1": {
+    "title": "2026-06-09T18:30:00.000Z",
+    "generatedAt": "2026-06-08T07:46:30.685Z",
+    "method": "heuristic"
+  },
+  "19e879c1b609597e-deadline-v1": {
+    "title": "2026-08-05T18:30:00.000Z",
+    "generatedAt": "2026-06-08T07:46:34.823Z",
+    "method": "ai"
+  },
+  "19e74a12c5e7a835": {
+    "title": "Reminder - University Of Indonesia- Info S...",
+    "generatedAt": "2026-06-08T07:46:36.243Z",
+    "method": "ai"
+  },
+  "19e82efc3c46c66c": {
+    "title": "Opportunity To Work On Industry Problem St...",
+    "generatedAt": "2026-06-08T07:46:41.681Z",
+    "method": "ai"
+  },
+  "19e7d210ed9570ba": {
+    "title": "Nasscom Workshop 2026",
+    "generatedAt": "2026-06-08T07:46:54.736Z",
+    "method": "ai"
+  },
+  "19e8535e0147b873": {
+    "title": "Mccall Macbain Scholarship 2027",
+    "generatedAt": "2026-06-08T07:47:14.063Z",
+    "method": "ai"
+  },
+  "19e72c3a11739578": {
+    "title": "Gravitas 2026 Interview",
+    "generatedAt": "2026-06-08T07:47:50.153Z",
+    "method": "ai"
+  },
+  "19e74a12c5e7a835-deadline-v1": {
+    "title": "2020-05-29T18:30:00.000Z",
+    "generatedAt": "2026-06-08T07:48:07.692Z",
+    "method": "heuristic"
+  },
+  "19e82efc3c46c66c-deadline-v1": {
+    "title": "NO_DEADLINE",
+    "generatedAt": "2026-06-08T07:48:11.034Z",
+    "method": "heuristic"
+  },
+  "19e7d210ed9570ba-deadline-v1": {
+    "title": "2026-03-27T18:30:00.000Z",
+    "generatedAt": "2026-06-08T07:48:17.736Z",
+    "method": "heuristic"
+  },
+  "19e8535e0147b873-deadline-v1": {
+    "title": "NO_DEADLINE",
+    "generatedAt": "2026-06-08T07:48:20.575Z",
+    "method": "heuristic"
+  },
+  "19e72c3a11739578-deadline-v1": {
+    "title": "2026-05-30T18:30:00.000Z",
+    "generatedAt": "2026-06-08T07:48:25.187Z",
+    "method": "heuristic"
+  },
+  "19e6f7fc986a16ab": {
+    "title": "Amazon Wow Internship 2027",
+    "generatedAt": "2026-06-08T07:48:26.060Z",
+    "method": "ai"
+  },
+  "19e6f865a1bec629": {
+    "title": "Amazon Hackathon 2027",
+    "generatedAt": "2026-06-08T07:48:44.835Z",
+    "method": "ai"
+  },
+  "19e69fa0c08d7881": {
+    "title": "Nasscom Workshop",
+    "generatedAt": "2026-06-08T07:48:58.138Z",
+    "method": "ai"
+  },
+  "19e709fa3e963eef": {
+    "title": "Nasscom Internship 2026",
+    "generatedAt": "2026-06-08T07:49:26.473Z",
+    "method": "ai"
+  },
+  "19e6f7fc986a16ab-deadline-v1": {
+    "title": "NO_DEADLINE",
+    "generatedAt": "2026-06-08T07:49:56.133Z",
+    "method": "heuristic"
+  },
+  "19e6f865a1bec629-deadline-v1": {
+    "title": "2026-05-27T18:30:00.000Z",
+    "generatedAt": "2026-06-08T07:50:04.413Z",
+    "method": "heuristic"
+  },
+  "19e69fa0c08d7881-deadline-v1": {
+    "title": "NO_DEADLINE",
+    "generatedAt": "2026-06-08T07:50:09.943Z",
+    "method": "heuristic"
+  },
+  "19e6d03fea654efb": {
+    "title": "Tech Mahindra Hackathon 2026",
+    "generatedAt": "2026-06-08T07:50:16.065Z",
+    "method": "ai"
+  },
+  "19e709fa3e963eef-deadline-v1": {
+    "title": "2012-08-05T18:30:00.000Z",
+    "generatedAt": "2026-06-08T07:50:31.097Z",
+    "method": "heuristic"
+  },
+  "19e6d03fea654efb-deadline-v1": {
+    "title": "2026-04-18T18:30:00.000Z",
+    "generatedAt": "2026-06-08T07:50:44.706Z",
+    "method": "heuristic"
+  },
+  "19e5df0f91226d0a": {
+    "title": "Tata Hackathon 2026",
+    "generatedAt": "2026-06-08T07:50:45.888Z",
+    "method": "ai"
+  },
+  "19e5dc0488c06e61": {
+    "title": "Amazon Wow Internship 2027",
+    "generatedAt": "2026-06-08T07:50:57.669Z",
+    "method": "ai"
+  },
+  "19e62c3f3b8768dd": {
+    "title": "Amazon Hackathon 2027",
+    "generatedAt": "2026-06-08T07:51:12.631Z",
+    "method": "ai"
+  },
+  "19e5dc0488c06e61-deadline-v1": {
+    "title": "NO_DEADLINE",
+    "generatedAt": "2026-06-08T07:51:38.295Z",
+    "method": "heuristic"
+  },
+  "19e5dc6b901c78be": {
+    "title": "Invitation For Students To Participate In ...",
+    "generatedAt": "2026-06-08T07:51:39.112Z",
+    "method": "ai"
+  },
+  "19e5df0f91226d0a-deadline-v1": {
+    "title": "2026-06-03T18:30:00.000Z",
+    "generatedAt": "2026-06-08T07:52:08.448Z",
+    "method": "heuristic"
+  },
+  "19e69637866087f9": {
+    "title": "University Of Indonesia – Extended Call No...",
+    "generatedAt": "2026-06-08T07:52:12.709Z",
+    "method": "ai"
+  },
+  "19e5dc6b901c78be-deadline-v1": {
+    "title": "2026-05-18T18:30:00.000Z",
+    "generatedAt": "2026-06-08T07:52:38.645Z",
+    "method": "heuristic"
+  },
+  "19e62c3f3b8768dd-deadline-v1": {
+    "title": "2026-05-27T18:30:00.000Z",
+    "generatedAt": "2026-06-08T07:52:39.220Z",
+    "method": "heuristic"
+  },
+  "19e69637866087f9-deadline-v1": {
+    "title": "2026-06-06T18:30:00.000Z",
+    "generatedAt": "2026-06-08T07:52:46.196Z",
+    "method": "heuristic"
+  },
+  "19e5a9e35fe2d5f1": {
+    "title": "Microsoft Scholarship",
+    "generatedAt": "2026-06-08T07:52:47.156Z",
+    "method": "ai"
+  },
+  "19e58fe06e8667c4": {
+    "title": "ANY ONE Gravitas 2026 Event Competition",
+    "generatedAt": "2026-06-08T07:53:02.553Z",
+    "method": "ai"
+  },
+  "19e5ab008076fb63": {
+    "title": "Reliance Scholarship 2026",
+    "generatedAt": "2026-06-08T07:53:04.271Z",
+    "method": "ai"
+  },
+  "19e5d92c9eeccb20": {
+    "title": "Qualcomm Hiring 2026",
+    "generatedAt": "2026-06-08T07:53:04.549Z",
+    "method": "ai"
+  },
+  "19e5a9e35fe2d5f1-deadline-v1": {
+    "title": "NO_DEADLINE",
+    "generatedAt": "2026-06-08T07:53:15.881Z",
+    "method": "heuristic"
+  },
+  "19e5d8ca770cbbe0": {
+    "title": "India Space Lab Summer Workshop 2025",
+    "generatedAt": "2026-06-08T07:53:16.064Z",
+    "method": "ai"
+  },
+  "19e58fe06e8667c4-deadline-v1": {
+    "title": "2026-05-16T18:30:00.000Z",
+    "generatedAt": "2026-06-08T07:53:22.856Z",
+    "method": "ai"
+  },
+  "19e5ab008076fb63-deadline-v1": {
+    "title": "NO_DEADLINE",
+    "generatedAt": "2026-06-08T10:53:28.783Z",
+    "method": "heuristic"
+  },
+  "19e5d92c9eeccb20-deadline-v1": {
+    "title": "NO_DEADLINE",
+    "generatedAt": "2026-06-08T10:53:29.120Z",
+    "method": "heuristic"
+  },
+  "19e5d8ca770cbbe0-deadline-v1": {
+    "title": "2026-06-09T18:30:00.000Z",
+    "generatedAt": "2026-06-08T10:53:30.198Z",
+    "method": "heuristic"
+  },
+  "19ea7d9d1b77c1d2": {
+    "title": "ACE Robotics Recruitment",
+    "generatedAt": "2026-06-09T16:09:42.431Z",
+    "method": "ai"
+  },
+  "19eabebaff2ce314": {
+    "title": "5 Days FDP - Applied Forecasting WITH Python",
+    "generatedAt": "2026-06-09T16:09:59.876Z",
+    "method": "ai"
+  },
+  "19ea7d9d1b77c1d2-deadline-v1": {
+    "title": "NO_DEADLINE",
+    "generatedAt": "2026-06-09T16:10:11.434Z",
+    "method": "heuristic"
+  },
+  "19eabebaff2ce314-deadline-v1": {
+    "title": "NO_DEADLINE",
+    "generatedAt": "2026-06-09T16:10:12.076Z",
+    "method": "heuristic"
+  },
+  "19ea75342df374b7": {
+    "title": "IIT Bombay Interview",
+    "generatedAt": "2026-06-09T16:10:12.283Z",
+    "method": "ai"
+  },
+  "19eaa3e3d8d6883a": {
+    "title": "BARC Workshop 2026",
+    "generatedAt": "2026-06-09T16:10:15.111Z",
+    "method": "ai"
+  },
+  "19ea75342df374b7-deadline-v1": {
+    "title": "NO_DEADLINE",
+    "generatedAt": "2026-06-09T16:10:53.940Z",
+    "method": "heuristic"
+  },
+  "19eaa3e3d8d6883a-deadline-v1": {
+    "title": "2026-06-08T18:30:00.000Z",
+    "generatedAt": "2026-06-09T16:10:45.073Z",
+    "method": "heuristic"
+  },
+  "19ea7328e9ca8e61": {
+    "title": "Target Campus Hiring 2026",
+    "generatedAt": "2026-06-09T16:10:54.618Z",
+    "method": "ai"
+  },
+  "19ea7328e9ca8e61-deadline-v1": {
+    "title": "2014-01-30T18:30:00.000Z",
+    "generatedAt": "2026-06-09T16:11:07.348Z",
+    "method": "heuristic"
+  },
+  "19ea6463a8c0fe6d": {
+    "title": "NVIDIA Workshop 2026",
+    "generatedAt": "2026-06-09T16:11:09.616Z",
+    "method": "ai"
+  },
+  "19ea6de33cb3d87b": {
+    "title": "ARC Hackathon/mobility Challenge - 2026 Regd.",
+    "generatedAt": "2026-06-09T16:11:23.419Z",
+    "method": "ai"
+  },
+  "19ea6463a8c0fe6d-deadline-v1": {
+    "title": "2026-06-19T18:30:00.000Z",
+    "generatedAt": "2026-06-09T16:11:55.809Z",
+    "method": "heuristic"
+  },
+  "19ea6de33cb3d87b-deadline-v1": {
+    "title": "2026-05-21T18:30:00.000Z",
+    "generatedAt": "2026-06-09T16:11:57.252Z",
+    "method": "heuristic"
+  },
+  "19e54489706cacfe": {
+    "title": "Master Of Social Work (MSW) Admission Flye...",
+    "generatedAt": "2026-06-09T16:12:12.337Z",
+    "method": "ai"
+  },
+  "19e551c189106d3a": {
+    "title": "Summer School In Computational Biology – F...",
+    "generatedAt": "2026-06-09T16:12:22.720Z",
+    "method": "ai"
+  },
+  "19e54489706cacfe-deadline-v1": {
+    "title": "NO_DEADLINE",
+    "generatedAt": "2026-06-09T16:12:35.596Z",
+    "method": "heuristic"
+  },
+  "19e528a54bf18db1": {
+    "title": "NUS Internship 2026",
+    "generatedAt": "2026-06-09T16:12:39.681Z",
+    "method": "ai"
+  },
+  "19e551c189106d3a-deadline-v1": {
+    "title": "2026-09-11T18:30:00.000Z",
+    "generatedAt": "2026-06-09T16:12:54.010Z",
+    "method": "ai"
+  },
+  "19e528a54bf18db1-deadline-v1": {
+    "title": "2026-06-19T18:30:00.000Z",
+    "generatedAt": "2026-06-09T16:13:03.747Z",
+    "method": "heuristic"
+  },
+  "19e4ecdd34399d25": {
+    "title": "Amazon Hackathon 2027",
+    "generatedAt": "2026-06-09T16:13:05.867Z",
+    "method": "ai"
+  },
+  "19e4bc4dd55f1121": {
+    "title": "Microsoft Scholarship",
+    "generatedAt": "2026-06-09T16:13:10.270Z",
+    "method": "ai"
+  },
+  "19e4f14106de3565": {
+    "title": "Tech Mahindra Hackathon 2026",
+    "generatedAt": "2026-06-09T16:13:22.756Z",
+    "method": "ai"
+  },
+  "19e4f5823a27d5c4": {
+    "title": "ARC Hackathon/mobility Challenge - 2026 Regd.",
+    "generatedAt": "2026-06-09T16:13:26.699Z",
+    "method": "ai"
+  },
+  "19e4bc4dd55f1121-deadline-v1": {
+    "title": "NO_DEADLINE",
+    "generatedAt": "2026-06-09T16:14:34.453Z",
+    "method": "heuristic"
+  },
+  "19e4ecdd34399d25-deadline-v1": {
+    "title": "2026-05-11T18:30:00.000Z",
+    "generatedAt": "2026-06-09T16:14:35.257Z",
+    "method": "heuristic"
+  },
+  "19e4f14106de3565-deadline-v1": {
+    "title": "2026-04-30T18:30:00.000Z",
+    "generatedAt": "2026-06-09T16:14:35.542Z",
+    "method": "ai"
+  },
+  "19e4f5823a27d5c4-deadline-v1": {
+    "title": "NO_DEADLINE",
+    "generatedAt": "2026-06-09T16:14:33.979Z",
+    "method": "heuristic"
+  },
+  "19e4a97c59285b36": {
+    "title": "Final Year Students: SAP Project Registrat...",
+    "generatedAt": "2026-06-09T16:14:35.677Z",
+    "method": "ai"
+  },
+  "19e48e6934d54d7b": {
+    "title": "Amazon Hackathon 2027",
+    "generatedAt": "2026-06-09T16:14:40.754Z",
+    "method": "ai"
+  },
+  "19e4a97c59285b36-deadline-v1": {
+    "title": "2026-09-29T18:30:00.000Z",
+    "generatedAt": "2026-06-09T16:14:50.506Z",
+    "method": "heuristic"
+  },
+  "19e4895f3ba714f9": {
+    "title": "Tech Mahindra Hackathon 2026",
+    "generatedAt": "2026-06-09T16:14:50.682Z",
+    "method": "ai"
+  },
+  "19e4a39373e461d9": {
+    "title": "Your Idea Could Become India’s Next Big In...",
+    "generatedAt": "2026-06-09T16:14:59.550Z",
+    "method": "ai"
+  },
+  "19e48e6934d54d7b-deadline-v1": {
+    "title": "2026-05-11T18:30:00.000Z",
+    "generatedAt": "2026-06-09T16:15:11.026Z",
+    "method": "heuristic"
+  },
+  "19e4895f3ba714f9-deadline-v1": {
+    "title": "2026-04-18T18:30:00.000Z",
+    "generatedAt": "2026-06-09T16:15:23.331Z",
+    "method": "heuristic"
+  },
+  "19e4a39373e461d9-deadline-v1": {
+    "title": "2026-06-21T18:30:00.000Z",
+    "generatedAt": "2026-06-09T16:15:32.211Z",
+    "method": "heuristic"
+  },
+  "19e3f1b43871faca": {
+    "title": "Merit Rank Holders: Updation Of Bank Accou...",
+    "generatedAt": "2026-06-09T16:15:32.327Z",
+    "method": "ai"
+  },
+  "19e413a91d7ac157": {
+    "title": "Australia -2026 Blue Marble Study Tour",
+    "generatedAt": "2026-06-09T16:15:37.456Z",
+    "method": "ai"
+  },
+  "19e403edf4fcad16": {
+    "title": "Make The Most Of Your Summer Break: Free C...",
+    "generatedAt": "2026-06-09T16:15:47.671Z",
+    "method": "ai"
+  },
+  "19e3f7a43f27da78": {
+    "title": "Amazon Hackathon 2027",
+    "generatedAt": "2026-06-09T16:15:48.320Z",
+    "method": "ai"
+  },
+  "19e3f1b43871faca-deadline-v1": {
+    "title": "2001-05-31T18:30:00.000Z",
+    "generatedAt": "2026-06-09T16:16:58.577Z",
+    "method": "ai"
+  },
+  "19e413a91d7ac157-deadline-v1": {
+    "title": "2026-05-19T18:30:00.000Z",
+    "generatedAt": "2026-06-09T16:16:58.697Z",
+    "method": "heuristic"
+  },
+  "19e403edf4fcad16-deadline-v1": {
+    "title": "NO_DEADLINE",
+    "generatedAt": "2026-06-09T16:17:00.647Z",
+    "method": "heuristic"
+  },
+  "19e3f7a43f27da78-deadline-v1": {
+    "title": "2026-05-14T18:30:00.000Z",
+    "generatedAt": "2026-06-09T16:16:59.806Z",
+    "method": "ai"
+  },
+  "19e3ebc075fd8626": {
+    "title": "VIT Vellore Internship 2026",
+    "generatedAt": "2026-06-09T16:17:00.760Z",
+    "method": "ai"
+  },
+  "19e3e65efd6cfe2b": {
+    "title": "One Day Hybrid Mode Qniverse Unlocked Wo...",
+    "generatedAt": "2026-06-09T16:17:06.676Z",
+    "method": "ai"
+  },
+  "19e3eac1e1be0ffe": {
+    "title": "Nasscom Campus Hiring 2025",
+    "generatedAt": "2026-06-09T16:17:13.900Z",
+    "method": "ai"
+  },
+  "19e3aaae6344662b": {
+    "title": "Wanna Level Up, Join Xlancr! - Startup Und...",
+    "generatedAt": "2026-06-09T16:17:25.780Z",
+    "method": "ai"
+  },
+  "19e3952a53af6019": {
+    "title": "1+1 Masters International Transfer Program...",
+    "generatedAt": "2026-06-09T16:17:40.111Z",
+    "method": "ai"
+  },
+  "19e3ebc075fd8626-deadline-v1": {
+    "title": "2026-04-30T18:30:00.000Z",
+    "generatedAt": "2026-06-09T16:18:35.268Z",
+    "method": "ai"
+  },
+  "19e3e65efd6cfe2b-deadline-v1": {
+    "title": "2026-05-27T18:30:00.000Z",
+    "generatedAt": "2026-06-09T16:18:38.811Z",
+    "method": "heuristic"
+  },
+  "19e3eac1e1be0ffe-deadline-v1": {
+    "title": "NO_DEADLINE",
+    "generatedAt": "2026-06-09T16:18:33.550Z",
+    "method": "heuristic"
+  },
+  "19e3aaae6344662b-deadline-v1": {
+    "title": "2026-05-29T18:30:00.000Z",
+    "generatedAt": "2026-06-09T16:18:32.449Z",
+    "method": "heuristic"
+  },
+  "19e3952a53af6019-deadline-v1": {
+    "title": "NO_DEADLINE",
+    "generatedAt": "2026-06-09T16:18:42.463Z",
+    "method": "heuristic"
+  },
+  "19e344288e82a882": {
+    "title": "Semester Break Internship 2026 - Registrat...",
+    "generatedAt": "2026-06-09T16:18:42.690Z",
+    "method": "ai"
+  },
+  "19e317996f532998": {
+    "title": "Google Internship 2026",
+    "generatedAt": "2026-06-09T16:18:46.500Z",
+    "method": "ai"
+  },
+  "19e39524acb02f71": {
+    "title": "Request To Send This To VIT EE And EC Depa...",
+    "generatedAt": "2026-06-09T16:18:55.778Z",
+    "method": "ai"
+  },
+  "19e36d38e8c599c0": {
+    "title": "ANY ONE Gravitas 2026 Event Competition",
+    "generatedAt": "2026-06-09T16:19:09.062Z",
+    "method": "ai"
+  },
+  "19e354b090f54e01": {
+    "title": "The UG Research Cell Conference 2026",
+    "generatedAt": "2026-06-09T16:19:19.876Z",
+    "method": "ai"
+  },
+  "19e344288e82a882-deadline-v1": {
+    "title": "2026-05-16T18:30:00.000Z",
+    "generatedAt": "2026-06-09T16:19:39.080Z",
+    "method": "ai"
+  },
+  "19e317996f532998-deadline-v1": {
+    "title": "2026-05-17T18:30:00.000Z",
+    "generatedAt": "2026-06-09T16:19:39.096Z",
+    "method": "heuristic"
+  },
+  "19e39524acb02f71-deadline-v1": {
+    "title": "2026-05-13T18:30:00.000Z",
+    "generatedAt": "2026-06-09T16:19:40.617Z",
+    "method": "heuristic"
+  },
+  "19e36d38e8c599c0-deadline-v1": {
+    "title": "2026-05-27T18:30:00.000Z",
+    "generatedAt": "2026-06-09T16:19:40.347Z",
+    "method": "heuristic"
+  },
+  "19e354b090f54e01-deadline-v1": {
+    "title": "NO_DEADLINE",
+    "generatedAt": "2026-06-09T16:19:40.416Z",
+    "method": "heuristic"
+  },
+  "19e2beb75dc31756": {
+    "title": "Jurident Hackathon 2025",
+    "generatedAt": "2026-06-09T16:19:40.915Z",
+    "method": "ai"
+  },
+  "19e2a97076b429d6": {
+    "title": "Create A Difference This Summer With Sstudize",
+    "generatedAt": "2026-06-09T16:19:42.329Z",
+    "method": "ai"
+  },
+  "19e2beb75dc31756-deadline-v1": {
+    "title": "2026-05-21T18:30:00.000Z",
+    "generatedAt": "2026-06-09T16:19:43.368Z",
+    "method": "heuristic"
+  },
+  "19e2f2e8f508a18e": {
+    "title": "Semester Break Internship 2026 - Registrat...",
+    "generatedAt": "2026-06-09T16:19:43.440Z",
+    "method": "ai"
+  },
+  "19e29fdb285fa1a7": {
+    "title": "Semester Break Internship 2026 - Registrat...",
+    "generatedAt": "2026-06-09T16:19:45.527Z",
+    "method": "ai"
+  },
+  "19e253cb52d57287": {
+    "title": "Amazon Hackathon 2027",
+    "generatedAt": "2026-06-09T16:19:48.371Z",
+    "method": "ai"
+  },
+  "19e2f2e8f508a18e-deadline-v1": {
+    "title": "2026-05-15T18:30:00.000Z",
+    "generatedAt": "2026-06-09T16:19:49.677Z",
+    "method": "ai"
+  },
+  "19e2a97076b429d6-deadline-v1": {
+    "title": "2026-05-14T18:30:00.000Z",
+    "generatedAt": "2026-06-09T16:19:56.154Z",
+    "method": "heuristic"
+  },
+  "19e29fdb285fa1a7-deadline-v1": {
+    "title": "2026-05-14T18:30:00.000Z",
+    "generatedAt": "2026-06-09T16:19:54.979Z",
+    "method": "heuristic"
+  },
+  "19e253cb52d57287-deadline-v1": {
+    "title": "2026-05-27T18:30:00.000Z",
+    "generatedAt": "2026-06-09T16:19:56.469Z",
+    "method": "heuristic"
+  },
+  "19e21b5596fcd986": {
+    "title": "Nasscom Scholarship 2026",
+    "generatedAt": "2026-06-09T16:19:57.047Z",
+    "method": "ai"
+  },
+  "19e16d384d41369a": {
+    "title": "Nutralipid3 Full-time Internship 2026",
+    "generatedAt": "2026-06-09T16:19:59.486Z",
+    "method": "ai"
+  },
+  "19e1a5eb9bc390a6": {
+    "title": "Hackerrank Hackathon 2028",
+    "generatedAt": "2026-06-09T16:20:04.066Z",
+    "method": "ai"
+  },
+  "19e1c41e569454f2": {
+    "title": "Exciting Opportunity : Summer Internship 2026",
+    "generatedAt": "2026-06-09T16:20:08.867Z",
+    "method": "ai"
+  },
+  "19e201ccb93df578": {
+    "title": "Congratulations: Caterpillar Summer Intern...",
+    "generatedAt": "2026-06-09T16:20:16.080Z",
+    "method": "ai"
+  },
+  "19e21b5596fcd986-deadline-v1": {
+    "title": "2026-05-10T18:30:00.000Z",
+    "generatedAt": "2026-06-09T16:20:21.466Z",
+    "method": "ai"
+  },
+  "19e1a5eb9bc390a6-deadline-v1": {
+    "title": "2027-12-31T18:30:00.000Z",
+    "generatedAt": "2026-06-09T16:20:16.203Z",
+    "method": "ai"
+  },
+  "19e16d384d41369a-deadline-v1": {
+    "title": "2026-05-10T18:30:00.000Z",
+    "generatedAt": "2026-06-09T16:20:24.698Z",
+    "method": "heuristic"
+  },
+  "19e1c41e569454f2-deadline-v1": {
+    "title": "2026-06-29T18:30:00.000Z",
+    "generatedAt": "2026-06-09T16:20:24.589Z",
+    "method": "ai"
+  },
+  "19e201ccb93df578-deadline-v1": {
+    "title": "NO_DEADLINE",
+    "generatedAt": "2026-06-09T16:20:24.815Z",
+    "method": "heuristic"
+  },
+  "19e166ea2188a3a1": {
+    "title": "Jol Energy Internship - Startu...",
+    "generatedAt": "2026-06-09T16:20:25.238Z",
+    "method": "ai"
+  },
+  "19e166ea2188a3a1-deadline-v1": {
+    "title": "2026-05-14T18:30:00.000Z",
+    "generatedAt": "2026-06-09T16:20:27.188Z",
+    "method": "heuristic"
+  },
+  "19ec0b10eea61b2e": {
+    "title": "16+ Roles Are Still Open. Apply Today!",
+    "generatedAt": "2026-06-13T14:36:43.013Z",
+    "method": "ai"
+  },
+  "19ec0b10eea61b2e-deadline-v1": {
+    "title": "NO_DEADLINE",
+    "generatedAt": "2026-06-13T14:36:55.471Z",
+    "method": "heuristic"
+  },
+  "19ebaeef9f010a25": {
+    "title": "Tata Hackathon 2026",
+    "generatedAt": "2026-06-13T14:36:55.575Z",
+    "method": "ai"
+  },
+  "19eb6228682719f9": {
+    "title": "16+ Roles Are Still Open. Apply Today!",
+    "generatedAt": "2026-06-13T14:37:00.540Z",
+    "method": "ai"
+  },
+  "19ebac6a93bcadb8": {
+    "title": "Calling Student Innovators: Biomed Bharat ...",
+    "generatedAt": "2026-06-13T14:37:02.434Z",
+    "method": "ai"
+  },
+  "19eb6a0b1d955365": {
+    "title": "VIT Bioexpo 2026 Announcement – Call For P...",
+    "generatedAt": "2026-06-13T14:37:10.052Z",
+    "method": "ai"
+  },
+  "19eb6228682719f9-deadline-v1": {
+    "title": "NO_DEADLINE",
+    "generatedAt": "2026-06-13T14:37:21.119Z",
+    "method": "heuristic"
+  },
+  "19ebaeef9f010a25-deadline-v1": {
+    "title": "NO_DEADLINE",
+    "generatedAt": "2026-06-13T14:37:21.898Z",
+    "method": "heuristic"
+  },
+  "19ebac6a93bcadb8-deadline-v1": {
+    "title": "2026-06-19T18:30:00.000Z",
+    "generatedAt": "2026-06-13T14:37:26.105Z",
+    "method": "heuristic"
+  },
+  "19eb6a0b1d955365-deadline-v1": {
+    "title": "NO_DEADLINE",
+    "generatedAt": "2026-06-13T14:37:26.933Z",
+    "method": "heuristic"
+  },
+  "19eb29594861cb1c": {
+    "title": "IEEE Hiring",
+    "generatedAt": "2026-06-13T14:37:28.469Z",
+    "method": "ai"
+  },
+  "19eb29594861cb1c-deadline-v1": {
+    "title": "NO_DEADLINE",
+    "generatedAt": "2026-06-13T14:37:47.472Z",
+    "method": "heuristic"
+  },
+  "19ec0b10eea61b2e-summary-v3": {
+    "title": "The email is about the opportunity to apply for a job at Redrob AI, a company that specializes in recruiting and retaining top talent. The job offers a competitive salary and benefits package, and the company is committed to providing exceptional customer service.",
+    "generatedAt": "2026-06-13T14:39:05.399Z",
+    "method": "ai"
+  },
+  "19e8afa146bf189a-summary-v3": {
+    "title": "Ho Chi Minh City University of Technology (HUTECH) in Vietnam has announced the HUTECH Semester Student Exchange Program in Fall 2026, offering students an opportunity to experience Vietnamese culture, language, and academics. The program runs from September 1, 2026 to January 15, 2027. Students can apply for the program by filling out the application form and submitting it online. The program offers various academic programs including language, technology, engineering, health sciences, arts, and humanities.",
+    "generatedAt": "2026-06-13T19:02:22.190Z",
+    "method": "ai"
+  },
+  "19e8832fb6c906c0-summary-v3": {
+    "title": "This email provides information about the Def-Space Summer Internship 2026, which is a significant event in the field of space exploration and technology. The event is scheduled to take place on June 2, 2026, and is aimed at attracting interested candidates to participate in the event.",
+    "generatedAt": "2026-06-13T19:04:18.785Z",
+    "method": "ai"
+  },
+  "19ea6463a8c0fe6d-summary-v3": {
+    "title": "Invitation to Circulate Announcement: Two-Day Hands-On Workshop on Edge Computing using NVIDIA at VIT-TBI. Request for assistance in circulating the announcement.",
+    "generatedAt": "2026-06-13T19:04:59.794Z",
+    "method": "ai"
+  },
+  "19ebac6a93bcadb8-summary-v3": {
+    "title": "This is a brief summary of the opportunity to participate in the Biomed hackathon conducted by GITAM, which is a national platform designed to strengthen innovation in healthcare technology. The event is a unique opportunity for UG, PG, and PhD students to participate in the event. The event is organized by GITAM MedTech Incubation Centre and Venture Development Centre. The event is a chance for students to collaborate with peers, receive mentorship from clinical and technical experts, and transform ideas into impactful healthcare solutions. The event is a great opportunity for students to learn about the importance of innovation in healthcare technology and to develop innovative solutions.",
+    "generatedAt": "2026-06-13T19:07:01.766Z",
+    "method": "ai"
+  }
+}

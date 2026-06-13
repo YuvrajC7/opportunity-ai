@@ -1,0 +1,125 @@
+generator client {
+  provider   = "prisma-client-js"
+  engineType = "library"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+  refresh_token_expires_in Int?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String?   @unique
+  emailVerified DateTime?
+  image         String?
+  
+  // Custom Fields
+  graduationYear Int?
+  skills         String[]
+  university     String?
+  department     String?
+  yearOfStudy    Int?
+  interests      String[]
+  onboarded      Boolean   @default(false)
+  lastLoginAt    DateTime?
+
+  accounts       Account[]
+  sessions       Session[]
+  bookmarks      Bookmark[]
+  notifications  Notification[]
+  opportunities  Opportunity[]
+  
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+model Opportunity {
+  id             String   @id @default(cuid())
+  sourceEmailId  String   @unique
+  threadId       String?
+  
+  title          String
+  company        String
+  snippet        String?  @db.Text
+  date           String?
+  applyLink      String?  @db.Text
+  deadline       String?
+  category       String?
+  skillsRequired String[]
+  stipend        String?
+
+  dateScanned    DateTime @default(now())
+  userId         String
+  user           User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  bookmarks      Bookmark[]
+
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
+
+model Bookmark {
+  id                String   @id @default(cuid())
+  userId            String
+  opportunityId     String
+  status            String   @default("SAVED") // SAVED, APPLIED, DISCARDED
+  applicationStatus String? // 'interested', 'applied', 'under_review', 'offer_received', 'rejected'
+
+  user          User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  opportunity   Opportunity @relation(fields: [opportunityId], references: [id], onDelete: Cascade)
+
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@unique([userId, opportunityId])
+}
+
+model Notification {
+  id        String   @id @default(cuid())
+  userId    String
+  title     String
+  message   String
+  type      String   // e.g., 'info', 'success', 'warning', 'error'
+  read      Boolean  @default(false)
+
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+}
