@@ -20,7 +20,7 @@ export async function preWarmPipeline() {
 
 export async function generateAITitlePipeline(subject: string, bodySnippet: string): Promise<string> {
   const genAI = getGenAI();
-  if (!genAI) return subject;
+  if (!genAI) return '[AI ERROR]: Missing GEMINI_API_KEY';
 
   try {
     const model = genAI.getGenerativeModel({ model: MODEL_NAME });
@@ -49,15 +49,15 @@ export async function generateAITitlePipeline(subject: string, bodySnippet: stri
     }
     
     return subject;
-  } catch (err) {
+  } catch (err: any) {
     console.error("[OpportunityAI] Gemini API Title Error:", err);
-    return subject;
+    return `[AI ERROR]: ${err.message}`;
   }
 }
 
 export async function generateAISummaryPipeline(bodySnippet: string): Promise<string> {
   const genAI = getGenAI();
-  if (!genAI) return bodySnippet.substring(0, 200) + '...';
+  if (!genAI) return '[AI ERROR]: GEMINI_API_KEY is missing in Vercel Production Environment Variables.';
 
   try {
     const model = genAI.getGenerativeModel({ model: MODEL_NAME });
@@ -87,9 +87,9 @@ export async function generateAISummaryPipeline(bodySnippet: string): Promise<st
     }
     
     return summary;
-  } catch (error) {
+  } catch (error: any) {
     console.error('[OpportunityAI] Gemini API Summary Error:', error);
-    return bodySnippet.substring(0, 200) + '...'; // fallback
+    return `[AI ERROR]: ${error.message}`;
   }
 }
 
@@ -158,7 +158,7 @@ export async function generateAIDeadlinePipeline(bodySnippet: string): Promise<s
 
     console.log(`[OpportunityAI] AI Deadline extraction could not parse: "${output}"`);
     return null;
-  } catch (error) {
+  } catch (error: any) {
     console.error('[OpportunityAI] Gemini API Deadline Error:', error);
     return null;
   }
