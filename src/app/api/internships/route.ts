@@ -6,8 +6,8 @@ import { extractDeadline, extractSkills, extractCategory, extractApplyLink, extr
 import { generateAITitle, generateAISummary, extractAIDeadline, preWarmModel } from '@/lib/ai-title-engine';
 import { prisma } from '@/lib/prisma';
 
-// Pre-warm the AI model on server startup
-preWarmModel();
+// Pre-warming the AI model on server startup is disabled to prevent Vercel/Railway build crashes.
+// The model will be lazy-loaded on the first API request instead.
 
 export async function GET(req: Request) {
   const session = await getServerSession(authOptions);
