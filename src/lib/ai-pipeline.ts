@@ -16,57 +16,63 @@ export async function generateAITitlePipeline(subject: string, bodySnippet: stri
 }
 
 export async function generateAISummaryPipeline(bodySnippet: string): Promise<string> {
-  // Use a smart heuristic summary for Vercel
-  let cleanBody = bodySnippet.replace(/\s+/g, ' ').trim();
+  let cleanBody = bodySnippet;
+
+  // 1. Strip Forwarded Message Headers & Meta
+  cleanBody = cleanBody.replace(/---------- Forwarded message ---------[\s\S]*?(?:Subject:|Date:)[^\n]*\n/gi, '');
+  cleanBody = cleanBody.replace(/(?:From|Date|Subject|To|Cc):\s*[^\n]+\n/gi, '');
   
-  // 1. Remove common greetings and boilerplate
+  // 2. Strip "Please see the mail below" and similar forwarding text
+  cleanBody = cleanBody.replace(/^[\s\S]*?(?:Please see the mail below|see the trailing mail|forwarded message)[^\n]*\n/gi, '');
+
+  // 3. Strip Signatures (Everything after "Warm regards", "Best regards", etc.)
+  cleanBody = cleanBody.replace(/(?:Warm regards|Best regards|Thanks and regards|Thanks & Regards|Sincerely|Best,|Thanks,)[\s\S]*/gi, '');
+  
+  // 4. Flatten remaining whitespace
+  cleanBody = cleanBody.replace(/\s+/g, ' ').trim();
+
+  // 5. Remove common greetings
   const greetings = [
     /^(?:kind attention|dear|hello|greetings|hi|to whom|hope this)[^.]*[.!?,]\s*/i,
     /^(?:dear students|dear student|dear all)[^.]*[.!?,]\s*/i,
     /^(?:greetings from)[^.]*[.!?,]\s*/i,
     /^[A-Z][a-z]+,\s*/, // Matches "Balachandran, "
-    /^Greetings from [^,]+,\s*/i
   ];
-  
-  for (let i = 0; i < 3; i++) { // Loop a few times to strip multiple stacked greetings
+  for (let i = 0; i < 3; i++) {
     for (const regex of greetings) {
       cleanBody = cleanBody.replace(regex, '');
     }
   }
-  
-  // 2. Try to grab the first 2-3 substantive sentences
+
+  // 6. Extract sentences
   const sentences = cleanBody.match(/[^.!?]+[.!?]+/g) || [];
   let summary = '';
   
   if (sentences.length > 0) {
-    // Filter out extremely short sentences or purely administrative links
     const validSentences = sentences.filter(s => 
       s.trim().length > 30 && 
       !s.toLowerCase().includes('unsubscribe') &&
       !s.toLowerCase().includes('click here') &&
-      !s.toLowerCase().includes('view this email')
+      !s.toLowerCase().includes('forwarded')
     );
     
     if (validSentences.length > 0) {
-      // Grab up to 3 valid sentences to make it nice and meaty
       summary = validSentences.slice(0, 3).join(' ').trim();
     }
   }
   
-  // 3. Fallback if regex completely fails to parse sentences
+  // 7. Fallbacks
   if (!summary || summary.length < 50) {
     summary = cleanBody.substring(0, 350).trim();
   } else if (summary.length > 450) {
-    // Trim if it's way too long
     summary = summary.substring(0, 450).trim() + '...';
   }
   
-  // 4. Ensure it ends nicely
-  if (!summary.endsWith('.') && !summary.endsWith('!') && !summary.endsWith('?') && !summary.endsWith('...')) {
+  if (summary && !summary.endsWith('.') && !summary.endsWith('!') && !summary.endsWith('?') && !summary.endsWith('...')) {
     summary += '...';
   }
   
-  return summary;
+  return summary || "No summary available.";
 }
 
 export async function generateAIDeadlinePipeline(bodySnippet: string): Promise<string | null> {

@@ -489,7 +489,7 @@ export async function generateAITitle(
   fromName: string
 ): Promise<string> {
   // 1. Check permanent cache
-  const cacheKey = `${emailId}-title-v8`;
+  const cacheKey = `${emailId}-title-v9`;
   const cached = getCachedTitle(cacheKey);
   if (cached) return cached;
 
@@ -516,7 +516,7 @@ export async function generateAITitle(
  */
 export async function generateAISummary(emailId: string, bodySnippet: string): Promise<string> {
   // Temporary workaround: we use the same cache file but we need a different key
-  const cacheKey = `${emailId}-summary-v8`;
+  const cacheKey = `${emailId}-summary-v9`;
   const cached = getCachedTitle(cacheKey);
   if (cached) return cached;
 
@@ -542,7 +542,7 @@ export async function extractAIDeadline(
   bodySnippet: string,
   fallbackKeywordDeadline: string | null
 ): Promise<string | null> {
-  const cacheKey = `${emailId}-deadline-v8`;
+  const cacheKey = `${emailId}-deadline-v9`;
   const cached = getCachedTitle(cacheKey);
   if (cached) {
     return cached === 'NO_DEADLINE' ? null : cached;
