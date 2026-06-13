@@ -1,165 +1,119 @@
-import { GoogleGenerativeAI } from '@google/generative-ai';
+import { pipeline, env } from '@huggingface/transformers';
 
-// Initialize the Gemini API client dynamically at runtime
-// This prevents Next.js from baking in an empty key at build time
-function getGenAI() {
-  const apiKey = process.env.GEMINI_API_KEY || '';
-  return apiKey ? new GoogleGenerativeAI(apiKey) : null;
+// Setup Transformers.js for Next.js / Vercel Serverless
+env.allowLocalModels = false;
+env.useBrowserCache = false;
+
+// Using a very small 77M parameter model for extremely fast cold starts
+const MODEL_NAME = 'Xenova/LaMini-Flan-T5-77M';
+
+let generator: any = null;
+
+// Timeout promise wrapper to prevent Vercel 10s function limit crashes
+const withTimeout = <T>(promise: Promise<T>, ms: number, fallback: T): Promise<T> => {
+  let timeoutId: NodeJS.Timeout;
+  const timeoutPromise = new Promise<T>((resolve) => {
+    timeoutId = setTimeout(() => {
+      console.warn(`[OpportunityAI] ⚠️ AI Pipeline hit ${ms}ms timeout, using fallback.`);
+      resolve(fallback);
+    }, ms);
+  });
+  return Promise.race([promise, timeoutPromise]).finally(() => clearTimeout(timeoutId));
+};
+
+async function getGenerator() {
+  if (!generator) {
+    try {
+      console.log(`[OpportunityAI] Loading local lightweight model: ${MODEL_NAME}`);
+      generator = await pipeline('text2text-generation', MODEL_NAME);
+    } catch (err) {
+      console.error('[OpportunityAI] Error loading local model:', err);
+    }
+  }
+  return generator;
 }
 
-// We use the extremely fast and cheap flash model
-const MODEL_NAME = 'gemini-2.0-flash';
-
 export async function preWarmPipeline() {
-  if (!getGenAI()) {
-    console.log('[OpportunityAI] ⚠️ GEMINI_API_KEY is missing. Using NLP heuristics only.');
-    return;
-  }
-  console.log('[OpportunityAI] ✅ Gemini API Client initialized!');
+  await getGenerator();
 }
 
 export async function generateAITitlePipeline(subject: string, bodySnippet: string): Promise<string> {
-  const genAI = getGenAI();
-  if (!genAI) return '[AI ERROR]: Missing GEMINI_API_KEY';
+  const gen = await getGenerator();
+  if (!gen) return subject;
 
   try {
-    const model = genAI.getGenerativeModel({ model: MODEL_NAME });
-    
-    // Read deep into the email body - up to 350 words
-    const cleanBody = bodySnippet.replace(/\s+/g, ' ').split(' ').slice(0, 350).join(' ');
-    
-    const prompt = `Write a short 3-word title summarizing this opportunity email.\nEmail: ${cleanBody}\nTitle:`;
+    const cleanBody = bodySnippet.replace(/\s+/g, ' ').split(' ').slice(0, 150).join(' ');
+    const prompt = `Write a short 3-word professional title for this email: ${cleanBody}`;
 
-    const result = await model.generateContent({
-      contents: [{ role: 'user', parts: [{ text: prompt }] }],
-      generationConfig: {
-        maxOutputTokens: 15,
-        temperature: 0.1, // Near deterministic
-      }
+    const generatePromise = gen(prompt, {
+      max_new_tokens: 15,
+      temperature: 0.1,
     });
     
-    let title = result.response.text().trim();
+    // Hard 5-second timeout for title to prevent Vercel crashes
+    const res = await withTimeout(generatePromise, 5000, null);
+    if (!res) return subject;
     
-    // Strip out any hallucinated prefixes (e.g., if it outputs "Professional Title: XYZ")
-    title = title.replace(/^[^:]*:\s*/, '');
-    title = title.replace(/^["']|["']$/g, '');
-    
-    if (title.length > 5 && title.length < 100) {
-      return title;
-    }
-    
+    let title = res[0].generated_text.trim();
+    if (title.length > 5 && title.length < 100) return title;
     return subject;
-  } catch (err: any) {
-    console.error("[OpportunityAI] Gemini API Title Error:", err);
-    return `[AI ERROR]: ${err.message}`;
+  } catch (err) {
+    console.error("[OpportunityAI] Local AI Title Error:", err);
+    return subject;
   }
 }
 
 export async function generateAISummaryPipeline(bodySnippet: string): Promise<string> {
-  const genAI = getGenAI();
-  if (!genAI) return '[AI ERROR]: GEMINI_API_KEY is missing in Vercel Production Environment Variables.';
+  const gen = await getGenerator();
+  const fallback = bodySnippet.substring(0, 200) + '...';
+  if (!gen) return fallback;
 
   try {
-    const model = genAI.getGenerativeModel({ model: MODEL_NAME });
-    
-    // Read up to 400 words
-    const cleanBody = bodySnippet.replace(/\s+/g, ' ').split(' ').slice(0, 400).join(' ');
-    
-    const prompt = `Write a brief, complete 2-sentence professional summary of this opportunity email.\nEmail: ${cleanBody}\nSummary:`;
+    const cleanBody = bodySnippet.replace(/\s+/g, ' ').split(' ').slice(0, 200).join(' ');
+    const prompt = `Write a brief 1-sentence professional summary for this email: ${cleanBody}`;
 
-    const result = await model.generateContent({
-      contents: [{ role: 'user', parts: [{ text: prompt }] }],
-      generationConfig: {
-        maxOutputTokens: 150,
-        temperature: 0.2,
-      }
+    const generatePromise = gen(prompt, {
+      max_new_tokens: 100,
+      temperature: 0.2,
     });
     
-    let summary = result.response.text().trim();
-    summary = summary.replace(/^.*?(?:Summary|Description):\s*/i, '');
-    
-    // Clean up dangling sentences
-    const lastPunctuation = Math.max(summary.lastIndexOf('.'), summary.lastIndexOf('!'), summary.lastIndexOf('?'));
-    if (lastPunctuation > 0 && lastPunctuation < summary.length - 1) {
-      if (summary.length - lastPunctuation > 5) {
-         summary = summary.substring(0, lastPunctuation + 1);
-      }
-    }
-    
+    // Hard 7-second timeout for summary (Vercel max is 10s)
+    const res = await withTimeout(generatePromise, 7000, null);
+    if (!res) return fallback;
+
+    let summary = res[0].generated_text.trim();
     return summary;
-  } catch (error: any) {
-    console.error('[OpportunityAI] Gemini API Summary Error:', error);
-    return `[AI ERROR]: ${error.message}`;
+  } catch (err) {
+    console.error('[OpportunityAI] Local AI Summary Error:', err);
+    return fallback;
   }
 }
 
 export async function generateAIDeadlinePipeline(bodySnippet: string): Promise<string | null> {
-  const genAI = getGenAI();
-  if (!genAI) return null;
+  const gen = await getGenerator();
+  if (!gen) return null;
 
   try {
-    const model = genAI.getGenerativeModel({ model: MODEL_NAME });
-    
-    // Feed up to 500 words so the model can read the ENTIRE email
-    const cleanBody = bodySnippet.replace(/\s+/g, ' ').split(' ').slice(0, 500).join(' ');
-    
-    const prompt = `Read this email carefully. Find ONLY the application deadline or registration deadline date. Do NOT return event dates, course start dates, or course end dates. Return ONLY the deadline date in the format "Month Day, Year". If no application deadline is mentioned, return "none".\nEmail: ${cleanBody}\nApplication Deadline:`;
+    const cleanBody = bodySnippet.replace(/\s+/g, ' ').split(' ').slice(0, 200).join(' ');
+    const prompt = `Extract the application deadline date from this email. Return 'none' if no deadline is mentioned. Email: ${cleanBody}`;
 
-    const result = await model.generateContent({
-      contents: [{ role: 'user', parts: [{ text: prompt }] }],
-      generationConfig: {
-        maxOutputTokens: 30,
-        temperature: 0.1,
-      }
+    const generatePromise = gen(prompt, {
+      max_new_tokens: 20,
+      temperature: 0.1,
     });
     
-    let output = result.response.text().trim();
-    
-    // Strip prompt echoes
-    if (output.includes('Application Deadline:')) {
-      output = output.split('Application Deadline:').pop()!.trim();
-    }
-    if (output.includes('Deadline:')) {
-      output = output.split('Deadline:').pop()!.trim();
-    }
-    
-    // Clean artifacts
-    output = output.replace(/^["']|["']$/g, '').trim();
-    
-    // If model says none / no deadline / not mentioned
-    if (!output || output.toLowerCase().includes('none') || output.toLowerCase().includes('not mentioned') || output.toLowerCase().includes('no deadline') || output.length < 4) {
-      return null;
-    }
-    
-    // Try to parse the date the model returned
-    const parsed = new Date(output);
-    if (!isNaN(parsed.getTime())) {
-      return parsed.toISOString();
-    }
-    
-    // Try common patterns the model might output
-    const mdyMatch = output.match(/([A-Za-z]+)\s+(\d{1,2})(?:st|nd|rd|th)?,?\s*(\d{4})/);
-    if (mdyMatch) {
-      const d = new Date(`${mdyMatch[1]} ${mdyMatch[2]}, ${mdyMatch[3]}`);
-      if (!isNaN(d.getTime())) return d.toISOString();
-    }
-    
-    const dmyMatch = output.match(/(\d{1,2})(?:st|nd|rd|th)?\s+([A-Za-z]+),?\s*(\d{4})/);
-    if (dmyMatch) {
-      const d = new Date(`${dmyMatch[2]} ${dmyMatch[1]}, ${dmyMatch[3]}`);
-      if (!isNaN(d.getTime())) return d.toISOString();
-    }
-    
-    const numMatch = output.match(/(\d{1,2})[\/\-.](\d{1,2})[\/\-.](\d{4})/);
-    if (numMatch) {
-      const d = new Date(parseInt(numMatch[3]), parseInt(numMatch[2]) - 1, parseInt(numMatch[1]));
-      if (!isNaN(d.getTime())) return d.toISOString();
-    }
+    // Hard 4-second timeout for deadline
+    const res = await withTimeout(generatePromise, 4000, null);
+    if (!res) return null;
 
-    console.log(`[OpportunityAI] AI Deadline extraction could not parse: "${output}"`);
+    let output = res[0].generated_text.trim();
+    if (!output || output.toLowerCase().includes('none') || output.length < 4) return null;
+    
+    const parsed = new Date(output);
+    if (!isNaN(parsed.getTime())) return parsed.toISOString();
     return null;
-  } catch (error: any) {
-    console.error('[OpportunityAI] Gemini API Deadline Error:', error);
+  } catch (err) {
+    console.error('[OpportunityAI] Local AI Deadline Error:', err);
     return null;
   }
 }
