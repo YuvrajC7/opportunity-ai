@@ -9,7 +9,8 @@
 import fs from 'fs';
 import path from 'path';
 
-const CACHE_DIR = path.join(process.cwd(), '.cache');
+// Vercel only allows writing to /tmp in serverless functions
+const CACHE_DIR = '/tmp';
 const CACHE_FILE = path.join(CACHE_DIR, 'title-cache.json');
 
 interface TitleCacheEntry {
