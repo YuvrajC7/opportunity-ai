@@ -167,7 +167,7 @@ export default function OpportunityDetail() {
 
   const conf = CATEGORY_CONFIG[opp.category];
 
-  const handleBookmark = async () => {
+  const handleBookmarkToggle = async () => {
     if (!opp) return;
     const newStatus = !isBookmarked;
     setIsBookmarked(newStatus);
