@@ -489,7 +489,8 @@ export async function generateAITitle(
   fromName: string
 ): Promise<string> {
   // 1. Check permanent cache
-  const cached = getCachedTitle(emailId);
+  const cacheKey = `${emailId}-title-v2`;
+  const cached = getCachedTitle(cacheKey);
   if (cached) return cached;
 
   // 2. Generate using Local AI ML Pipeline
@@ -506,7 +507,7 @@ export async function generateAITitle(
   title = postProcess(title);
 
   // 5. Cache permanently
-  setCachedTitle(emailId, title, 'ai');
+  setCachedTitle(cacheKey, title, 'ai');
   return title;
 }
 
@@ -515,8 +516,7 @@ export async function generateAITitle(
  */
 export async function generateAISummary(emailId: string, bodySnippet: string): Promise<string> {
   // Temporary workaround: we use the same cache file but we need a different key
-  // Since we only want to read the body snippet once, let's cache it with a '-summary' suffix
-  const cacheKey = `${emailId}-summary-v3`;
+  const cacheKey = `${emailId}-summary-v4`;
   const cached = getCachedTitle(cacheKey);
   if (cached) return cached;
 
@@ -542,7 +542,7 @@ export async function extractAIDeadline(
   bodySnippet: string,
   fallbackKeywordDeadline: string | null
 ): Promise<string | null> {
-  const cacheKey = `${emailId}-deadline-v1`;
+  const cacheKey = `${emailId}-deadline-v2`;
   const cached = getCachedTitle(cacheKey);
   if (cached) {
     return cached === 'NO_DEADLINE' ? null : cached;

@@ -1,16 +1,17 @@
 import { GoogleGenerativeAI } from '@google/generative-ai';
 
-// Initialize the Gemini API client
-// We check for the API key at runtime so the app doesn't crash if it's missing,
-// it just gracefully falls back to NLP heuristics.
-const apiKey = process.env.GEMINI_API_KEY || '';
-const genAI = apiKey ? new GoogleGenerativeAI(apiKey) : null;
+// Initialize the Gemini API client dynamically at runtime
+// This prevents Next.js from baking in an empty key at build time
+function getGenAI() {
+  const apiKey = process.env.GEMINI_API_KEY || '';
+  return apiKey ? new GoogleGenerativeAI(apiKey) : null;
+}
 
 // We use the extremely fast and cheap flash model
 const MODEL_NAME = 'gemini-1.5-flash';
 
 export async function preWarmPipeline() {
-  if (!genAI) {
+  if (!getGenAI()) {
     console.log('[OpportunityAI] ⚠️ GEMINI_API_KEY is missing. Using NLP heuristics only.');
     return;
   }
@@ -18,6 +19,7 @@ export async function preWarmPipeline() {
 }
 
 export async function generateAITitlePipeline(subject: string, bodySnippet: string): Promise<string> {
+  const genAI = getGenAI();
   if (!genAI) return subject;
 
   try {
@@ -54,6 +56,7 @@ export async function generateAITitlePipeline(subject: string, bodySnippet: stri
 }
 
 export async function generateAISummaryPipeline(bodySnippet: string): Promise<string> {
+  const genAI = getGenAI();
   if (!genAI) return bodySnippet.substring(0, 200) + '...';
 
   try {
@@ -91,6 +94,7 @@ export async function generateAISummaryPipeline(bodySnippet: string): Promise<st
 }
 
 export async function generateAIDeadlinePipeline(bodySnippet: string): Promise<string | null> {
+  const genAI = getGenAI();
   if (!genAI) return null;
 
   try {
