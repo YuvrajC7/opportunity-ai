@@ -1,13 +1,13 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Sparkles, ShieldCheck, Mail, Lock, AlertTriangle, RefreshCw } from 'lucide-react';
 import { signIn } from 'next-auth/react';
 
-export default function SignIn() {
+function SignInContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [showErrorModal, setShowErrorModal] = useState(false);
@@ -157,5 +157,13 @@ export default function SignIn() {
         )}
       </AnimatePresence>
     </div>
+  );
+}
+
+export default function SignIn() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-[#06060E] flex items-center justify-center"><div className="w-8 h-8 rounded-full border-4 border-[#7C3AED] border-t-transparent animate-spin" /></div>}>
+      <SignInContent />
+    </Suspense>
   );
 }
