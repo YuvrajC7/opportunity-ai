@@ -7,7 +7,7 @@ import { Float, Sparkles, Environment } from '@react-three/drei';
 import * as THREE from 'three';
 import { motion } from 'framer-motion';
 import { Sparkles as SparklesIcon, Lock, KanbanSquare, MessageSquare, ChevronDown, ChevronUp, Mouse, Mail, GraduationCap, Clock, FileText, ShieldAlert, EyeOff, UserX, Zap, CheckCircle2 } from 'lucide-react';
-import TiltCard from '@/components/ui/TiltCard';
+import SpotlightCard from '@/components/ui/SpotlightCard';
 
 // --- GLOBAL SCROLL TRACKER ---
 function useGlobalScroll() {
@@ -323,7 +323,7 @@ export default function Home() {
         <main className="w-full bg-[#050505] relative z-20 border-t border-white/10 shadow-[0_-30px_100px_rgba(0,0,0,1)]">
           
           {/* 1. The Career Email Deluge */}
-          <section className="py-40 px-6 md:px-12 max-w-[1600px] mx-auto overflow-hidden">
+          <section className="py-56 px-6 md:px-12 max-w-[1600px] mx-auto overflow-hidden">
             <motion.div 
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -345,8 +345,8 @@ export default function Home() {
                 { title: "Deadline Blindness", text: "Application deadlines are scattered across long text walls. Manually tracking calendars results in 68% of students missing at least 1 deadline monthly.", icon: Clock, color: "#F5A623" },
                 { title: "Lack of Personalisation", text: "Generic portals show the same listings to everyone. You spend hours searching for listings that match your specific year, department, and skills.", icon: EyeOff, color: "#4A90E2" }
               ].map((feat, i) => (
-                <TiltCard key={i} className="h-full">
-                  <div className="bg-white/5 border border-white/10 p-10 rounded-3xl h-full shadow-2xl relative overflow-hidden group hover:border-white/20 transition-colors">
+                <SpotlightCard key={i} className="h-full rounded-3xl" spotlightColor={`${feat.color}40`}>
+                  <div className="bg-white/5 border border-white/10 p-10 h-full relative overflow-hidden group hover:border-white/20 transition-colors">
                     <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2 group-hover:bg-white/10 transition-colors" />
                     <div 
                       className="w-14 h-14 rounded-2xl flex items-center justify-center mb-8 shadow-[0_0_30px_rgba(255,255,255,0.1)] border border-white/10"
@@ -357,13 +357,13 @@ export default function Home() {
                     <h3 className="text-2xl font-black text-white mb-4 tracking-tight">{feat.title}</h3>
                     <p className="text-lg text-white/50 font-medium leading-relaxed">{feat.text}</p>
                   </div>
-                </TiltCard>
+                </SpotlightCard>
               ))}
             </div>
           </section>
 
           {/* 2. Seamless Workflow */}
-          <section className="py-20 px-6 md:px-12 max-w-[1600px] mx-auto overflow-hidden">
+          <section className="py-32 px-6 md:px-12 max-w-[1600px] mx-auto overflow-hidden">
             <motion.div 
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -407,7 +407,7 @@ export default function Home() {
           </section>
 
           {/* 3. Packed With MVP Power */}
-          <section className="py-40 px-6 md:px-12 max-w-[1600px] mx-auto overflow-hidden">
+          <section className="py-56 px-6 md:px-12 max-w-[1600px] mx-auto overflow-hidden">
             <motion.div 
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -423,7 +423,7 @@ export default function Home() {
               </p>
             </motion.div>
 
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {[
                 { title: "Read-Only Gmail Sync", text: "Direct read-only integration via Google OAuth. Processes the past 90 days in 30 seconds and refreshes every 4 hours automatically.", icon: Mail, color: "#06D6A0" },
                 { title: "AI Extractions", text: "Extracts Title, Org, Category, Deadline, Link, Eligibility, and Stipends. Bypasses administrative walls and formatting clutter.", icon: SparklesIcon, color: "#F72585" },
@@ -432,8 +432,8 @@ export default function Home() {
                 { title: "Smart Deadline Alerts", text: "Automatic email alerts 7 days, 3 days, and 24 hours before deadlines. Never let an opportunity slip by again.", icon: Clock, color: "#F5A623" },
                 { title: "AI Opportunity Summaries", text: "Get brief, high-impact summaries outlining what the opportunity is, who it is for, key perks, and immediate next steps.", icon: FileText, color: "#118AB2" }
               ].map((feat, i) => (
-                <TiltCard key={i} className="h-full">
-                  <div className="bg-[#111111] border border-white/5 p-10 md:p-14 rounded-[2rem] h-full shadow-xl relative overflow-hidden group">
+                <SpotlightCard key={i} className="h-full rounded-[2rem]" spotlightColor={`${feat.color}40`}>
+                  <div className="bg-[#111111] border border-white/5 p-10 h-full relative overflow-hidden group">
                     <div className="absolute top-0 right-0 w-96 h-96 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2 opacity-20 transition-opacity duration-500 group-hover:opacity-40" style={{ backgroundColor: feat.color }} />
                     <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     
@@ -448,7 +448,7 @@ export default function Home() {
                       <p className="text-xl text-white/50 font-medium leading-relaxed">{feat.text}</p>
                     </div>
                   </div>
-                </TiltCard>
+                </SpotlightCard>
               ))}
             </div>
           </section>
