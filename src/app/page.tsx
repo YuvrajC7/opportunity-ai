@@ -6,7 +6,8 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { Float, Sparkles, Environment } from '@react-three/drei';
 import * as THREE from 'three';
 import { motion } from 'framer-motion';
-import { Sparkles as SparklesIcon, Lock, KanbanSquare, MessageSquare, ChevronDown, ChevronUp, Mouse } from 'lucide-react';
+import { Sparkles as SparklesIcon, Lock, KanbanSquare, MessageSquare, ChevronDown, ChevronUp, Mouse, Mail, GraduationCap, Clock, FileText, ShieldAlert, EyeOff, UserX, Zap, CheckCircle2 } from 'lucide-react';
+import TiltCard from '@/components/ui/TiltCard';
 
 // --- GLOBAL SCROLL TRACKER ---
 function useGlobalScroll() {
@@ -321,37 +322,133 @@ export default function Home() {
 
         <main className="w-full bg-[#050505] relative z-20 border-t border-white/10 shadow-[0_-30px_100px_rgba(0,0,0,1)]">
           
+          {/* 1. The Career Email Deluge */}
           <section className="py-40 px-6 md:px-12 max-w-[1600px] mx-auto overflow-hidden">
-            <motion.h2 
-              initial={{ opacity: 0, x: -100 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
+            <motion.div 
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="text-[6vw] leading-[0.9] font-black uppercase tracking-tighter text-white mb-24"
+              className="text-center mb-24"
             >
-              THE COMPLETE <br/> ARSENAL.
-            </motion.h2>
+              <h2 className="text-[5vw] leading-[1] font-black tracking-tighter text-white mb-6">
+                The Career Email Deluge
+              </h2>
+              <p className="text-xl text-white/50 font-medium max-w-2xl mx-auto">
+                University life moves fast. Inbox management shouldn't hold back your career trajectory.
+              </p>
+            </motion.div>
+            
+            <div className="grid md:grid-cols-3 gap-8">
+              {[
+                { title: "Information Overload", text: "Students receive 50-150 emails daily. Placement circulars, club announcements, and newsletters bury critical opportunities.", icon: ShieldAlert, color: "#F72585" },
+                { title: "Deadline Blindness", text: "Application deadlines are scattered across long text walls. Manually tracking calendars results in 68% of students missing at least 1 deadline monthly.", icon: Clock, color: "#F5A623" },
+                { title: "Lack of Personalisation", text: "Generic portals show the same listings to everyone. You spend hours searching for listings that match your specific year, department, and skills.", icon: EyeOff, color: "#4A90E2" }
+              ].map((feat, i) => (
+                <TiltCard key={i} className="h-full">
+                  <div className="bg-white/5 border border-white/10 p-10 rounded-3xl h-full shadow-2xl relative overflow-hidden group hover:border-white/20 transition-colors">
+                    <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2 group-hover:bg-white/10 transition-colors" />
+                    <div 
+                      className="w-14 h-14 rounded-2xl flex items-center justify-center mb-8 shadow-[0_0_30px_rgba(255,255,255,0.1)] border border-white/10"
+                      style={{ backgroundColor: `${feat.color}20`, color: feat.color, borderColor: `${feat.color}40` }}
+                    >
+                      <feat.icon className="w-7 h-7" />
+                    </div>
+                    <h3 className="text-2xl font-black text-white mb-4 tracking-tight">{feat.title}</h3>
+                    <p className="text-lg text-white/50 font-medium leading-relaxed">{feat.text}</p>
+                  </div>
+                </TiltCard>
+              ))}
+            </div>
+          </section>
+
+          {/* 2. Seamless Workflow */}
+          <section className="py-20 px-6 md:px-12 max-w-[1600px] mx-auto overflow-hidden">
+            <motion.div 
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="text-center mb-32"
+            >
+              <h2 className="text-[5vw] leading-[1] font-black tracking-tighter text-white mb-6">
+                Seamless Workflow, Zero Effort
+              </h2>
+              <p className="text-xl text-white/50 font-medium max-w-2xl mx-auto">
+                From connected inbox to applied offer in three simple steps. We do the heavy lifting.
+              </p>
+            </motion.div>
+
+            <div className="relative max-w-5xl mx-auto">
+              <div className="hidden md:block absolute top-12 left-[10%] right-[10%] h-0.5 bg-gradient-to-r from-transparent via-[#06D6A0]/50 to-transparent" />
+              <div className="grid md:grid-cols-3 gap-16 relative">
+                {[
+                  { step: "01", title: "Secure One-Click Connect", text: "Connect your Google Account securely. We request strictly read-only Gmail access. Your credentials are never stored." },
+                  { step: "02", title: "AI Opportunity Engine Scans", text: "Our LLM-powered extraction pipeline scans your emails, classifying internships, hackathons, and research projects with 94%+ precision." },
+                  { step: "03", title: "Take Guided Action", text: "See match scores tailored to your skills, view concise summaries, track status on your Kanban Board, and get automated deadline alerts." }
+                ].map((step, i) => (
+                  <motion.div 
+                    key={i}
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: i * 0.2, type: "spring", stiffness: 100 }}
+                    viewport={{ once: true }}
+                    className="flex flex-col items-center text-center relative z-10"
+                  >
+                    <div className="w-24 h-24 rounded-full bg-[#050505] border-2 border-[#06D6A0] flex items-center justify-center mb-8 shadow-[0_0_30px_rgba(6,214,160,0.3)]">
+                      <span className="text-3xl font-black text-[#06D6A0]">{step.step}</span>
+                    </div>
+                    <h3 className="text-2xl font-black text-white mb-4 tracking-tight">{step.title}</h3>
+                    <p className="text-lg text-white/50 font-medium leading-relaxed">{step.text}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* 3. Packed With MVP Power */}
+          <section className="py-40 px-6 md:px-12 max-w-[1600px] mx-auto overflow-hidden">
+            <motion.div 
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="text-center mb-24"
+            >
+              <h2 className="text-[5vw] leading-[1] font-black tracking-tighter text-white mb-6">
+                Packed With MVP Power
+              </h2>
+              <p className="text-xl text-white/50 font-medium max-w-2xl mx-auto">
+                Every feature is custom engineered to eliminate searching and maximise your placement efficiency.
+              </p>
+            </motion.div>
+
             <div className="grid md:grid-cols-2 gap-8">
               {[
-                { title: "Direct Sync", text: "Secure, read-only OAuth integration. Refreshes automatically in the background." },
-                { title: "Smart NLP", text: "Pulls the exact Job Role, Company, Apply Link, and Deadline from massive text walls." },
-                { title: "Skill Matching", text: "A 0-100 score matching the extracted job requirements to your specific profile." },
-                { title: "Push Alerts", text: "Get notified via dashboard before deadlines expire. Never miss a hidden opportunity." }
+                { title: "Read-Only Gmail Sync", text: "Direct read-only integration via Google OAuth. Processes the past 90 days in 30 seconds and refreshes every 4 hours automatically.", icon: Mail, color: "#06D6A0" },
+                { title: "AI Extractions", text: "Extracts Title, Org, Category, Deadline, Link, Eligibility, and Stipends. Bypasses administrative walls and formatting clutter.", icon: SparklesIcon, color: "#F72585" },
+                { title: "Personalised Match Score", text: "A composite 0-100 score calculated by matching opportunity requirements with your profile skills, year of study, and interests.", icon: GraduationCap, color: "#48E5C2" },
+                { title: "Kanban Application Tracker", text: "Drag-and-drop opportunity cards through columns: Interested, Applied, Under Review, Offer Received, and Rejected.", icon: KanbanSquare, color: "#4A90E2" },
+                { title: "Smart Deadline Alerts", text: "Automatic email alerts 7 days, 3 days, and 24 hours before deadlines. Never let an opportunity slip by again.", icon: Clock, color: "#F5A623" },
+                { title: "AI Opportunity Summaries", text: "Get brief, high-impact summaries outlining what the opportunity is, who it is for, key perks, and immediate next steps.", icon: FileText, color: "#118AB2" }
               ].map((feat, i) => (
-                <motion.div 
-                  key={i} 
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: i * 0.1 }}
-                  viewport={{ once: true }}
-                  className="bg-white/5 border border-white/10 p-12 md:p-16 rounded-[3rem] hover:bg-white/10 transition-colors"
-                >
-                  <div className="w-16 h-16 bg-[#06D6A0] rounded-full text-black flex items-center justify-center font-black text-2xl mb-8">
-                    {i + 1}
+                <TiltCard key={i} className="h-full">
+                  <div className="bg-[#111111] border border-white/5 p-10 md:p-14 rounded-[2rem] h-full shadow-xl relative overflow-hidden group">
+                    <div className="absolute top-0 right-0 w-96 h-96 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2 opacity-20 transition-opacity duration-500 group-hover:opacity-40" style={{ backgroundColor: feat.color }} />
+                    <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    
+                    <div className="relative z-10">
+                      <div 
+                        className="w-16 h-16 rounded-2xl flex items-center justify-center mb-8 shadow-lg"
+                        style={{ backgroundColor: `${feat.color}20`, color: feat.color, border: `1px solid ${feat.color}40` }}
+                      >
+                        <feat.icon className="w-8 h-8" />
+                      </div>
+                      <h3 className="text-3xl font-black text-white mb-4 tracking-tight">{feat.title}</h3>
+                      <p className="text-xl text-white/50 font-medium leading-relaxed">{feat.text}</p>
+                    </div>
                   </div>
-                  <h3 className="text-3xl md:text-4xl font-black uppercase tracking-tighter text-white mb-4">{feat.title}</h3>
-                  <p className="text-xl text-white/60 font-medium">{feat.text}</p>
-                </motion.div>
+                </TiltCard>
               ))}
             </div>
           </section>
