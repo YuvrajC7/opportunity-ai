@@ -361,7 +361,7 @@ export default function Home() {
           </section>
 
           {/* 2. Seamless Workflow */}
-          <section className="py-32 px-6 md:px-12 max-w-[1600px] mx-auto overflow-hidden">
+          <section id="how-it-works" className="py-32 px-6 md:px-12 max-w-[1600px] mx-auto overflow-hidden">
             <motion.div 
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -405,7 +405,7 @@ export default function Home() {
           </section>
 
           {/* 3. Packed With MVP Power */}
-          <section className="py-56 px-6 md:px-12 max-w-[1600px] mx-auto overflow-hidden">
+          <section id="features" className="py-56 px-6 md:px-12 max-w-[1600px] mx-auto overflow-hidden">
             <motion.div 
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -430,8 +430,9 @@ export default function Home() {
                 { title: "Smart Deadline Alerts", text: "Automatic email alerts 7 days, 3 days, and 24 hours before deadlines. Never let an opportunity slip by again.", icon: Clock },
                 { title: "AI Opportunity Summaries", text: "Get brief, high-impact summaries outlining what the opportunity is, who it is for, key perks, and immediate next steps.", icon: FileText }
               ].map((feat, i) => (
-                <SpotlightCard key={i} className="h-full rounded-[2rem]" spotlightColor="rgba(6, 214, 160, 0.15)">
-                  <div className="bg-[#111111] border border-white/5 p-10 h-full relative overflow-hidden group">
+                <div key={i} id={feat.title === "Personalised Match Score" ? "match-score" : undefined} className="h-full">
+                  <SpotlightCard className="h-full rounded-[2rem]" spotlightColor="rgba(6, 214, 160, 0.15)">
+                    <div className="bg-[#111111] border border-white/5 p-10 h-full relative overflow-hidden group">
                     <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     
                     <div className="relative z-10">
@@ -445,6 +446,7 @@ export default function Home() {
                     </div>
                   </div>
                 </SpotlightCard>
+                </div>
               ))}
             </div>
           </section>
@@ -491,7 +493,7 @@ export default function Home() {
             </div>
           </section>
 
-          <section className="py-12 px-6 md:px-12 max-w-[1200px] mx-auto text-white overflow-hidden">
+          <section id="faq" className="py-12 px-6 md:px-12 max-w-[1200px] mx-auto text-white overflow-hidden">
             <motion.h2 
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -541,7 +543,7 @@ export default function Home() {
               <p className="text-lg text-white/70 font-medium max-w-2xl mx-auto leading-relaxed">
                 Join the smart cohort of students utilizing AI career intelligence to land their dream internships.
               </p>
-              <Link href="/auth/signin" className="mt-4 inline-flex bg-white text-black py-4 px-8 rounded-full font-bold transition-all hover:scale-105 items-center gap-3 shadow-[0_0_30px_rgba(255,255,255,0.2)] hover:bg-[#06D6A0]">
+              <Link href="/auth/signin" className="mt-4 inline-flex bg-[#06D6A0] text-black py-4 px-8 rounded-full font-bold transition-all hover:scale-105 items-center gap-3 shadow-[0_0_30px_rgba(6,214,160,0.4)] hover:bg-white hover:shadow-[0_0_30px_rgba(255,255,255,0.2)]">
                 <div className="bg-white rounded-full flex items-center justify-center">
                   <svg className="w-5 h-5" viewBox="0 0 24 24">
                     <path fill="#EA4335" d="M12.24 10.285V14.4h6.887c-.648 2.41-2.519 4.114-5.136 4.114A5.96 5.96 0 0 1 8 12.557a5.96 5.96 0 0 1 5.991-5.957c1.625 0 3.023.634 4.093 1.663l3.223-3.223C19.346 3.125 16.887 2 13.99 2 8.125 2 3.333 6.792 3.333 12.557S8.125 23.114 13.99 23.114c6.113 0 10.37-4.148 10.37-10.318 0-.698-.08-1.353-.22-1.954H12.24Z" />
@@ -550,7 +552,7 @@ export default function Home() {
                     <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l3.66-2.85z" />
                   </svg>
                 </div>
-                Connect @vitstudent.ac.in Account <span className="ml-1 font-black text-xl text-[#06D6A0]">&rarr;</span>
+                Connect @vitstudent.ac.in Account <span className="ml-1 font-black text-xl">&rarr;</span>
               </Link>
             </div>
           </section>
@@ -571,25 +573,25 @@ export default function Home() {
               {/* Column 2 - Product */}
               <div className="flex flex-col gap-4 md:col-span-2">
                 <h4 className="text-sm font-bold tracking-widest text-white mb-2">PRODUCT</h4>
-                <Link href="#features" className="text-sm text-white/50 hover:text-white transition-colors">AI Extraction</Link>
-                <Link href="#match-score" className="text-sm text-white/50 hover:text-white transition-colors">Match Score</Link>
-                <Link href="#how-it-works" className="text-sm text-white/50 hover:text-white transition-colors">How it Works</Link>
+                <Link href="#features" className="text-sm text-white/50 hover:text-[#06D6A0] transition-colors">AI Extraction</Link>
+                <Link href="#match-score" className="text-sm text-white/50 hover:text-[#06D6A0] transition-colors">Match Score</Link>
+                <Link href="#how-it-works" className="text-sm text-white/50 hover:text-[#06D6A0] transition-colors">How it Works</Link>
               </div>
 
               {/* Column 3 - Resources */}
               <div className="flex flex-col gap-4 md:col-span-2">
                 <h4 className="text-sm font-bold tracking-widest text-white mb-2">RESOURCES</h4>
-                <Link href="#faq" className="text-sm text-white/50 hover:text-white transition-colors">FAQs</Link>
-                <Link href="/privacy-audit" className="text-sm text-white/50 hover:text-white transition-colors">Privacy Audit</Link>
-                <Link href="/api-status" className="text-sm text-white/50 hover:text-white transition-colors">API Status</Link>
+                <Link href="#faq" className="text-sm text-white/50 hover:text-[#06D6A0] transition-colors">FAQs</Link>
+                <Link href="/privacy-audit" className="text-sm text-white/50 hover:text-[#06D6A0] transition-colors">Privacy Audit</Link>
+                <Link href="/api-status" className="text-sm text-white/50 hover:text-[#06D6A0] transition-colors">API Status</Link>
               </div>
 
               {/* Column 4 - Legal */}
               <div className="flex flex-col gap-4 md:col-span-3">
                 <h4 className="text-sm font-bold tracking-widest text-white mb-2">LEGAL</h4>
-                <Link href="/privacy" className="text-sm text-white/50 hover:text-white transition-colors">Privacy Policy</Link>
-                <Link href="/terms" className="text-sm text-white/50 hover:text-white transition-colors">Terms of Service</Link>
-                <Link href="/dpa" className="text-sm text-white/50 hover:text-white transition-colors">DPA (Data Protection)</Link>
+                <Link href="/privacy" className="text-sm text-white/50 hover:text-[#06D6A0] transition-colors">Privacy Policy</Link>
+                <Link href="/terms" className="text-sm text-white/50 hover:text-[#06D6A0] transition-colors">Terms of Service</Link>
+                <Link href="/dpa" className="text-sm text-white/50 hover:text-[#06D6A0] transition-colors">DPA (Data Protection)</Link>
               </div>
             </div>
 
