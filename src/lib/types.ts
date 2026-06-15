@@ -97,8 +97,8 @@ export interface AnalyticsData {
 }
 
 export const CATEGORY_CONFIG: Record<OpportunityCategory, { label: string; color: string; bgColor: string; icon: string }> = {
-  internship: { label: 'Internship', color: '#7C3AED', bgColor: 'rgba(124,58,237,0.15)', icon: 'Briefcase' },
-  hackathon: { label: 'Hackathon', color: '#F72585', bgColor: 'rgba(247,37,133,0.15)', icon: 'Code' },
+  internship: { label: 'Internship', color: '#06D6A0', bgColor: 'rgba(124,58,237,0.15)', icon: 'Briefcase' },
+  hackathon: { label: 'Hackathon', color: '#118AB2', bgColor: 'rgba(247,37,133,0.15)', icon: 'Code' },
   scholarship: { label: 'Scholarship', color: '#06D6A0', bgColor: 'rgba(6,214,160,0.15)', icon: 'GraduationCap' },
   research: { label: 'Research', color: '#4CC9F0', bgColor: 'rgba(76,201,240,0.15)', icon: 'Microscope' },
   workshop: { label: 'Workshop', color: '#FFC107', bgColor: 'rgba(255,193,7,0.15)', icon: 'Wrench' },

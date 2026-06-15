@@ -12,7 +12,7 @@ export default function DashboardLayout({
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-[#06060E]">
+    <div className="min-h-screen bg-[#050505]">
       {/* Sidebar Drawer */}
       <Sidebar 
         mobileOpen={mobileMenuOpen} 

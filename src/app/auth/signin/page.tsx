@@ -31,19 +31,19 @@ function SignInContent() {
   };
 
   return (
-    <div className="min-h-screen bg-[#06060E] flex flex-col items-center justify-center p-6 relative dots-bg">
+    <div className="min-h-screen bg-[#050505] flex flex-col items-center justify-center p-6 relative dots-bg">
       {/* Decorative Orbs */}
-      <div className="hero-orb w-[300px] h-[300px] bg-[#7C3AED] -top-20 opacity-20 blur-[80px]" />
+      <div className="hero-orb w-[300px] h-[300px] bg-[#06D6A0] -top-20 opacity-20 blur-[80px]" />
       <div className="hero-orb w-[400px] h-[400px] bg-[#4F46E5] -bottom-20 opacity-20 blur-[80px]" />
 
       <div className="w-full max-w-[420px] z-10 space-y-6">
         {/* Logo */}
         <div className="text-center space-y-2">
           <Link href="/" className="inline-flex items-center gap-2 text-2xl font-bold tracking-tight text-white">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#7C3AED] to-[#F72585] flex items-center justify-center shadow-lg">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#06D6A0] to-[#118AB2] flex items-center justify-center shadow-lg">
               <Sparkles className="w-5.5 h-5.5 text-white" />
             </div>
-            <span className="font-extrabold">Opportunity<span className="text-[#8B5CF6]">AI</span></span>
+            <span className="font-extrabold">Opportunity<span className="text-[#48E5C2]">AI</span></span>
           </Link>
           <p className="text-xs text-slate-400">Student Career Intelligence Operating System</p>
         </div>
@@ -75,7 +75,7 @@ function SignInContent() {
 
             <div className="p-3.5 bg-slate-950/50 rounded-xl border border-slate-800 text-[10px] text-slate-400 space-y-1.5">
               <p className="font-semibold text-slate-300 flex items-center gap-1.5">
-                <Mail className="w-3.5 h-3.5 text-[#8B5CF6]" />
+                <Mail className="w-3.5 h-3.5 text-[#48E5C2]" />
                 Why VIT Student Domain?
               </p>
               <p className="leading-relaxed">
@@ -130,13 +130,13 @@ function SignInContent() {
               initial={{ scale: 0.95, y: 15, opacity: 0 }}
               animate={{ scale: 1, y: 0, opacity: 1 }}
               exit={{ scale: 0.95, y: 15, opacity: 0 }}
-              className="w-full max-w-[400px] card glass p-8 border-[#F72585]/40 space-y-6 z-10 shadow-2xl relative overflow-hidden"
+              className="w-full max-w-[400px] card glass p-8 border-[#118AB2]/40 space-y-6 z-10 shadow-2xl relative overflow-hidden"
             >
-              <div className="absolute top-0 inset-x-0 h-1.5 bg-[#F72585]" />
+              <div className="absolute top-0 inset-x-0 h-1.5 bg-[#118AB2]" />
               
               <div className="flex flex-col items-center gap-3.5 text-center">
-                <div className="w-12 h-12 rounded-full bg-[#F72585]/10 border border-[#F72585]/30 flex items-center justify-center shadow-lg">
-                  <AlertTriangle className="w-6 h-6 text-[#F72585]" />
+                <div className="w-12 h-12 rounded-full bg-[#118AB2]/10 border border-[#118AB2]/30 flex items-center justify-center shadow-lg">
+                  <AlertTriangle className="w-6 h-6 text-[#118AB2]" />
                 </div>
                 <h3 className="font-extrabold text-lg text-white">Access Restricted</h3>
                 <p className="text-xs text-slate-300 leading-relaxed">
@@ -162,7 +162,7 @@ function SignInContent() {
 
 export default function SignIn() {
   return (
-    <Suspense fallback={<div className="min-h-screen bg-[#06060E] flex items-center justify-center"><div className="w-8 h-8 rounded-full border-4 border-[#7C3AED] border-t-transparent animate-spin" /></div>}>
+    <Suspense fallback={<div className="min-h-screen bg-[#050505] flex items-center justify-center"><div className="w-8 h-8 rounded-full border-4 border-[#06D6A0] border-t-transparent animate-spin" /></div>}>
       <SignInContent />
     </Suspense>
   );

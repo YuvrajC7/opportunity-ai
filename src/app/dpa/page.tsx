@@ -8,15 +8,15 @@ export default function DPAPage() {
   const router = useRouter();
 
   return (
-    <div className="min-h-screen bg-[#06060E] text-slate-300 py-20 px-6 md:px-12">
+    <div className="min-h-screen bg-[#050505] text-slate-300 py-20 px-6 md:px-12">
       <div className="max-w-3xl mx-auto space-y-8">
-        <button onClick={() => router.back()} className="inline-flex items-center gap-2 text-sm text-[#8B5CF6] hover:text-[#7C3AED] transition cursor-pointer bg-transparent border-none p-0">
+        <button onClick={() => router.back()} className="inline-flex items-center gap-2 text-sm text-[#48E5C2] hover:text-[#06D6A0] transition cursor-pointer bg-transparent border-none p-0">
           <ArrowLeft className="w-4 h-4" /> Back to Home
         </button>
         
         <div className="space-y-4">
-          <div className="w-12 h-12 rounded-xl bg-[#7C3AED]/10 flex items-center justify-center mb-6">
-            <FileKey className="w-6 h-6 text-[#8B5CF6]" />
+          <div className="w-12 h-12 rounded-xl bg-[#06D6A0]/10 flex items-center justify-center mb-6">
+            <FileKey className="w-6 h-6 text-[#48E5C2]" />
           </div>
           <h1 className="text-3xl md:text-5xl font-black text-white">Data Protection Agreement</h1>
           <p className="text-sm text-slate-500">Last updated: June 2026</p>

@@ -94,7 +94,7 @@ export default function Applications() {
   }, [applications]);
 
   return (
-    <div className="min-h-screen bg-[#06060E] p-6 md:p-10 text-slate-100">
+    <div className="min-h-screen bg-[#050505] p-6 md:p-10 text-slate-100">
       <div className="space-y-8 animate-fade-in relative z-10 max-w-[1600px] mx-auto">
         
         {/* Back Button */}
@@ -246,7 +246,7 @@ export default function Applications() {
                 value={notesInput}
                 onChange={(e) => setNotesInput(e.target.value)}
                 placeholder="Paste interview questions, recruiter links, team requirements, etc."
-                className="w-full p-3 bg-slate-950 border border-slate-900 rounded-xl text-xs text-slate-200 outline-none focus:border-[#7C3AED] leading-relaxed resize-none"
+                className="w-full p-3 bg-slate-950 border border-slate-900 rounded-xl text-xs text-slate-200 outline-none focus:border-[#06D6A0] leading-relaxed resize-none"
               />
             </div>
 
@@ -269,7 +269,7 @@ export default function Applications() {
               </button>
               <button 
                 onClick={saveNotes}
-                className="flex-1 py-2.5 rounded-xl bg-[#7C3AED] hover:bg-[#6D28D9] text-xs font-bold text-white shadow-lg transition flex items-center justify-center gap-1.5"
+                className="flex-1 py-2.5 rounded-xl bg-[#06D6A0] hover:bg-[#04A77B] text-xs font-bold text-white shadow-lg transition flex items-center justify-center gap-1.5"
               >
                 <Save className="w-4 h-4" /> Save changes
               </button>

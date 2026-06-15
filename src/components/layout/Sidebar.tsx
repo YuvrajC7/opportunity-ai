@@ -43,17 +43,17 @@ export default function Sidebar({ mobileOpen = false, onClose }: SidebarProps) {
         />
       )}
 
-      <aside className={`fixed top-0 bottom-0 left-0 w-[260px] bg-[#0F0F23] border-r border-slate-900 z-50 flex flex-col justify-between transition-transform duration-300 lg:translate-x-0 ${
+      <aside className={`fixed top-0 bottom-0 left-0 w-[260px] bg-[#0A0A0A] border-r border-slate-900 z-50 flex flex-col justify-between transition-transform duration-300 lg:translate-x-0 ${
         mobileOpen ? 'translate-x-0' : '-translate-x-full'
       }`}>
         <div className="space-y-8 pt-6">
           {/* Logo */}
           <div className="px-6">
             <Link href="/dashboard" className="flex items-center gap-2 text-lg font-bold tracking-tight text-white">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-[#7C3AED] to-[#F72585] flex items-center justify-center">
+              <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-[#06D6A0] to-[#118AB2] flex items-center justify-center">
                 <Sparkles className="w-4.5 h-4.5 text-white" />
               </div>
-              <span className="font-extrabold">Opportunity<span className="text-[#8B5CF6]">AI</span></span>
+              <span className="font-extrabold">Opportunity<span className="text-[#48E5C2]">AI</span></span>
             </Link>
           </div>
 
@@ -68,17 +68,17 @@ export default function Sidebar({ mobileOpen = false, onClose }: SidebarProps) {
                   onClick={onClose}
                   className={`flex items-center justify-between px-4 py-3 rounded-xl text-xs font-semibold transition group ${
                     active 
-                      ? 'bg-[#7C3AED]/10 text-white border-l-2 border-[#7C3AED]' 
+                      ? 'bg-[#06D6A0]/10 text-white border-l-2 border-[#06D6A0]' 
                       : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900/40'
                   }`}
                 >
                   <div className="flex items-center gap-3">
-                    <span className={active ? 'text-[#8B5CF6]' : 'text-slate-400 group-hover:text-slate-300'}>
+                    <span className={active ? 'text-[#48E5C2]' : 'text-slate-400 group-hover:text-slate-300'}>
                       {item.icon}
                     </span>
                     {item.label}
                   </div>
-                  {active && <ChevronRight className="w-3.5 h-3.5 text-[#8B5CF6]" />}
+                  {active && <ChevronRight className="w-3.5 h-3.5 text-[#48E5C2]" />}
                 </Link>
               );
             })}
@@ -88,7 +88,7 @@ export default function Sidebar({ mobileOpen = false, onClose }: SidebarProps) {
         {/* User Card */}
         <div className="p-4 border-t border-slate-900 space-y-4 bg-slate-950/20">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-[#7C3AED] to-[#F72585] flex items-center justify-center font-bold text-xs text-white uppercase">
+            <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-[#06D6A0] to-[#118AB2] flex items-center justify-center font-bold text-xs text-white uppercase">
               {session?.user?.name 
                 ? session.user.name.split(' ').slice(0, 2).map((n: string) => n[0]).join('').toUpperCase() 
                 : 'ST'}
@@ -109,7 +109,7 @@ export default function Sidebar({ mobileOpen = false, onClose }: SidebarProps) {
 
           <button 
             onClick={() => signOut({ callbackUrl: '/auth/signin' })}
-            className="flex items-center justify-center gap-2 py-2 rounded-xl border border-slate-900 hover:bg-[#F72585]/10 hover:border-[#F72585]/20 text-[10px] font-bold text-slate-400 hover:text-[#F72585] transition w-full"
+            className="flex items-center justify-center gap-2 py-2 rounded-xl border border-slate-900 hover:bg-[#118AB2]/10 hover:border-[#118AB2]/20 text-[10px] font-bold text-slate-400 hover:text-[#118AB2] transition w-full"
           >
             <LogOut className="w-3.5 h-3.5" /> Sign Out
           </button>

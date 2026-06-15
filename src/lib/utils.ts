@@ -21,7 +21,7 @@ export function formatDeadline(dateStr: string | null | undefined): string {
 
 export function getUrgencyColor(urgency: string): string {
   switch (urgency) {
-    case 'critical': return '#F72585';
+    case 'critical': return '#118AB2';
     case 'high': return '#FF6B35';
     case 'medium': return '#FFC107';
     case 'low': return '#06D6A0';
@@ -46,7 +46,7 @@ export function getStatusColor(status: string): string {
     case 'applied': return '#3A86FF';
     case 'under_review': return '#FFC107';
     case 'offer_received': return '#06D6A0';
-    case 'rejected': return '#F72585';
+    case 'rejected': return '#118AB2';
     default: return '#94A3B8';
   }
 }

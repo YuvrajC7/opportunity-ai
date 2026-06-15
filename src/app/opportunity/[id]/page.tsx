@@ -159,7 +159,7 @@ export default function OpportunityDetail() {
   if (!opp) {
     return (
       <div className="min-h-[60vh] flex flex-col items-center justify-center p-6 text-center space-y-4">
-        <div className="w-12 h-12 rounded-full border border-slate-800 border-t-2 border-t-[#8B5CF6] animate-spin" />
+        <div className="w-12 h-12 rounded-full border border-slate-800 border-t-2 border-t-[#48E5C2] animate-spin" />
         <p className="text-xs text-slate-400">Loading opportunity details...</p>
       </div>
     );
@@ -251,7 +251,7 @@ export default function OpportunityDetail() {
               onClick={() => setShowStatusDropdown(!showStatusDropdown)}
               className="px-4 py-2.5 rounded-xl bg-slate-950 border border-slate-900 hover:border-slate-800 text-xs font-semibold text-white flex items-center gap-2 transition"
             >
-              Status: <span className="font-bold text-[#8B5CF6]">
+              Status: <span className="font-bold text-[#48E5C2]">
                 {statusOptions.find(opt => opt.key === appStatus)?.label}
               </span>
               <ChevronDown className="w-4 h-4 text-slate-500" />
@@ -260,13 +260,13 @@ export default function OpportunityDetail() {
             {showStatusDropdown && (
               <>
                 <div onClick={() => setShowStatusDropdown(false)} className="fixed inset-0 z-30" />
-                <div className="absolute left-0 mt-2 w-44 bg-[#0F0F23] border border-slate-900 rounded-xl shadow-2xl p-2 z-40 space-y-1 animate-fade-in-up">
+                <div className="absolute left-0 mt-2 w-44 bg-[#0A0A0A] border border-slate-900 rounded-xl shadow-2xl p-2 z-40 space-y-1 animate-fade-in-up">
                   {statusOptions.map(opt => (
                     <button
                       key={opt.key}
                       onClick={() => handleStatusChange(opt.key)}
                       className={`w-full text-left px-3 py-2 text-xs font-semibold rounded-lg transition hover:bg-slate-900 ${
-                        appStatus === opt.key ? 'text-[#8B5CF6]' : 'text-slate-400'
+                        appStatus === opt.key ? 'text-[#48E5C2]' : 'text-slate-400'
                       }`}
                     >
                       {opt.label}
@@ -304,7 +304,7 @@ export default function OpportunityDetail() {
             }
             target="_blank"
             rel="noopener noreferrer"
-            className="py-2.5 px-6 rounded-xl border border-slate-900 bg-[#0F0F23] hover:bg-slate-900 text-slate-300 hover:text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 transition shrink-0"
+            className="py-2.5 px-6 rounded-xl border border-slate-900 bg-[#0A0A0A] hover:bg-slate-900 text-slate-300 hover:text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 transition shrink-0"
           >
             <Mail className="w-4 h-4" /> View in Gmail
           </a>
@@ -317,7 +317,7 @@ export default function OpportunityDetail() {
           
           <div className="card glass-subtle p-6 space-y-4">
             <h3 className="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-1.5">
-              <Sparkles className="w-4 h-4 text-[#8B5CF6]" /> AI Extraction Summary
+              <Sparkles className="w-4 h-4 text-[#48E5C2]" /> AI Extraction Summary
             </h3>
             <p className="text-xs md:text-sm text-slate-300 leading-relaxed">
               {opp.summary}
@@ -345,7 +345,7 @@ export default function OpportunityDetail() {
 
           <div className="card glass-subtle p-6 space-y-4">
             <h3 className="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-1.5">
-              <GraduationCap className="w-4 h-4 text-[#8B5CF6]" /> Eligibility Constraints
+              <GraduationCap className="w-4 h-4 text-[#48E5C2]" /> Eligibility Constraints
             </h3>
             <p className="text-xs text-slate-300 leading-relaxed">
               {opp.eligibilityText}
@@ -355,7 +355,7 @@ export default function OpportunityDetail() {
           {opp.skillsRequired && opp.skillsRequired.length > 0 && (
             <div className="card glass-subtle p-6 space-y-4">
               <h3 className="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-1.5">
-                <Code className="w-4 h-4 text-[#8B5CF6]" /> Required Skills & Alignment
+                <Code className="w-4 h-4 text-[#48E5C2]" /> Required Skills & Alignment
               </h3>
               <div className="flex flex-wrap gap-1.5">
                 {opp.skillsRequired.map(sk => {
@@ -394,7 +394,7 @@ export default function OpportunityDetail() {
                   <Link 
                     key={ropp.id} 
                     href={`/opportunity/${ropp.id}`}
-                    className="block p-3.5 rounded-xl border border-slate-900 bg-slate-950/20 hover:bg-[#7C3AED]/5 hover:border-[#7C3AED]/20 transition space-y-1.5"
+                    className="block p-3.5 rounded-xl border border-slate-900 bg-slate-950/20 hover:bg-[#06D6A0]/5 hover:border-[#06D6A0]/20 transition space-y-1.5"
                   >
                     <h4 className="font-bold text-xs text-white line-clamp-1">{ropp.title}</h4>
                     <div className="flex justify-between text-[9px] text-slate-400">
@@ -407,9 +407,9 @@ export default function OpportunityDetail() {
             </div>
           </div>
 
-          <div className="p-4 bg-[#7C3AED]/5 border border-[#7C3AED]/15 rounded-2xl space-y-2 text-[10px] text-slate-400 leading-normal">
+          <div className="p-4 bg-[#06D6A0]/5 border border-[#06D6A0]/15 rounded-2xl space-y-2 text-[10px] text-slate-400 leading-normal">
             <p className="font-bold text-slate-300 flex items-center gap-1">
-              <Sparkles className="w-3.5 h-3.5 text-[#F72585]" /> Secure AI Ingestion
+              <Sparkles className="w-3.5 h-3.5 text-[#118AB2]" /> Secure AI Ingestion
             </p>
             <p>
               OpportunityAI scanned this circular directly from your university inbox. No personal data was stored during the extraction process.

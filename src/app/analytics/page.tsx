@@ -75,7 +75,7 @@ export default function Analytics() {
         const categoryBreakdown = Object.entries(catMap).map(([c, count]) => ({
           category: c.charAt(0).toUpperCase() + c.slice(1),
           count,
-          color: CATEGORY_CONFIG[c as keyof typeof CATEGORY_CONFIG]?.color || '#8B5CF6'
+          color: CATEGORY_CONFIG[c as keyof typeof CATEGORY_CONFIG]?.color || '#48E5C2'
         }));
 
         // Funnel
@@ -147,9 +147,9 @@ export default function Analytics() {
   const CustomTooltip = ({ active, payload, label }: any) => {
     if (active && payload && payload.length) {
       return (
-        <div className="bg-[#0F0F23] border border-slate-900 rounded-xl p-3 shadow-2xl text-[10px] space-y-1">
+        <div className="bg-[#0A0A0A] border border-slate-900 rounded-xl p-3 shadow-2xl text-[10px] space-y-1">
           <p className="font-bold text-white">{label}</p>
-          <p className="text-[#8B5CF6] font-semibold">{payload[0].name}: {payload[0].value}</p>
+          <p className="text-[#48E5C2] font-semibold">{payload[0].name}: {payload[0].value}</p>
         </div>
       );
     }
@@ -157,7 +157,7 @@ export default function Analytics() {
   };
 
   return (
-    <div className="min-h-screen bg-[#06060E] p-6 md:p-10 text-slate-100">
+    <div className="min-h-screen bg-[#050505] p-6 md:p-10 text-slate-100">
       <div className="space-y-8 animate-fade-in relative z-10 max-w-[1600px] mx-auto">
         
         <Link 
@@ -170,7 +170,7 @@ export default function Analytics() {
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div className="space-y-1">
             <h1 className="text-2xl md:text-3xl font-extrabold text-white tracking-tight flex items-center gap-2">
-              Career Analytics <BarChart3 className="w-6 h-6 text-[#8B5CF6]" />
+              Career Analytics <BarChart3 className="w-6 h-6 text-[#48E5C2]" />
             </h1>
             <p className="text-xs text-slate-400">
               Insights on opportunities discovered, application success rates, and active skill gaps.
@@ -180,7 +180,7 @@ export default function Analytics() {
 
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         {[
-          { label: 'Total Scanned', value: data.totalOpportunities || 0, icon: <TrendingUp className="w-4.5 h-4.5 text-[#8B5CF6]" /> },
+          { label: 'Total Scanned', value: data.totalOpportunities || 0, icon: <TrendingUp className="w-4.5 h-4.5 text-[#48E5C2]" /> },
           { label: 'Funnel Applications', value: data.totalApplications || 0, icon: <Award className="w-4.5 h-4.5 text-[#3A86FF]" /> },
           { label: 'Deadlines Tracked', value: data.bookmarkedCount || 0, icon: <Clock className="w-4.5 h-4.5 text-[#FFC107]" /> },
           { label: 'Adherence Success', value: `${data.deadlinesMet + data.deadlinesMissed === 0 ? 0 : Math.round((data.deadlinesMet / (data.deadlinesMet + data.deadlinesMissed)) * 100)}%`, icon: <CheckCircleIcon /> }
@@ -209,15 +209,15 @@ export default function Analytics() {
               <AreaChart data={data.monthlyTrend} margin={{ top: 10, right: 10, left: -25, bottom: 0 }}>
                 <defs>
                   <linearGradient id="colorCount" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#7C3AED" stopOpacity={0.2}/>
-                    <stop offset="95%" stopColor="#7C3AED" stopOpacity={0}/>
+                    <stop offset="5%" stopColor="#06D6A0" stopOpacity={0.2}/>
+                    <stop offset="95%" stopColor="#06D6A0" stopOpacity={0}/>
                   </linearGradient>
                 </defs>
                 <CartesianGrid strokeDasharray="3 3" stroke="rgba(148,163,184,0.05)" />
                 <XAxis dataKey="month" stroke="#64748B" fontSize={10} tickLine={false} />
                 <YAxis stroke="#64748B" fontSize={10} tickLine={false} />
                 <Tooltip content={<CustomTooltip />} />
-                <Area type="monotone" dataKey="count" name="Opportunities" stroke="#8B5CF6" strokeWidth={2} fillOpacity={1} fill="url(#colorCount)" />
+                <Area type="monotone" dataKey="count" name="Opportunities" stroke="#48E5C2" strokeWidth={2} fillOpacity={1} fill="url(#colorCount)" />
               </AreaChart>
             </ResponsiveContainer>
           </div>
@@ -309,7 +309,7 @@ export default function Analytics() {
         <div className="card glass-subtle p-5 md:col-span-7 space-y-4">
           <div>
             <h3 className="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-1.5">
-              <Code className="w-4 h-4 text-[#8B5CF6]" /> Skills Gap Intelligence
+              <Code className="w-4 h-4 text-[#48E5C2]" /> Skills Gap Intelligence
             </h3>
             <p className="text-[10px] text-slate-500">Top missing skills required across your bookmarked listings</p>
           </div>
@@ -325,7 +325,7 @@ export default function Analytics() {
                   </div>
                   <div className="w-full h-1.5 bg-slate-900 rounded-full overflow-hidden">
                     <div 
-                      className="h-full bg-gradient-to-r from-[#7C3AED] to-[#F72585] rounded-full" 
+                      className="h-full bg-gradient-to-r from-[#06D6A0] to-[#118AB2] rounded-full" 
                       style={{ width: `${percentages[idx] || 20}%` }}
                     />
                   </div>
@@ -350,7 +350,7 @@ export default function Analytics() {
                   <p className="font-bold text-xs text-white truncate">{opp.title}</p>
                   <p className="text-[8px] font-mono text-slate-500 uppercase">{opp.category}</p>
                 </div>
-                <span className="text-[9px] font-bold text-[#F72585] bg-[#F72585]/10 border border-[#F72585]/15 px-2 py-0.5 rounded whitespace-nowrap">
+                <span className="text-[9px] font-bold text-[#118AB2] bg-[#118AB2]/10 border border-[#118AB2]/15 px-2 py-0.5 rounded whitespace-nowrap">
                   {formatDeadline(opp.date)}
                 </span>
               </div>

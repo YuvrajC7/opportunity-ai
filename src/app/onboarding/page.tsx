@@ -154,16 +154,16 @@ export default function Onboarding() {
   };
 
   return (
-    <div className="min-h-screen bg-[#06060E] flex flex-col items-center justify-center p-6 relative dots-bg">
-      <div className="hero-orb w-[400px] h-[400px] bg-[#7C3AED] top-10 opacity-15 blur-[90px]" />
-      <div className="hero-orb w-[300px] h-[300px] bg-[#F72585] bottom-10 opacity-10 blur-[80px]" />
+    <div className="min-h-screen bg-[#050505] flex flex-col items-center justify-center p-6 relative dots-bg">
+      <div className="hero-orb w-[400px] h-[400px] bg-[#06D6A0] top-10 opacity-15 blur-[90px]" />
+      <div className="hero-orb w-[300px] h-[300px] bg-[#118AB2] bottom-10 opacity-10 blur-[80px]" />
 
       <div className="w-full max-w-[580px] z-10 space-y-6">
         <div className="flex items-center justify-center gap-2">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-[#7C3AED] to-[#F72585] flex items-center justify-center">
+          <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-[#06D6A0] to-[#118AB2] flex items-center justify-center">
             <Sparkles className="w-4.5 h-4.5 text-white" />
           </div>
-          <span className="font-extrabold text-white text-lg">Opportunity<span className="text-[#8B5CF6]">AI</span></span>
+          <span className="font-extrabold text-white text-lg">Opportunity<span className="text-[#48E5C2]">AI</span></span>
         </div>
 
         <div className="space-y-2">
@@ -178,7 +178,7 @@ export default function Onboarding() {
           </div>
           <div className="w-full h-1 bg-slate-900 rounded-full overflow-hidden">
             <div 
-              className="h-full bg-gradient-to-r from-[#7C3AED] to-[#F72585] transition-all duration-300"
+              className="h-full bg-gradient-to-r from-[#06D6A0] to-[#118AB2] transition-all duration-300"
               style={{ width: `${(step / 4) * 100}%` }}
             />
           </div>
@@ -198,7 +198,7 @@ export default function Onboarding() {
               >
                 <div className="space-y-1">
                   <h3 className="text-xl font-bold text-white flex items-center gap-2">
-                    <BookOpen className="w-5 h-5 text-[#8B5CF6]" /> Let&apos;s get you set up
+                    <BookOpen className="w-5 h-5 text-[#48E5C2]" /> Let&apos;s get you set up
                   </h3>
                   <p className="text-xs text-slate-400">Tell us a bit about your university status.</p>
                 </div>
@@ -221,7 +221,7 @@ export default function Onboarding() {
                       <select 
                         value={university} 
                         onChange={(e) => setUniversity(e.target.value)} 
-                        className="input bg-[#0F0F23] text-white outline-none"
+                        className="input bg-[#0A0A0A] text-white outline-none"
                       >
                         <option>VIT Vellore</option>
                         <option>VIT Chennai</option>
@@ -247,7 +247,7 @@ export default function Onboarding() {
                     <select 
                       value={department} 
                       onChange={(e) => setDepartment(e.target.value)} 
-                      className="input bg-[#0F0F23] text-white outline-none"
+                      className="input bg-[#0A0A0A] text-white outline-none"
                     >
                       <option>Computer Science & Engineering</option>
                       <option>Information Technology</option>
@@ -280,7 +280,7 @@ export default function Onboarding() {
               >
                 <div className="space-y-1">
                   <h3 className="text-xl font-bold text-white flex items-center gap-2">
-                    <Brain className="w-5 h-5 text-[#F72585]" /> What are your skills?
+                    <Brain className="w-5 h-5 text-[#118AB2]" /> What are your skills?
                   </h3>
                   <p className="text-xs text-slate-400">These tags drive your opportunity match score recommendations.</p>
                 </div>
@@ -291,9 +291,9 @@ export default function Onboarding() {
                       <span className="text-xs text-slate-500 italic">No skills added yet. Click suggestions below.</span>
                     ) : (
                       skills.map(sk => (
-                        <div key={sk} className="flex items-center gap-1.5 px-3 py-1 bg-[#7C3AED]/10 border border-[#7C3AED]/20 rounded-full text-xs font-semibold text-[#8B5CF6]">
+                        <div key={sk} className="flex items-center gap-1.5 px-3 py-1 bg-[#06D6A0]/10 border border-[#06D6A0]/20 rounded-full text-xs font-semibold text-[#48E5C2]">
                           {sk}
-                          <button onClick={() => handleRemoveSkill(sk)} className="text-[#F72585] font-bold text-xs hover:text-red-400">×</button>
+                          <button onClick={() => handleRemoveSkill(sk)} className="text-[#118AB2] font-bold text-xs hover:text-red-400">×</button>
                         </div>
                       ))
                     )}
@@ -324,7 +324,7 @@ export default function Onboarding() {
                             onClick={() => isAdded ? handleRemoveSkill(sk) : handleAddSkill(sk)}
                             className={`px-2.5 py-1 text-xs rounded-full border transition font-medium ${
                               isAdded 
-                                ? 'bg-[#7C3AED] border-[#7C3AED] text-white' 
+                                ? 'bg-[#06D6A0] border-[#06D6A0] text-white' 
                                 : 'bg-slate-900 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-white'
                             }`}
                           >
@@ -364,13 +364,13 @@ export default function Onboarding() {
                         onClick={() => handleToggleInterest(c.key)}
                         className={`p-3.5 rounded-xl border text-left flex items-start gap-3 transition ${
                           selected 
-                            ? 'bg-[#7C3AED]/10 border-[#7C3AED] shadow-md shadow-[#7C3AED]/5' 
+                            ? 'bg-[#06D6A0]/10 border-[#06D6A0] shadow-md shadow-[#06D6A0]/5' 
                             : 'bg-slate-900/40 border-slate-800 text-slate-400 hover:border-slate-700 hover:bg-slate-900/60'
                         }`}
                       >
                         <div className={`mt-0.5 w-4.5 h-4.5 rounded flex items-center justify-center border text-[10px] ${
                           selected 
-                            ? 'bg-[#7C3AED] border-[#7C3AED] text-white' 
+                            ? 'bg-[#06D6A0] border-[#06D6A0] text-white' 
                             : 'border-slate-800 bg-slate-950'
                         }`}>
                           {selected && '✓'}

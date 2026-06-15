@@ -17,8 +17,8 @@ export const mockAnalytics: AnalyticsData = {
     { month: 'Jun', count: 16 },
   ],
   categoryBreakdown: [
-    { category: 'Internship', count: 38, color: '#7C3AED' },
-    { category: 'Hackathon', count: 27, color: '#F72585' },
+    { category: 'Internship', count: 38, color: '#06D6A0' },
+    { category: 'Hackathon', count: 27, color: '#118AB2' },
     { category: 'Scholarship', count: 15, color: '#06D6A0' },
     { category: 'Research', count: 18, color: '#4CC9F0' },
     { category: 'Workshop', count: 12, color: '#FFC107' },

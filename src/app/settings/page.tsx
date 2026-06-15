@@ -87,7 +87,7 @@ export default function Settings() {
   };
 
   return (
-    <div className="min-h-screen bg-[#06060E] p-6 md:p-10 text-slate-100">
+    <div className="min-h-screen bg-[#050505] p-6 md:p-10 text-slate-100">
       <div className="space-y-8 animate-fade-in relative z-10 max-w-4xl mx-auto">
         
         <Link 
@@ -121,7 +121,7 @@ export default function Settings() {
           
           <div className="card glass p-6 space-y-5">
             <h3 className="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-2 border-b border-slate-900 pb-2.5">
-              <User className="w-4.5 h-4.5 text-[#8B5CF6]" /> Academic Profile
+              <User className="w-4.5 h-4.5 text-[#48E5C2]" /> Academic Profile
             </h3>
             
             <div className="grid grid-cols-2 gap-4">
@@ -180,9 +180,9 @@ export default function Settings() {
                   <span className="text-xs text-slate-500 italic">No skills added.</span>
                 ) : (
                   skills.map(sk => (
-                    <div key={sk} className="flex items-center gap-1.5 px-3 py-1 bg-[#7C3AED]/10 border border-[#7C3AED]/20 rounded-full text-xs font-semibold text-[#8B5CF6]">
+                    <div key={sk} className="flex items-center gap-1.5 px-3 py-1 bg-[#06D6A0]/10 border border-[#06D6A0]/20 rounded-full text-xs font-semibold text-[#48E5C2]">
                       {sk}
-                      <button onClick={() => handleRemoveSkill(sk)} className="text-[#F72585] font-bold text-xs hover:text-red-400">×</button>
+                      <button onClick={() => handleRemoveSkill(sk)} className="text-[#118AB2] font-bold text-xs hover:text-red-400">×</button>
                     </div>
                   ))
                 )}
@@ -231,7 +231,7 @@ export default function Settings() {
 
                 <button 
                   onClick={handleRevokeGmail}
-                  className="w-full py-2 bg-rose-950/10 hover:bg-rose-950/20 text-xs font-bold text-[#F72585] rounded-xl border border-rose-950/20 transition"
+                  className="w-full py-2 bg-rose-950/10 hover:bg-rose-950/20 text-xs font-bold text-[#118AB2] rounded-xl border border-rose-950/20 transition"
                 >
                   Revoke Gmail Access
                 </button>
@@ -268,7 +268,7 @@ export default function Settings() {
                   </div>
                   <button 
                     onClick={() => notif.set(!notif.val)}
-                    className={`w-9 h-5 rounded-full p-0.5 transition ${notif.val ? 'bg-[#7C3AED]' : 'bg-slate-800'}`}
+                    className={`w-9 h-5 rounded-full p-0.5 transition ${notif.val ? 'bg-[#06D6A0]' : 'bg-slate-800'}`}
                   >
                     <div className={`w-4 h-4 bg-white rounded-full transition-transform duration-200 ${notif.val ? 'translate-x-4' : ''}`} />
                   </button>
@@ -278,8 +278,8 @@ export default function Settings() {
           </div>
 
           <div className="card glass p-6 space-y-4 border-rose-950/20">
-            <h3 className="text-xs font-bold text-[#F72585] uppercase tracking-wider flex items-center gap-2 border-b border-rose-950/15 pb-2.5">
-              <ShieldAlert className="w-4.5 h-4.5 text-[#F72585]" /> Danger Zone
+            <h3 className="text-xs font-bold text-[#118AB2] uppercase tracking-wider flex items-center gap-2 border-b border-rose-950/15 pb-2.5">
+              <ShieldAlert className="w-4.5 h-4.5 text-[#118AB2]" /> Danger Zone
             </h3>
             
             <div className="space-y-3">
@@ -288,7 +288,7 @@ export default function Settings() {
               </p>
               <button 
                 onClick={handleDeleteAccount}
-                className="w-full py-2 bg-rose-500/10 hover:bg-rose-500/15 text-xs font-bold text-[#F72585] rounded-xl border border-[#F72585]/20 transition"
+                className="w-full py-2 bg-rose-500/10 hover:bg-rose-500/15 text-xs font-bold text-[#118AB2] rounded-xl border border-[#118AB2]/20 transition"
               >
                 Delete Account Permanently
               </button>

@@ -67,7 +67,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${outfit.variable}`} style={{ scrollBehavior: 'smooth' }} data-scroll-behavior="smooth">
-      <body className="min-h-screen bg-[#06060E] text-[#F8F9FA] antialiased">
+      <body className="min-h-screen bg-[#050505] text-[#F8F9FA] antialiased">
         <Providers>
           {children}
         </Providers>

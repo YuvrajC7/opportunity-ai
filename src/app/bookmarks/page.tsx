@@ -85,7 +85,7 @@ export default function Bookmarks() {
   }, [bookmarkedOpps, searchQuery]);
 
   return (
-    <div className="min-h-screen bg-[#06060E] p-6 md:p-10 text-slate-100">
+    <div className="min-h-screen bg-[#050505] p-6 md:p-10 text-slate-100">
       <div className="space-y-8 animate-fade-in relative z-10 max-w-[1600px] mx-auto">
         
         <Link 
@@ -102,7 +102,7 @@ export default function Bookmarks() {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search bookmarked items..."
-            className="w-full pl-10 pr-4 py-2.5 bg-[#0F0F23] border border-slate-900 rounded-full text-xs text-white outline-none focus:border-[#7C3AED]"
+            className="w-full pl-10 pr-4 py-2.5 bg-[#0A0A0A] border border-slate-900 rounded-full text-xs text-white outline-none focus:border-[#06D6A0]"
           />
         </div>
 
@@ -124,7 +124,7 @@ export default function Bookmarks() {
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           placeholder="Search bookmarks by company, title, or skills..."
-          className="w-full pl-10 pr-4 py-2 bg-[#0F0F23] border border-slate-900 rounded-full text-xs text-white placeholder-slate-500 outline-none focus:border-[#7C3AED]/40"
+          className="w-full pl-10 pr-4 py-2 bg-[#0A0A0A] border border-slate-900 rounded-full text-xs text-white placeholder-slate-500 outline-none focus:border-[#06D6A0]/40"
         />
       </div>
 
@@ -150,7 +150,7 @@ export default function Bookmarks() {
           {filteredOpps.map((opp) => {
             const conf = CATEGORY_CONFIG[opp.category];
             return (
-              <div key={opp.id} className="card glass p-5 flex flex-col justify-between space-y-4 hover:border-[#7C3AED]/30">
+              <div key={opp.id} className="card glass p-5 flex flex-col justify-between space-y-4 hover:border-[#06D6A0]/30">
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
                     <span 
@@ -192,7 +192,7 @@ export default function Bookmarks() {
                   <div className="flex items-center gap-2 pt-1">
                     <button 
                       onClick={() => toggleBookmark(opp.id)}
-                      className="p-2 rounded-lg bg-[#F72585]/10 border border-[#F72585]/20 text-[#F72585] hover:bg-slate-900 hover:text-slate-400 transition"
+                      className="p-2 rounded-lg bg-[#118AB2]/10 border border-[#118AB2]/20 text-[#118AB2] hover:bg-slate-900 hover:text-slate-400 transition"
                       title="Remove bookmark"
                     >
                       <BookmarkX className="w-4 h-4" />
