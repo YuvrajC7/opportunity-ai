@@ -491,13 +491,13 @@ export default function Home() {
             </div>
           </section>
 
-          <section className="py-40 px-6 md:px-12 max-w-[1200px] mx-auto text-white overflow-hidden">
+          <section className="py-12 px-6 md:px-12 max-w-[1200px] mx-auto text-white overflow-hidden">
             <motion.h2 
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="text-[5vw] leading-[0.9] font-black uppercase tracking-tighter mb-24 text-center text-[#06D6A0]"
+              className="text-[5vw] leading-[0.9] font-black uppercase tracking-tighter mb-12 text-center text-[#06D6A0]"
             >
               FREQUENTLY ASKED <br/>QUESTIONS.
             </motion.h2>
@@ -537,11 +537,11 @@ export default function Home() {
 
           <section className="py-12 px-6 md:px-12 max-w-[1200px] mx-auto w-full relative z-10">
             <div className="bg-[#111111] border border-[#06D6A0]/20 rounded-3xl p-10 md:p-16 text-center flex flex-col items-center gap-6 shadow-2xl backdrop-blur-md">
-              <h2 className="text-4xl md:text-5xl font-black text-white tracking-tight leading-tight">Unlock Your Student Inbox Today.</h2>
+              <h2 className="text-4xl md:text-5xl font-black text-[#06D6A0] tracking-tight leading-tight">Unlock Your Student Inbox Today.</h2>
               <p className="text-lg text-white/70 font-medium max-w-2xl mx-auto leading-relaxed">
                 Join the smart cohort of students utilizing AI career intelligence to land their dream internships.
               </p>
-              <Link href="/auth/signin" className="mt-4 inline-flex bg-white text-black py-4 px-8 rounded-full font-bold transition-transform hover:scale-105 items-center gap-3 shadow-[0_0_30px_rgba(255,255,255,0.2)]">
+              <Link href="/auth/signin" className="mt-4 inline-flex bg-white text-black py-4 px-8 rounded-full font-bold transition-all hover:scale-105 items-center gap-3 shadow-[0_0_30px_rgba(255,255,255,0.2)] hover:bg-[#06D6A0]">
                 <div className="bg-white rounded-full flex items-center justify-center">
                   <svg className="w-5 h-5" viewBox="0 0 24 24">
                     <path fill="#EA4335" d="M12.24 10.285V14.4h6.887c-.648 2.41-2.519 4.114-5.136 4.114A5.96 5.96 0 0 1 8 12.557a5.96 5.96 0 0 1 5.991-5.957c1.625 0 3.023.634 4.093 1.663l3.223-3.223C19.346 3.125 16.887 2 13.99 2 8.125 2 3.333 6.792 3.333 12.557S8.125 23.114 13.99 23.114c6.113 0 10.37-4.148 10.37-10.318 0-.698-.08-1.353-.22-1.954H12.24Z" />
@@ -555,8 +555,8 @@ export default function Home() {
             </div>
           </section>
 
-          <footer className="pt-16 pb-8 px-6 md:px-12 text-white relative z-10 border-t border-white/10">
-            <div className="max-w-[1200px] w-full mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8 mb-16">
+          <footer className="pt-8 pb-8 px-6 md:px-12 text-white relative z-10 border-t border-white/10">
+            <div className="max-w-[1200px] w-full mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8 mb-8">
               {/* Column 1 - Brand */}
               <div className="flex flex-col gap-6 md:col-span-5 pr-8">
                 <Link href="/" className="flex items-center gap-3 text-2xl font-black tracking-tighter text-white hover:opacity-80 transition-opacity">
