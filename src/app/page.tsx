@@ -535,34 +535,32 @@ export default function Home() {
             </motion.div>
           </section>
 
-          <section className="py-24 px-6 md:px-12 max-w-[1200px] mx-auto w-full relative z-10">
-            <div className="bg-gradient-to-r from-[#2c1358] via-[#1a1744] to-[#1E3A8A] border border-white/10 rounded-3xl p-16 md:p-24 text-center flex flex-col items-center gap-6 shadow-2xl backdrop-blur-md">
-              <h2 className="text-4xl md:text-6xl font-black text-white tracking-tight leading-tight">Unlock Your Student Inbox Today.</h2>
-              <p className="text-lg md:text-xl text-white/70 font-medium max-w-2xl mx-auto leading-relaxed">
+          <section className="py-12 px-6 md:px-12 max-w-[1200px] mx-auto w-full relative z-10">
+            <div className="bg-[#111111] border border-[#06D6A0]/20 rounded-3xl p-10 md:p-16 text-center flex flex-col items-center gap-6 shadow-2xl backdrop-blur-md">
+              <h2 className="text-4xl md:text-5xl font-black text-white tracking-tight leading-tight">Unlock Your Student Inbox Today.</h2>
+              <p className="text-lg text-white/70 font-medium max-w-2xl mx-auto leading-relaxed">
                 Join the smart cohort of students utilizing AI career intelligence to land their dream internships.
               </p>
-              <Link href="/auth/signin" className="mt-6 inline-flex bg-[#6366F1] text-white py-4 px-8 rounded-full font-bold transition-transform hover:scale-105 items-center gap-3 shadow-[0_0_30px_rgba(99,102,241,0.4)]">
-                <div className="bg-white p-1 rounded-full flex items-center justify-center">
-                  <svg className="w-4 h-4" viewBox="0 0 24 24">
+              <Link href="/auth/signin" className="mt-4 inline-flex bg-white text-black py-4 px-8 rounded-full font-bold transition-transform hover:scale-105 items-center gap-3 shadow-[0_0_30px_rgba(255,255,255,0.2)]">
+                <div className="bg-white rounded-full flex items-center justify-center">
+                  <svg className="w-5 h-5" viewBox="0 0 24 24">
                     <path fill="#EA4335" d="M12.24 10.285V14.4h6.887c-.648 2.41-2.519 4.114-5.136 4.114A5.96 5.96 0 0 1 8 12.557a5.96 5.96 0 0 1 5.991-5.957c1.625 0 3.023.634 4.093 1.663l3.223-3.223C19.346 3.125 16.887 2 13.99 2 8.125 2 3.333 6.792 3.333 12.557S8.125 23.114 13.99 23.114c6.113 0 10.37-4.148 10.37-10.318 0-.698-.08-1.353-.22-1.954H12.24Z" />
                     <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
                     <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
                     <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l3.66-2.85z" />
                   </svg>
                 </div>
-                Connect @vitstudent.ac.in Account <span className="ml-1 font-black text-xl">&rarr;</span>
+                Connect @vitstudent.ac.in Account <span className="ml-1 font-black text-xl text-[#06D6A0]">&rarr;</span>
               </Link>
             </div>
           </section>
 
-          <footer className="bg-[#09090b] pt-24 pb-8 px-6 md:px-12 text-white relative z-10">
-            <div className="max-w-[1200px] w-full mx-auto grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-8 mb-24">
+          <footer className="pt-16 pb-8 px-6 md:px-12 text-white relative z-10 border-t border-white/10">
+            <div className="max-w-[1200px] w-full mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8 mb-16">
               {/* Column 1 - Brand */}
               <div className="flex flex-col gap-6 md:col-span-5 pr-8">
                 <Link href="/" className="flex items-center gap-3 text-2xl font-black tracking-tighter text-white hover:opacity-80 transition-opacity">
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#c41b8a] to-[#7c3aed] flex items-center justify-center">
-                    <SparklesIcon className="w-4 h-4 text-white" />
-                  </div>
+                  <SparklesIcon className="w-6 h-6 text-[#06D6A0]" />
                   <span className="tracking-tighter">OPPORTUNITY<span className="opacity-50">AI</span></span>
                 </Link>
                 <p className="text-sm text-white/50 font-medium leading-relaxed">
