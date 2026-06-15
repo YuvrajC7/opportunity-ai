@@ -535,33 +535,72 @@ export default function Home() {
             </motion.div>
           </section>
 
-          <footer className="bg-[#020202] py-20 px-6 md:px-12 border-t border-white/10 text-white flex flex-col items-center gap-16">
-            
-            <div className="text-center max-w-3xl flex flex-col items-center gap-8">
-              <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter text-white">
-                READY TO ENTER THE VORTEX?
-              </h2>
-              <p className="text-xl text-white/60 font-medium">
-                Connect your Google Workspace in one click and let the AI extract every hidden opportunity from your inbox instantly.
+          <section className="py-24 px-6 md:px-12 max-w-[1200px] mx-auto w-full relative z-10">
+            <div className="bg-gradient-to-r from-[#2c1358] via-[#1a1744] to-[#1E3A8A] border border-white/10 rounded-3xl p-16 md:p-24 text-center flex flex-col items-center gap-6 shadow-2xl backdrop-blur-md">
+              <h2 className="text-4xl md:text-6xl font-black text-white tracking-tight leading-tight">Unlock Your Student Inbox Today.</h2>
+              <p className="text-lg md:text-xl text-white/70 font-medium max-w-2xl mx-auto leading-relaxed">
+                Join the smart cohort of students utilizing AI career intelligence to land their dream internships.
               </p>
-              <Link href="/auth/signin" className="inline-flex bg-[#06D6A0] text-black py-5 px-12 rounded-full text-lg font-black uppercase tracking-widest hover:scale-105 hover:bg-white transition-all items-center gap-4 shadow-[0_0_30px_rgba(6,214,160,0.4)]">
-                <KanbanSquare className="w-6 h-6" />
-                Connect Google Workspace
+              <Link href="/auth/signin" className="mt-6 inline-flex bg-[#6366F1] text-white py-4 px-8 rounded-full font-bold transition-transform hover:scale-105 items-center gap-3 shadow-[0_0_30px_rgba(99,102,241,0.4)]">
+                <div className="bg-white p-1 rounded-full flex items-center justify-center">
+                  <svg className="w-4 h-4" viewBox="0 0 24 24">
+                    <path fill="#EA4335" d="M12.24 10.285V14.4h6.887c-.648 2.41-2.519 4.114-5.136 4.114A5.96 5.96 0 0 1 8 12.557a5.96 5.96 0 0 1 5.991-5.957c1.625 0 3.023.634 4.093 1.663l3.223-3.223C19.346 3.125 16.887 2 13.99 2 8.125 2 3.333 6.792 3.333 12.557S8.125 23.114 13.99 23.114c6.113 0 10.37-4.148 10.37-10.318 0-.698-.08-1.353-.22-1.954H12.24Z" />
+                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l3.66-2.85z" />
+                  </svg>
+                </div>
+                Connect @vitstudent.ac.in Account <span className="ml-1 font-black text-xl">&rarr;</span>
               </Link>
             </div>
+          </section>
 
-            <div className="w-full h-px bg-white/10"></div>
+          <footer className="bg-[#09090b] pt-24 pb-8 px-6 md:px-12 text-white relative z-10">
+            <div className="max-w-[1200px] w-full mx-auto grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-8 mb-24">
+              {/* Column 1 - Brand */}
+              <div className="flex flex-col gap-6 md:col-span-5 pr-8">
+                <Link href="/" className="flex items-center gap-3 text-2xl font-black tracking-tighter text-white hover:opacity-80 transition-opacity">
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#c41b8a] to-[#7c3aed] flex items-center justify-center">
+                    <SparklesIcon className="w-4 h-4 text-white" />
+                  </div>
+                  <span className="tracking-tighter">OPPORTUNITY<span className="opacity-50">AI</span></span>
+                </Link>
+                <p className="text-sm text-white/50 font-medium leading-relaxed">
+                  Automating career opportunity discovery, extraction, tracking, and recommendations for ambitious university students.
+                </p>
+              </div>
 
-            <div className="max-w-[1600px] w-full mx-auto flex flex-col md:flex-row items-center justify-between text-sm font-bold text-white/40 uppercase tracking-widest gap-6">
-              <Link href="/" className="flex items-center gap-3 text-2xl font-black tracking-tighter text-white hover:opacity-80 transition-opacity">
-                <SparklesIcon className="w-6 h-6 text-[#06D6A0]" />
-                <span className="tracking-tighter">OPPORTUNITY<span className="opacity-50">AI</span></span>
-              </Link>
-              <p>© 2026. THE FUTURE OF RECRUITMENT.</p>
-              <div className="flex items-center gap-8">
-                <span className="flex items-center gap-2"><Lock className="w-4 h-4" /> SECURE OAUTH</span>
-                <Link href="/privacy" className="hover:text-white transition">PRIVACY</Link>
-                <Link href="/terms" className="hover:text-white transition">TERMS</Link>
+              {/* Column 2 - Product */}
+              <div className="flex flex-col gap-4 md:col-span-2">
+                <h4 className="text-sm font-bold tracking-widest text-white mb-2">PRODUCT</h4>
+                <Link href="#features" className="text-sm text-white/50 hover:text-white transition-colors">AI Extraction</Link>
+                <Link href="#match-score" className="text-sm text-white/50 hover:text-white transition-colors">Match Score</Link>
+                <Link href="#how-it-works" className="text-sm text-white/50 hover:text-white transition-colors">How it Works</Link>
+              </div>
+
+              {/* Column 3 - Resources */}
+              <div className="flex flex-col gap-4 md:col-span-2">
+                <h4 className="text-sm font-bold tracking-widest text-white mb-2">RESOURCES</h4>
+                <Link href="#faq" className="text-sm text-white/50 hover:text-white transition-colors">FAQs</Link>
+                <Link href="/privacy-audit" className="text-sm text-white/50 hover:text-white transition-colors">Privacy Audit</Link>
+                <Link href="/api-status" className="text-sm text-white/50 hover:text-white transition-colors">API Status</Link>
+              </div>
+
+              {/* Column 4 - Legal */}
+              <div className="flex flex-col gap-4 md:col-span-3">
+                <h4 className="text-sm font-bold tracking-widest text-white mb-2">LEGAL</h4>
+                <Link href="/privacy" className="text-sm text-white/50 hover:text-white transition-colors">Privacy Policy</Link>
+                <Link href="/terms" className="text-sm text-white/50 hover:text-white transition-colors">Terms of Service</Link>
+                <Link href="/dpa" className="text-sm text-white/50 hover:text-white transition-colors">DPA (Data Protection)</Link>
+              </div>
+            </div>
+
+            <div className="w-full h-px bg-white/5 mb-8 max-w-[1200px] mx-auto"></div>
+
+            <div className="max-w-[1200px] w-full mx-auto flex flex-col md:flex-row items-center justify-between text-xs font-medium text-white/40 gap-4">
+              <p>© 2026 OpportunityAI. All rights reserved.</p>
+              <div className="flex items-center gap-2 text-[10px] tracking-wider uppercase">
+                <Lock className="w-3 h-3" /> Secure SSL Connection
               </div>
             </div>
           </footer>
