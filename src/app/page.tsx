@@ -243,10 +243,25 @@ function FAQItem({ question, answer }: { question: string, answer: string }) {
 // --- MAIN PAGE ---
 
 export default function Home() {
+  const ctaRef = useRef<HTMLElement>(null);
+  const [showNavbarButton, setShowNavbarButton] = useState(true);
+
+  useEffect(() => {
+    if (!ctaRef.current) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setShowNavbarButton(!entry.isIntersecting);
+      },
+      { threshold: 0.1 }
+    );
+    observer.observe(ctaRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div className="w-full bg-[#050505] selection:bg-[#06D6A0]/30 selection:text-white">
       
-      <nav className="fixed top-0 left-0 right-0 z-[100] p-6 md:p-12 flex items-center justify-between pointer-events-none mix-blend-difference">
+      <nav className="fixed top-0 left-0 right-0 z-[100] p-6 md:p-12 flex items-center justify-between pointer-events-none mix-blend-difference transition-all duration-300">
         <Link href="/" className="flex items-center gap-3 pointer-events-auto group">
           <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center group-hover:scale-105 transition-transform">
             <SparklesIcon className="w-6 h-6 text-black" />
@@ -255,7 +270,12 @@ export default function Home() {
             Opportunity<span className="opacity-50">AI</span>
           </span>
         </Link>
-        <Link href="/auth/signin" className="bg-white text-black px-8 py-3.5 rounded-full text-sm font-black uppercase tracking-widest hover:scale-105 hover:bg-[#06D6A0] transition-all pointer-events-auto">
+        <Link 
+          href="/auth/signin" 
+          className={`bg-white text-black px-8 py-3.5 rounded-full text-sm font-black uppercase tracking-widest hover:scale-105 hover:bg-[#06D6A0] transition-all duration-300 ${
+            showNavbarButton ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-4 pointer-events-none'
+          }`}
+        >
           ACCESS PORTAL
         </Link>
       </nav>
@@ -537,7 +557,7 @@ export default function Home() {
             </motion.div>
           </section>
 
-          <section className="py-12 px-6 md:px-12 max-w-[1200px] mx-auto w-full relative z-10">
+          <section ref={ctaRef} className="py-12 px-6 md:px-12 max-w-[1200px] mx-auto w-full relative z-10">
             <div className="bg-[#111111] border border-[#06D6A0]/20 rounded-3xl p-10 md:p-16 text-center flex flex-col items-center gap-6 shadow-2xl backdrop-blur-md">
               <h2 className="text-4xl md:text-5xl font-black text-[#06D6A0] tracking-tight leading-tight">Unlock Your Student Inbox Today.</h2>
               <p className="text-lg text-white/70 font-medium max-w-2xl mx-auto leading-relaxed">
