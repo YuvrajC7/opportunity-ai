@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Float, Sparkles, Environment } from '@react-three/drei';
 import * as THREE from 'three';
+import { motion } from 'framer-motion';
 import { Sparkles as SparklesIcon, Lock, KanbanSquare, MessageSquare, ChevronDown, ChevronUp, Mouse } from 'lucide-react';
 
 // --- GLOBAL SCROLL TRACKER ---
@@ -286,7 +287,13 @@ export default function Home() {
           </div>
 
           <div className="w-full flex flex-col items-center justify-end pb-12 px-4 pointer-events-auto">
-            <div className="bg-[#050505]/80 backdrop-blur-3xl border border-white/10 p-12 rounded-[3rem] text-center max-w-4xl w-full">
+            <motion.div 
+              initial={{ opacity: 0, y: 50, scale: 0.9 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true, amount: 0.5 }}
+              className="bg-[#050505]/80 backdrop-blur-3xl border border-white/10 p-12 rounded-[3rem] text-center max-w-4xl w-full"
+            >
               <h2 className="text-5xl md:text-7xl font-black text-[#06D6A0] uppercase tracking-tighter mb-6 drop-shadow-[0_0_30px_rgba(6,214,160,0.5)]">
                 THE COMMAND CENTER
               </h2>
@@ -297,17 +304,23 @@ export default function Home() {
                 <KanbanSquare className="w-6 h-6" />
                 Connect Google Workspace
               </Link>
-            </div>
+            </motion.div>
           </div>
 
         </div>
 
         <main className="w-full bg-[#050505] relative z-20 border-t border-white/10 shadow-[0_-30px_100px_rgba(0,0,0,1)]">
           
-          <section className="py-40 px-6 md:px-12 max-w-[1600px] mx-auto">
-            <h2 className="text-[6vw] leading-[0.9] font-black uppercase tracking-tighter text-white mb-24">
+          <section className="py-40 px-6 md:px-12 max-w-[1600px] mx-auto overflow-hidden">
+            <motion.h2 
+              initial={{ opacity: 0, x: -100 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              viewport={{ once: true }}
+              className="text-[6vw] leading-[0.9] font-black uppercase tracking-tighter text-white mb-24"
+            >
               THE COMPLETE <br/> ARSENAL.
-            </h2>
+            </motion.h2>
             <div className="grid md:grid-cols-2 gap-8">
               {[
                 { title: "Direct Sync", text: "Secure, read-only OAuth integration. Refreshes automatically in the background." },
@@ -315,29 +328,49 @@ export default function Home() {
                 { title: "Skill Matching", text: "A 0-100 score matching the extracted job requirements to your specific profile." },
                 { title: "Push Alerts", text: "Get notified via dashboard before deadlines expire. Never miss a hidden opportunity." }
               ].map((feat, i) => (
-                <div key={i} className="bg-white/5 border border-white/10 p-12 md:p-16 rounded-[3rem] hover:bg-white/10 transition-colors">
+                <motion.div 
+                  key={i} 
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                  viewport={{ once: true }}
+                  className="bg-white/5 border border-white/10 p-12 md:p-16 rounded-[3rem] hover:bg-white/10 transition-colors"
+                >
                   <div className="w-16 h-16 bg-[#06D6A0] rounded-full text-black flex items-center justify-center font-black text-2xl mb-8">
                     {i + 1}
                   </div>
                   <h3 className="text-3xl md:text-4xl font-black uppercase tracking-tighter text-white mb-4">{feat.title}</h3>
                   <p className="text-xl text-white/60 font-medium">{feat.text}</p>
-                </div>
+                </motion.div>
               ))}
             </div>
           </section>
 
-          <section className="py-40 bg-white text-black px-6 md:px-12">
+          <section className="py-40 bg-white text-black px-6 md:px-12 overflow-hidden">
             <div className="max-w-[1600px] mx-auto">
-              <h2 className="text-[5vw] leading-[0.9] font-black uppercase tracking-tighter mb-24">
+              <motion.h2 
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+                className="text-[5vw] leading-[0.9] font-black uppercase tracking-tighter mb-24"
+              >
                 APPROVED BY <br/>THE BEST.
-              </h2>
+              </motion.h2>
               <div className="grid md:grid-cols-3 gap-12">
                 {[
                   { quote: "It surfaced an off-campus research internship I had completely archived by mistake.", author: "Aditya Vardhan", role: "CSE, 4th Year Student", avatar: "AV" },
                   { quote: "Having SIH and Devfolio listings in one dashboard with match scores saved me hours.", author: "Nisha Ramachandran", role: "ECE, 3rd Year Student", avatar: "NR" },
                   { quote: "The automated deadline reminders are a lifesaver. Completed 8 apps this month.", author: "Rahul Krishnan", role: "IT, 2nd Year Student", avatar: "RK" }
                 ].map((t, i) => (
-                  <div key={i} className="space-y-8">
+                  <motion.div 
+                    key={i} 
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5, delay: i * 0.2 }}
+                    viewport={{ once: true }}
+                    className="space-y-8"
+                  >
                     <MessageSquare className="w-12 h-12 text-black/20" />
                     <p className="text-2xl text-black/80 font-medium leading-relaxed">"{t.quote}"</p>
                     <div className="flex items-center gap-4 pt-8 border-t border-black/10">
@@ -349,17 +382,29 @@ export default function Home() {
                         <p className="text-sm text-black/50 font-bold uppercase tracking-widest mt-1">{t.role}</p>
                       </div>
                     </div>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </div>
           </section>
 
-          <section className="py-40 px-6 md:px-12 max-w-[1200px] mx-auto text-white">
-            <h2 className="text-[5vw] leading-[0.9] font-black uppercase tracking-tighter mb-24 text-center">
+          <section className="py-40 px-6 md:px-12 max-w-[1200px] mx-auto text-white overflow-hidden">
+            <motion.h2 
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="text-[5vw] leading-[0.9] font-black uppercase tracking-tighter mb-24 text-center"
+            >
               FREQUENTLY ASKED <br/>QUESTIONS.
-            </h2>
-            <div className="border-t border-white/10">
+            </motion.h2>
+            <motion.div 
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 1 }}
+              viewport={{ once: true }}
+              className="border-t border-white/10"
+            >
               <FAQItem 
                 question="How does the email extraction work?" 
                 answer="We use Google OAuth to securely request read-only access to your inbox. We specifically filter for emails related to internships, careers, and college placement cells. A massive LLM then parses the text to extract the core details like deadlines and links."
@@ -376,7 +421,7 @@ export default function Home() {
                 question="Do I need a specific college email?" 
                 answer="No. As long as you sign in with the Google Account that receives your internship alerts (whether personal or university-issued), the AI will be able to scan and extract the opportunities."
               />
-            </div>
+            </motion.div>
           </section>
 
           <footer className="bg-[#020202] py-12 px-6 md:px-12 border-t border-white/10 text-white">
