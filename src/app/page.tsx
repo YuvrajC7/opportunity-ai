@@ -3,9 +3,9 @@
 import React, { useRef, useState } from 'react';
 import Link from 'next/link';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { ScrollControls, Scroll, useScroll, Float, Sparkles, Environment } from '@react-three/drei';
+import { ScrollControls, Scroll, useScroll, Float, Sparkles, Environment, Text } from '@react-three/drei';
 import * as THREE from 'three';
-import { Sparkles as SparklesIcon, Lock, KanbanSquare, MessageSquare, ChevronDown, ChevronUp } from 'lucide-react';
+import { Sparkles as SparklesIcon, Lock, KanbanSquare, MessageSquare, ChevronDown, ChevronUp, Mouse } from 'lucide-react';
 
 // --- 3D COMPONENTS ---
 
@@ -14,6 +14,9 @@ function Vortex() {
   const group = useRef<THREE.Group>(null);
   
   const panes = React.useMemo(() => {
+    const mockSenders = ["Google Careers", "Placement Cell", "Jane Doe", "Apple HR", "Spam Deals", "GitHub", "Vercel", "Meta Recruiting", "Uber Internships"];
+    const mockSubjects = ["Your Application Status", "URGENT: Registration", "Meeting Notes", "Next Steps: Software Engineer", "Buy 1 Get 1 Free", "Security Alert", "Deployment Successful", "Interview Invite", "Please complete assessment"];
+    
     return Array.from({ length: 60 }).map(() => ({
       position: [
         (Math.random() - 0.5) * 30, 
@@ -25,7 +28,9 @@ function Vortex() {
         Math.random() * Math.PI, 
         0
       ] as [number, number, number],
-      scale: Math.random() * 1.5 + 0.5
+      scale: Math.random() * 1.5 + 0.5,
+      sender: mockSenders[Math.floor(Math.random() * mockSenders.length)],
+      subject: mockSubjects[Math.floor(Math.random() * mockSubjects.length)]
     }));
   }, []);
 
@@ -46,18 +51,32 @@ function Vortex() {
     <group ref={group}>
       {panes.map((p, i) => (
         <Float key={i} speed={2} rotationIntensity={3} floatIntensity={3}>
-          <mesh position={p.position} rotation={p.rotation} scale={p.scale}>
-            <boxGeometry args={[3, 4, 0.1]} />
-            <meshPhysicalMaterial 
-              color="#ffffff" 
-              transmission={0.9} 
-              opacity={1} 
-              metalness={0.8} 
-              roughness={0.1} 
-              ior={1.5} 
-              thickness={1} 
-            />
-          </mesh>
+          <group position={p.position} rotation={p.rotation} scale={p.scale}>
+            <mesh>
+              <boxGeometry args={[4, 2.5, 0.1]} />
+              <meshPhysicalMaterial 
+                color="#ffffff" 
+                transmission={0.9} 
+                opacity={1} 
+                metalness={0.5} 
+                roughness={0.2} 
+                ior={1.5} 
+                thickness={0.5} 
+              />
+            </mesh>
+            {/* Sender */}
+            <Text position={[-1.8, 0.8, 0.06]} fontSize={0.3} color="black" anchorX="left" anchorY="middle" maxWidth={3.6} font="https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2">
+              {p.sender}
+            </Text>
+            {/* Subject */}
+            <Text position={[-1.8, 0.2, 0.06]} fontSize={0.2} color="#333333" anchorX="left" anchorY="middle" maxWidth={3.6} font="https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2">
+              {p.subject}
+            </Text>
+            {/* Snippet */}
+            <Text position={[-1.8, -0.4, 0.06]} fontSize={0.15} color="#666666" anchorX="left" anchorY="middle" maxWidth={3.6} font="https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2">
+              {"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."}
+            </Text>
+          </group>
         </Float>
       ))}
     </group>
@@ -183,7 +202,10 @@ export default function Home() {
               <h1 className="text-[15vw] leading-none font-black text-transparent -webkit-text-stroke-[2px] -webkit-text-stroke-white/20 uppercase tracking-tighter mix-blend-difference">
                 SCROLL
               </h1>
-              <p className="text-white/50 text-xl font-bold tracking-widest uppercase mt-4">To Enter the Vortex</p>
+              <div className="flex flex-col items-center mt-4">
+                <Mouse className="w-8 h-8 text-white/50 mb-2 animate-bounce" />
+                <p className="text-white/50 text-xl font-bold tracking-widest uppercase">To Be Free of Chaos</p>
+              </div>
             </div>
 
             {/* Page 2 */}
