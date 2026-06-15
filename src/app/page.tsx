@@ -497,7 +497,7 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="text-[5vw] leading-[0.9] font-black uppercase tracking-tighter mb-24 text-center"
+              className="text-[5vw] leading-[0.9] font-black uppercase tracking-tighter mb-24 text-center text-[#06D6A0]"
             >
               FREQUENTLY ASKED <br/>QUESTIONS.
             </motion.h2>
@@ -509,20 +509,28 @@ export default function Home() {
               className="border-t border-white/10"
             >
               <FAQItem 
-                question="How does the email extraction work?" 
-                answer="We use Google OAuth to securely request read-only access to your inbox. We specifically filter for emails related to internships, careers, and college placement cells. A massive LLM then parses the text to extract the core details like deadlines and links."
+                question="Is OpportunityAI secure? Can you read all my personal emails?" 
+                answer="We use Google OAuth to securely request read-only access. We specifically filter only for emails related to internships, careers, and college placement cells. We cannot send emails on your behalf, and we do not store the full contents of your emails—only the extracted metadata (Role, Company, Deadline)."
               />
               <FAQItem 
-                question="Is my data secure?" 
-                answer="Absolutely. We only ask for read-only access. We cannot send emails on your behalf, and we do not store the full contents of your emails. We only store the extracted internship metadata (Role, Company, Deadline) in our secure database."
+                question="Why is login restricted to @vitstudent.ac.in emails?" 
+                answer="During our closed beta, the AI is fine-tuned specifically for the formats and structures of VIT Vellore and Chennai placement circulars. This ensures maximum accuracy before we expand to other universities."
               />
               <FAQItem 
-                question="Can I manually add internships?" 
-                answer="Yes! While the AI handles the bulk of the work from your inbox, your Command Center features a 'New Application' button allowing you to manually add off-campus links you find on LinkedIn or Twitter."
+                question="How does the Match Score work?" 
+                answer="When you onboard, we build a customized profile for you. The AI cross-references the requirements of every extracted internship against your specific year, department, and technical skills to calculate a highly personalized Match Score."
               />
               <FAQItem 
-                question="Do I need a specific college email?" 
-                answer="No. As long as you sign in with the Google Account that receives your internship alerts (whether personal or university-issued), the AI will be able to scan and extract the opportunities."
+                question="Do I have to pay for OpportunityAI?" 
+                answer="No! OpportunityAI is completely free for students during our beta phase. Our core mission is to democratize access to career opportunities."
+              />
+              <FAQItem 
+                question="Can I manually add opportunities I find elsewhere?" 
+                answer="Yes! While the AI handles the bulk of the work from your inbox, your Command Center features a 'New Application' button allowing you to manually add and track off-campus links you find on LinkedIn, Twitter, or Discord."
+              />
+              <FAQItem 
+                question="How do I disconnect my account or revoke Gmail access?" 
+                answer="You have total control. You can revoke read-access at any time directly from your Google Account Security settings, or delete your account entirely from the OpportunityAI Settings page. We do not retain data after deletion."
               />
             </motion.div>
           </section>
