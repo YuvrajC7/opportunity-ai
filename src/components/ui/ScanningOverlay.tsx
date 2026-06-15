@@ -58,7 +58,7 @@ export default function ScanningOverlay({ isVisible }: { isVisible: boolean }) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-[200] flex flex-col items-center justify-center bg-[#050505]/90 backdrop-blur-xl p-6"
+          className="fixed inset-0 z-[200] flex flex-col items-center justify-center bg-[#050505]/60 backdrop-blur-md p-6"
         >
           {/* Radar / Core Animation */}
           <div className="relative w-48 h-48 mb-12 flex items-center justify-center">
