@@ -264,10 +264,10 @@ export default function Home() {
       <nav className="fixed top-0 left-0 right-0 z-[100] p-6 md:p-12 flex items-center justify-between pointer-events-none mix-blend-difference transition-all duration-300">
         <Link href="/" className="flex items-center gap-3 pointer-events-auto group">
           <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center group-hover:scale-105 transition-transform">
-            <SparklesIcon className="w-6 h-6 text-black" />
+            <SparklesIcon className="w-6 h-6 text-[#06D6A0]" />
           </div>
           <span className="font-black text-2xl tracking-tighter text-white uppercase hidden sm:block">
-            Opportunity<span className="opacity-50">AI</span>
+            Opportunity<span className="text-[#06D6A0]">AI</span>
           </span>
         </Link>
         <Link 
@@ -583,7 +583,7 @@ export default function Home() {
               <div className="flex flex-col gap-6 md:col-span-5 pr-8">
                 <Link href="/" className="flex items-center gap-3 text-2xl font-black tracking-tighter text-white hover:opacity-80 transition-opacity">
                   <SparklesIcon className="w-6 h-6 text-[#06D6A0]" />
-                  <span className="tracking-tighter">OPPORTUNITY<span className="opacity-50">AI</span></span>
+                  <span className="tracking-tighter">OPPORTUNITY<span className="text-[#06D6A0]">AI</span></span>
                 </Link>
                 <p className="text-sm text-white/50 font-medium leading-relaxed">
                   Automating career opportunity discovery, extraction, tracking, and recommendations for ambitious university students.
