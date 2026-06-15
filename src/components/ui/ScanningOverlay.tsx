@@ -65,12 +65,12 @@ export default function ScanningOverlay({ isVisible }: { isVisible: boolean }) {
             {/* Pulsing rings */}
             <motion.div 
               animate={{ scale: [0.2, 2.5], opacity: [0, 0.6, 0] }}
-              transition={{ duration: 3, repeat: Infinity, ease: "easeOut" }}
+              transition={{ duration: 1.5, repeat: Infinity, ease: "easeOut" }}
               className="absolute inset-0 rounded-full border border-[#06D6A0]"
             />
             <motion.div 
               animate={{ scale: [0.2, 2.5], opacity: [0, 0.6, 0] }}
-              transition={{ duration: 3, repeat: Infinity, ease: "easeOut", delay: 1.5 }}
+              transition={{ duration: 1.5, repeat: Infinity, ease: "easeOut", delay: 0.75 }}
               className="absolute inset-0 rounded-full border border-[#06D6A0]"
             />
             
