@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState, useMemo, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { 
   Sparkles, 
@@ -23,6 +23,7 @@ import { calculateMatchScore } from '@/lib/utils';
 import { getOpportunities, toggleBookmark as toggleBookmarkAction } from '@/app/actions/opportunities';
 import { updateUserSkills, recordLoginTimestamp } from '@/app/actions/user';
 import { useSession, signOut } from 'next-auth/react';
+import ScanningOverlay from '@/components/ui/ScanningOverlay';
 
 export default function Dashboard() {
   const { data: session, update: updateSession } = useSession();
@@ -36,6 +37,23 @@ export default function Dashboard() {
   
   const [newSkill, setNewSkill] = useState('');
   const [showDropdown, setShowDropdown] = useState(false);
+
+  const [showOverlay, setShowOverlay] = useState(false);
+  const overlayStartTime = useRef<number>(0);
+
+  useEffect(() => {
+    if (isLoading) {
+      setShowOverlay(true);
+      overlayStartTime.current = Date.now();
+    } else {
+      const elapsed = Date.now() - overlayStartTime.current;
+      const remaining = Math.max(0, 3500 - elapsed);
+      const timeout = setTimeout(() => {
+        setShowOverlay(false);
+      }, remaining);
+      return () => clearTimeout(timeout);
+    }
+  }, [isLoading]);
 
   // Extract profile from session
   const userProfile = useMemo(() => ({
@@ -247,6 +265,7 @@ export default function Dashboard() {
 
   return (
     <div className="space-y-8 animate-fade-in relative z-10">
+      <ScanningOverlay isVisible={showOverlay} />
       
       <div className="block md:hidden relative w-full mb-4">
         <Search className="w-4 h-4 text-slate-500 absolute left-3.5 top-1/2 -translate-y-1/2" />

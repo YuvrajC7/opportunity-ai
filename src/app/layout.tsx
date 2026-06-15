@@ -18,6 +18,7 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://opportunity-ai-delta.vercel.app"),
   title: "OpportunityAI — AI-Powered Student Career Intelligence",
   description:
     "OpportunityAI scans your university inbox, extracts career-critical opportunities — internships, hackathons, scholarships — and turns email chaos into a smart, personalised dashboard. Never miss a deadline again.",
@@ -35,7 +36,7 @@ export const metadata: Metadata = {
     title: "OpportunityAI — AI-Powered Student Career Intelligence",
     description:
       "Your university inbox is full of career gold — internships, hackathons, scholarships — buried under thousands of emails. OpportunityAI finds them for you.",
-    url: "https://opportunityai.in",
+    url: "https://opportunity-ai-delta.vercel.app",
     siteName: "OpportunityAI",
     locale: "en_IN",
     type: "website",
