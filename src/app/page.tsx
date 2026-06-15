@@ -135,36 +135,7 @@ function EmailMesh({ position, rotation, scale, sender, subject, snippet }: any)
   );
 }
 
-// Procedural Mathematical Data Core
-function DataCore({ position, scale }: any) {
-  const ref1 = useRef<THREE.Mesh>(null);
-  const ref2 = useRef<THREE.Mesh>(null);
-
-  useFrame((state) => {
-    const t = state.clock.getElapsedTime();
-    if (ref1.current) ref1.current.rotation.x = ref1.current.rotation.y = t * 0.2;
-    if (ref2.current) {
-      ref2.current.rotation.x = t * -0.3;
-      ref2.current.rotation.z = t * 0.3;
-    }
-  });
-
-  return (
-    <Float speed={2} rotationIntensity={3} floatIntensity={3}>
-      <group position={position} scale={scale}>
-        <mesh ref={ref1}>
-          <icosahedronGeometry args={[2, 1]} />
-          <meshPhysicalMaterial color="#06D6A0" wireframe thickness={2} />
-        </mesh>
-        <mesh ref={ref2}>
-          <octahedronGeometry args={[1.5, 0]} />
-          <meshPhysicalMaterial color="#ffffff" transmission={1} opacity={1} roughness={0} ior={1.5} thickness={2} />
-        </mesh>
-        <Sparkles count={50} scale={4} size={3} color="#06D6A0" speed={2} />
-      </group>
-    </Float>
-  );
-}
+// Removed procedural data core based on user feedback
 
 function CinematicTunnel() {
   const scrollRef = useGlobalScroll();
@@ -175,42 +146,31 @@ function CinematicTunnel() {
     const mockSubjects = ["Your Application Status", "URGENT: Registration", "Meeting Notes", "Next Steps: Software Engineer", "Buy 1 Get 1 Free", "Security Alert", "Deployment Successful", "Interview Invite", "Please complete assessment"];
     const snippet = "Dear student, we are pleased to inform you that the application window for the software engineering internship is now open. Please review the attached requirements...";
     
-    // Create a beautiful, mathematical helix structure of 50 emails
-    const cards = Array.from({ length: 50 }).map((_, i) => {
-      // Helix math
-      const theta = i * 0.4; 
-      const radius = 8 + Math.random() * 4;
+    // Create a massive floating vortex of 80 HUGE emails
+    const cards = Array.from({ length: 80 }).map((_, i) => {
+      const theta = i * 0.6; 
+      const radius = 10 + Math.random() * 8;
       const x = Math.cos(theta) * radius;
       const y = Math.sin(theta) * radius;
-      const z = -i * 6; // Deep into the screen
+      const z = -i * 5; // Deep into the screen
 
       // Face the camera perfectly or with slight cinematic angles
-      const rotY = (Math.random() - 0.5) * 0.5;
-      const rotX = (Math.random() - 0.5) * 0.3;
+      const rotY = (Math.random() - 0.5) * 0.8;
+      const rotX = (Math.random() - 0.5) * 0.5;
+      const rotZ = (Math.random() - 0.5) * 0.2;
 
       return {
         type: 'card',
         position: [x, y, z] as [number, number, number],
-        rotation: [rotX, rotY, 0] as [number, number, number],
-        scale: 1,
+        rotation: [rotX, rotY, rotZ] as [number, number, number],
+        scale: Math.random() * 1.5 + 1.5, // MASSIVE emails
         sender: mockSenders[Math.floor(Math.random() * mockSenders.length)],
         subject: mockSubjects[Math.floor(Math.random() * mockSubjects.length)],
         snippet
       };
     });
 
-    // 15 Massive Procedural Data Cores floating outside the tunnel
-    const cores = Array.from({ length: 15 }).map((_, i) => ({
-      type: 'core',
-      position: [
-        (Math.random() - 0.5) * 60, 
-        (Math.random() - 0.5) * 60, 
-        -20 - Math.random() * 200
-      ] as [number, number, number],
-      scale: Math.random() * 2 + 1,
-    }));
-
-    return [...cards, ...cores];
+    return [...cards];
   }, []);
 
   useFrame(() => {
@@ -234,12 +194,9 @@ function CinematicTunnel() {
 
   return (
     <group ref={group}>
-      {items.map((p, i) => {
-        if (p.type === 'card') {
-          return <EmailMesh key={i} {...p} />;
-        }
-        return <DataCore key={i} position={p.position} scale={p.scale} />;
-      })}
+      {items.map((p, i) => (
+        <EmailMesh key={i} {...p} />
+      ))}
     </group>
   );
 }
