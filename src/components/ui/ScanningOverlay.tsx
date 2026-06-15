@@ -64,14 +64,14 @@ export default function ScanningOverlay({ isVisible }: { isVisible: boolean }) {
           <div className="relative w-48 h-48 mb-12 flex items-center justify-center">
             {/* Pulsing rings */}
             <motion.div 
-              animate={{ scale: [1, 1.5, 2], opacity: [0.8, 0.3, 0] }}
-              transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-              className="absolute inset-0 rounded-full border-2 border-[#06D6A0]"
+              animate={{ scale: [0.2, 2.5], opacity: [0, 0.6, 0] }}
+              transition={{ duration: 3, repeat: Infinity, ease: "easeOut" }}
+              className="absolute inset-0 rounded-full border border-[#06D6A0]"
             />
             <motion.div 
-              animate={{ scale: [1, 1.5, 2], opacity: [0.8, 0.3, 0] }}
-              transition={{ duration: 2, repeat: Infinity, ease: "linear", delay: 1 }}
-              className="absolute inset-0 rounded-full border-2 border-[#06D6A0]"
+              animate={{ scale: [0.2, 2.5], opacity: [0, 0.6, 0] }}
+              transition={{ duration: 3, repeat: Infinity, ease: "easeOut", delay: 1.5 }}
+              className="absolute inset-0 rounded-full border border-[#06D6A0]"
             />
             
             {/* Center Core */}
