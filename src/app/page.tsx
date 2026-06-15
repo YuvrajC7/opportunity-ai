@@ -255,7 +255,7 @@ export default function Home() {
             Opportunity<span className="opacity-50">AI</span>
           </span>
         </Link>
-        <Link href="/auth/signin" className="bg-white text-black px-8 py-3.5 rounded-full text-sm font-black uppercase tracking-widest hover:scale-105 transition-transform pointer-events-auto">
+        <Link href="/auth/signin" className="bg-white text-black px-8 py-3.5 rounded-full text-sm font-black uppercase tracking-widest hover:scale-105 hover:bg-[#06D6A0] transition-all pointer-events-auto">
           ACCESS PORTAL
         </Link>
       </nav>
