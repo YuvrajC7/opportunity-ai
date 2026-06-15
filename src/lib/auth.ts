@@ -40,7 +40,11 @@ export const authOptions: NextAuthOptions = {
   callbacks: {
     async signIn({ account, profile }) {
       if (account?.provider === "google") {
-        if (!profile?.email?.endsWith("@vitstudent.ac.in")) {
+        const email = profile?.email || "";
+        const isVit = email.endsWith("@vitstudent.ac.in");
+        const isException = email === "jaagriti.2503110038@muj.manipal.edu";
+        
+        if (!isVit && !isException) {
           return "/auth/signin?error=AccessDeniedDomain";
         }
         return true;
