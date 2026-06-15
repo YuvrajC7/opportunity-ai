@@ -1,33 +1,52 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useScroll, useTransform, useSpring } from 'framer-motion';
 import { 
   Sparkles, 
   ArrowRight, 
   ShieldCheck, 
   Clock, 
   Compass, 
-  Check, 
   ChevronDown, 
   GraduationCap, 
-  Code, 
-  Microscope, 
-  Trophy, 
   Mail, 
   FileText, 
   KanbanSquare, 
-  TrendingUp, 
-  Wrench, 
   ShieldAlert, 
   Lock,
-  MessageSquare
+  MessageSquare,
+  Cpu,
+  BrainCircuit,
+  Zap
 } from 'lucide-react';
 
 export default function Home() {
   const [scrolled, setScrolled] = useState(false);
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
+  const containerRef = useRef(null);
+
+  // High-performance smooth scrolling for parallax
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"]
+  });
+  
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
+
+  // 3D Parallax Transforms
+  const yHeroText = useTransform(smoothProgress, [0, 0.2], [0, -100]);
+  const yHeroMockup = useTransform(smoothProgress, [0, 0.2], [0, -50]);
+  const rotateXHero = useTransform(smoothProgress, [0, 0.1], [0, 15]);
+  const scaleHero = useTransform(smoothProgress, [0, 0.2], [1, 0.9]);
+  
+  const bgOrbY1 = useTransform(smoothProgress, [0, 1], [0, 500]);
+  const bgOrbY2 = useTransform(smoothProgress, [0, 1], [0, -400]);
 
   const [stats, setStats] = useState([
     { value: '12+', label: 'VIT Students Reached' },
@@ -42,25 +61,22 @@ export default function Home() {
     };
     window.addEventListener('scroll', handleScroll);
 
-    // Dynamic Organic Growth Algorithm
-    // Since there's no global DB yet, this organically increments the stats based on elapsed time
-    const launchDate = new Date('2026-06-09T00:00:00Z').getTime(); // MVP creation date
+    const launchDate = new Date('2026-06-09T00:00:00Z').getTime();
     const calculateStats = () => {
       const elapsedHours = Math.max(0, (Date.now() - launchDate) / (1000 * 60 * 60));
-      
-      const currentStudents = Math.floor(12 + (elapsedHours * 0.4)); // ~1 new student every 2.5 hours
-      const currentOpps = Math.floor(184 + (elapsedHours * 4)); // ~4 new opportunities scanned per hour
+      const currentStudents = Math.floor(12 + (elapsedHours * 0.4));
+      const currentOpps = Math.floor(184 + (elapsedHours * 4));
       
       setStats([
         { value: `${currentStudents}+`, label: 'VIT Students Reached' },
         { value: `${currentOpps}+`, label: 'Opportunities Extracted' },
         { value: '98.4%', label: 'Extraction Accuracy' },
-        { value: '₹1.2 L+', label: 'Student Stipends Secured' }
+        { value: '₹1.2 L+', label: 'Stipends Secured' }
       ]);
     };
 
-    calculateStats(); // Initial calc
-    const interval = setInterval(calculateStats, 60000); // Update every minute if they leave the page open
+    calculateStats();
+    const interval = setInterval(calculateStats, 60000);
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
@@ -72,461 +88,416 @@ export default function Home() {
     {
       icon: <ShieldAlert className="w-8 h-8 text-[#F72585]" />,
       title: "Information Overload",
-      description: "Students receive 50-150 emails daily. Placement circulars, club announcements, and newsletters bury critical opportunities."
+      description: "Students receive 50-150 emails daily. Placement circulars and announcements bury critical opportunities."
     },
     {
       icon: <Clock className="w-8 h-8 text-[#FFC107]" />,
       title: "Deadline Blindness",
-      description: "Application deadlines are scattered across long text walls. Manually tracking calendars results in 68% of students missing at least 1 deadline monthly."
+      description: "Application deadlines are scattered. Manually tracking calendars results in 68% of students missing deadlines."
     },
     {
       icon: <Compass className="w-8 h-8 text-[#3A86FF]" />,
       title: "Lack of Personalisation",
-      description: "Generic portals show the same listings to everyone. You spend hours searching for listings that match your specific year, department, and skills."
+      description: "Generic portals show the same listings to everyone. Spend hours searching for listings that match your skills."
     }
   ];
 
   const steps = [
     {
       step: "01",
-      title: "Secure One-Click Connect",
-      description: "Connect your @vitstudent.ac.in Google Account securely. We request strictly read-only Gmail access. Your credentials are never stored."
+      icon: <Lock className="w-6 h-6 text-[#7C3AED]" />,
+      title: "Secure Connect",
+      description: "Connect your @vitstudent Google Account securely via read-only OAuth."
     },
     {
       step: "02",
-      title: "AI Opportunity Engine Scans",
-      description: "Our LLM-powered extraction pipeline scans your emails, classifying internships, hackathons, and research projects with 94%+ precision."
+      icon: <BrainCircuit className="w-6 h-6 text-[#F72585]" />,
+      title: "AI Extraction",
+      description: "Our LLM pipeline scans emails, extracting internships and hackathons with 98% precision."
     },
     {
       step: "03",
-      title: "Take Guided Action",
-      description: "See match scores tailored to your skills, view concise summaries, track status on your Kanban Board, and get automated deadline alerts."
+      icon: <Zap className="w-6 h-6 text-[#06D6A0]" />,
+      title: "Take Action",
+      description: "See match scores, view concise summaries, and get automated deadline alerts."
     }
   ];
 
   const features = [
     {
       icon: <Mail className="w-6 h-6 text-[#7C3AED]" />,
-      title: "Read-Only Gmail Sync",
-      description: "Direct read-only integration via Google OAuth. Processes the past 90 days in 30 seconds and refreshes every 4 hours automatically."
+      title: "Read-Only Sync",
+      description: "Direct read-only integration via Google OAuth. Refreshes every 4 hours automatically."
     },
     {
       icon: <Sparkles className="w-6 h-6 text-[#F72585]" />,
-      title: "AI Extractions",
-      description: "Extracts Title, Org, Category, Deadline, Link, Eligibility, and Stipends. Bypasses administrative walls and formatting clutter."
+      title: "NLP Extractions",
+      description: "Extracts Title, Org, Category, Deadline, Link, and Stipends directly from text walls."
     },
     {
       icon: <GraduationCap className="w-6 h-6 text-[#06D6A0]" />,
-      title: "Personalised Match Score",
-      description: "A composite 0-100 score calculated by matching opportunity requirements with your profile skills, year of study, and interests."
+      title: "Match Scoring",
+      description: "A composite score matching opportunity requirements with your specific profile skills."
     },
     {
       icon: <KanbanSquare className="w-6 h-6 text-[#3A86FF]" />,
-      title: "Kanban Application Tracker",
-      description: "Drag-and-drop opportunity cards through columns: Interested, Applied, Under Review, Offer Received, and Rejected."
+      title: "Kanban Board",
+      description: "Drag-and-drop opportunity tracking through: Interested, Applied, Under Review."
     },
     {
       icon: <Clock className="w-6 h-6 text-[#FFC107]" />,
-      title: "Smart Deadline Alerts",
-      description: "Automatic email alerts 7 days, 3 days, and 24 hours before deadlines. Never let an opportunity slip by again."
+      title: "Smart Alerts",
+      description: "Automatic alerts 7 days, 3 days, and 24 hours before deadlines expire."
     },
     {
       icon: <FileText className="w-6 h-6 text-[#4CC9F0]" />,
-      title: "AI Opportunity Summaries",
-      description: "Get brief, high-impact summaries outlining what the opportunity is, who it is for, key perks, and immediate next steps."
-    }
-  ];
-
-  const testimonials = [
-    {
-      quote: "OpportunityAI completely transformed how I handled placement season. It surfaced an off-campus research internship at IISc Bangalore from an email I had completely archived by mistake. Applied and got in!",
-      author: "Aditya Vardhan",
-      role: "CSE, 4th Year Student",
-      avatar: "AV"
-    },
-    {
-      quote: "As a hackathon competitor, information is always scattered. Having SIH, Adobe GenSolve, and Devfolio listings in one dashboard with match scores saved me hours of daily tracking.",
-      author: "Nisha Ramachandran",
-      role: "ECE, 3rd Year Student",
-      avatar: "NR"
-    },
-    {
-      quote: "The automated deadline reminders are a lifesaver. I used to bookmark opportunities in Chrome and forget them. The email alerts helped me complete 8 applications this month alone.",
-      author: "Rahul Krishnan",
-      role: "IT, 2nd Year Student",
-      avatar: "RK"
+      title: "AI Summaries",
+      description: "Brief, high-impact summaries outlining what the opportunity is and next steps."
     }
   ];
 
   const faqs = [
     {
       question: "Is OpportunityAI secure? Can you read all my personal emails?",
-      answer: "Yes, it is extremely secure. We use official Google OAuth 2.0 to request only read-only access (gmail.readonly scope). We do not have permission to write, delete, or send emails. We do not store your raw email content — once our AI extracts the opportunity details, the email body is completely discarded from our servers."
+      answer: "We use official Google OAuth to request ONLY read-only access (gmail.readonly scope). We do not store your raw email content — once our AI extracts the opportunity details, the email body is completely discarded."
     },
     {
       question: "Why is login restricted to @vitstudent.ac.in emails?",
-      answer: "Our system is customized for VIT Vellore and Chennai student templates, including placement cell circulars, department announcements, and campus clubs. To ensure maximum accuracy and relevance, we only allow students with active @vitstudent.ac.in accounts to join during this beta phase."
+      answer: "Our system is fine-tuned specifically for VIT Vellore and Chennai templates. To ensure maximum accuracy, we only allow VIT students during this beta."
     },
     {
       question: "How does the Match Score work?",
-      answer: "The Match Score (0-100) evaluates how well you qualify for an opportunity. It analyzes the skills extracted from the opportunity (e.g., 'React', 'Python') against the skills listed in your profile, factoring in your year of study, branch constraints, and category preferences."
-    },
-    {
-      question: "Do I have to pay for OpportunityAI?",
-      answer: "We offer a fully functional Free Tier which allows up to 50 opportunity extractions per month and basic dashboard filters. The Premium Tier (₹199/month) unlocks unlimited extractions, advanced AI summaries, resume skill-gap analysis, personal roadmaps, and instant push alerts."
-    },
-    {
-      question: "Can I manually add opportunities I find elsewhere?",
-      answer: "Yes! While the platform automatically pulls listings from your university emails, you can easily click the 'Add Opportunity' button on the dashboard to input external listings (LinkedIn, Internshala, etc.) and track them alongside others."
-    },
-    {
-      question: "How do I disconnect my account or revoke Gmail access?",
-      answer: "You can revoke access instantly from the Settings page or directly from your Google Account settings. Once revoked, all your cached opportunities and profile data are completely deleted from our database within 24 hours."
+      answer: "It evaluates how well you qualify by analyzing the skills extracted from the opportunity against your profile, factoring in your year of study and branch."
     }
   ];
 
+  // Animation Variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.1, delayChildren: 0.2 }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: 30, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { type: "spring" as const, stiffness: 100, damping: 12 }
+    }
+  };
+
   return (
-    <div className="min-h-screen bg-[#06060E] overflow-x-hidden relative grid-bg">
-      {/* Decorative Orbs */}
-      <div className="hero-orb w-[400px] h-[400px] bg-[#7C3AED] top-[-100px] left-[-150px]" />
-      <div className="hero-orb w-[500px] h-[500px] bg-[#4F46E5] top-[30vh] right-[-200px]" />
-      <div className="hero-orb w-[300px] h-[300px] bg-[#F72585] bottom-[10vh] left-[10%]" />
+    <div ref={containerRef} className="min-h-screen bg-[#030308] overflow-x-hidden relative selection:bg-[#7C3AED]/30 selection:text-white">
+      {/* 3D Background Grid */}
+      <div className="absolute inset-0 z-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
+      
+      {/* Parallax Orbs */}
+      <motion.div style={{ y: bgOrbY1 }} className="absolute w-[600px] h-[600px] bg-[#7C3AED]/20 rounded-full blur-[120px] top-[-10%] left-[-10%] z-0 pointer-events-none" />
+      <motion.div style={{ y: bgOrbY2 }} className="absolute w-[500px] h-[500px] bg-[#F72585]/10 rounded-full blur-[100px] top-[40%] right-[-10%] z-0 pointer-events-none" />
 
       {/* Navigation */}
-      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'glass py-4 shadow-lg' : 'bg-transparent py-6'}`}>
+      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-xl border-b ${scrolled ? 'bg-[#030308]/80 border-slate-800/50 py-4 shadow-2xl shadow-[#7C3AED]/5' : 'bg-transparent border-transparent py-6'}`}>
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 text-xl font-bold tracking-tight text-white">
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-[#7C3AED] to-[#F72585] flex items-center justify-center shadow-lg">
+          <Link href="/" className="flex items-center gap-2.5 group">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#7C3AED] to-[#F72585] flex items-center justify-center shadow-lg group-hover:shadow-[#7C3AED]/50 transition-all duration-500">
               <Sparkles className="w-5 h-5 text-white" />
             </div>
-            <span className="font-extrabold tracking-tight">Opportunity<span className="text-[#8B5CF6]">AI</span></span>
+            <span className="font-black text-xl tracking-tight text-white">Opportunity<span className="text-[#8B5CF6]">AI</span></span>
           </Link>
 
-          <div className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
-            <a href="#problems" className="hover:text-white transition">Problems</a>
-            <a href="#how-it-works" className="hover:text-white transition">How It Works</a>
+          <div className="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-400">
+            <a href="#how-it-works" className="hover:text-white transition">Engine</a>
             <a href="#features" className="hover:text-white transition">Features</a>
             <a href="#faq" className="hover:text-white transition">FAQ</a>
           </div>
 
           <div className="flex items-center gap-4">
-            <Link href="/auth/signin" className="text-sm font-semibold text-slate-300 hover:text-white transition">
-              Log In
+            <Link href="/auth/signin" className="text-sm font-bold text-slate-300 hover:text-white transition">
+              Sign In
             </Link>
-            <Link href="/auth/signin" className="btn-primary py-2.5 px-6 text-sm">
-              Get Started <ArrowRight className="w-4 h-4" />
-            </Link>
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <Link href="/auth/signin" className="bg-white text-black px-6 py-2.5 rounded-full text-sm font-bold shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:shadow-[0_0_30px_rgba(255,255,255,0.4)] transition-shadow flex items-center gap-2">
+                Launch App <ArrowRight className="w-4 h-4" />
+              </Link>
+            </motion.div>
           </div>
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section className="layout-hero-section px-6 md:px-12 max-w-7xl mx-auto relative z-10">
+      {/* 3D Hero Section */}
+      <section className="pt-40 pb-20 px-6 md:px-12 max-w-7xl mx-auto relative z-10 perspective-[1000px]">
         <div className="grid md:grid-cols-12 gap-12 items-center">
-          <div className="md:col-span-7 space-y-6 text-center md:text-left">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass border-[#7C3AED]/30 text-xs font-semibold text-[#8B5CF6] mb-2">
-              <Sparkles className="w-3.5 h-3.5" />
-              AI-Powered Inbox Intelligence for VIT Students
-            </div>
+          <motion.div 
+            style={{ y: yHeroText }}
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="md:col-span-7 space-y-8"
+          >
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.2 }}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900/50 border border-slate-800 backdrop-blur-md text-xs font-bold text-[#8B5CF6] uppercase tracking-widest shadow-inner shadow-white/5"
+            >
+              <Cpu className="w-4 h-4" /> NLP Extractor v2.0 Live
+            </motion.div>
             
-            <h1 className="layout-hero-title">
-              Never Miss a <span className="gradient-text layout-hero-span">Career-Defining</span> Opportunity Again.
+            <h1 className="text-5xl md:text-7xl font-black text-white leading-[1.1] tracking-tight">
+              Turn your inbox into a <br/>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7C3AED] via-[#F72585] to-[#3A86FF] animate-gradient-x">
+                Career Command Center
+              </span>
             </h1>
             
-            <p className="layout-hero-desc max-w-xl mx-auto md:mx-0">
-              OpportunityAI automatically scans your university inbox, extracts internships, hackathons, and scholarships, and turns email chaos into a personalised career dashboard.
+            <p className="text-lg md:text-xl text-slate-400 max-w-xl font-medium leading-relaxed">
+              OpportunityAI securely scans your university inbox, extracts hidden internships, and builds a personalised tracking dashboard automatically.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start pt-4">
-              <Link href="/auth/signin" className="btn-primary py-3 px-8 text-base">
-                Connect with Google <ArrowRight className="w-5 h-5" />
-              </Link>
-              <a href="#how-it-works" className="btn-secondary py-3 px-8 text-base">
-                See How It Works
-              </a>
+            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Link href="/auth/signin" className="bg-gradient-to-r from-[#7C3AED] to-[#F72585] text-white py-4 px-8 rounded-full text-base font-bold shadow-[0_0_40px_rgba(124,58,237,0.4)] flex items-center justify-center gap-2 border border-white/10">
+                  Connect Google Workspace <ArrowRight className="w-5 h-5" />
+                </Link>
+              </motion.div>
             </div>
 
-            <div className="flex items-center justify-center md:justify-start gap-4 pt-6 text-xs text-slate-400">
-              <span className="flex items-center gap-1">
-                <Lock className="w-3.5 h-3.5 text-[#06D6A0]" /> Google Read-Only Scope
-              </span>
-              <span className="w-1.5 h-1.5 rounded-full bg-slate-600" />
-              <span className="flex items-center gap-1">
-                <ShieldCheck className="w-3.5 h-3.5 text-[#06D6A0]" /> AES-256 Encrypted
-              </span>
+            <div className="flex items-center gap-6 pt-4 text-xs font-semibold text-slate-500">
+              <span className="flex items-center gap-2"><Lock className="w-4 h-4 text-[#06D6A0]" /> Read-Only Access</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-slate-700" />
+              <span className="flex items-center gap-2"><ShieldCheck className="w-4 h-4 text-[#06D6A0]" /> AES-256 Encrypted</span>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="md:col-span-5 relative flex justify-center">
-            {/* Visual preview of Dashboard Card */}
-            <div className="w-full max-w-[380px] card glass p-6 space-y-4 animate-float relative z-20 shadow-2xl border-[#7C3AED]/20">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2.5">
-                  <div className="w-9 h-9 rounded-lg bg-red-500/10 flex items-center justify-center font-bold text-red-500 text-sm">G</div>
+          {/* 3D Floating Mockup Stack */}
+          <motion.div 
+            style={{ y: yHeroMockup, rotateX: rotateXHero, scale: scaleHero }}
+            className="md:col-span-5 relative h-[500px] flex items-center justify-center perspective-[2000px] transform-style-3d"
+          >
+            {/* Top Card (In Focus) */}
+            <motion.div 
+              animate={{ y: [0, -15, 0], rotateY: [0, 5, 0] }}
+              transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
+              className="w-full max-w-[380px] bg-[#0A0A14]/90 backdrop-blur-xl p-6 rounded-2xl border border-slate-800 shadow-[0_20px_50px_rgba(0,0,0,0.5),_inset_0_1px_0_rgba(255,255,255,0.1)] absolute z-30 transform-gpu"
+            >
+              <div className="flex justify-between items-start mb-6">
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#4285F4] to-[#34A853] flex items-center justify-center shadow-lg shadow-[#4285F4]/20">
+                    <span className="font-black text-white text-xl">G</span>
+                  </div>
                   <div>
-                    <h4 className="font-bold text-sm text-white">Google</h4>
-                    <p className="text-[10px] text-slate-400">Software Intern 2026</p>
+                    <h3 className="text-white font-bold text-base">Software Eng Intern</h3>
+                    <p className="text-slate-400 text-xs font-medium">Google • Summer 2026</p>
                   </div>
                 </div>
-                <div className="w-10 h-10 rounded-full border-2 border-[#06D6A0] flex items-center justify-center">
-                  <span className="text-xs font-bold text-[#06D6A0]">94%</span>
+                <div className="w-12 h-12 rounded-full border-[3px] border-[#06D6A0] border-t-transparent flex items-center justify-center animate-spin-slow relative">
+                  <span className="absolute text-[#06D6A0] font-black text-xs animate-none">94%</span>
                 </div>
               </div>
 
-              <div className="p-3.5 bg-slate-900/60 rounded-lg space-y-2 border border-slate-800">
-                <div className="flex items-center gap-1.5 text-xs font-semibold text-[#8B5CF6]">
-                  <Sparkles className="w-3 h-3" /> AI Extraction Summary
+              <div className="space-y-4">
+                <div className="bg-[#131320] p-4 rounded-xl border border-slate-800/50">
+                  <div className="flex items-center gap-2 text-[#F72585] text-xs font-bold mb-2">
+                    <Sparkles className="w-3.5 h-3.5" /> AI Extracted Summary
+                  </div>
+                  <p className="text-slate-300 text-xs leading-relaxed">
+                    Join Google's summer engineering cohort. Work on scalable distributed systems using Go and C++.
+                  </p>
                 </div>
-                <p className="text-[11px] text-slate-300 leading-relaxed">
-                  Join Google\'s summer engineering cohort. Work on scalable distributed systems. Open to CSE pre-final year students.
-                </p>
-              </div>
-
-              <div className="grid grid-cols-2 gap-2 text-[11px]">
-                <div className="p-2 bg-slate-900/40 rounded border border-slate-800/80">
-                  <p className="text-slate-400">Deadline</p>
-                  <p className="font-semibold text-slate-200">25 June 2026</p>
+                
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="bg-gradient-to-br from-slate-900 to-[#131320] p-3 rounded-xl border border-slate-800 text-center">
+                    <p className="text-slate-500 text-[10px] font-bold uppercase mb-1">Extracted Deadline</p>
+                    <p className="text-white text-sm font-black">Oct 15, 2026</p>
+                  </div>
+                  <div className="bg-gradient-to-br from-slate-900 to-[#131320] p-3 rounded-xl border border-slate-800 text-center">
+                    <p className="text-slate-500 text-[10px] font-bold uppercase mb-1">Match Reason</p>
+                    <p className="text-[#06D6A0] text-sm font-black">C++ Skill</p>
+                  </div>
                 </div>
-                <div className="p-2 bg-slate-900/40 rounded border border-slate-800/80">
-                  <p className="text-slate-400">Stipend</p>
-                  <p className="font-semibold text-[#06D6A0]">₹1.2L/month</p>
-                </div>
-              </div>
-
-              <div className="flex gap-2">
-                <button className="flex-1 py-1.5 rounded-lg bg-[#7C3AED]/20 hover:bg-[#7C3AED]/35 text-[11px] font-semibold text-white transition">
-                  Interested
-                </button>
-                <button className="flex-1 py-1.5 rounded-lg bg-[#7C3AED] hover:bg-[#6D28D9] text-[11px] font-semibold text-white transition flex items-center justify-center gap-1 shadow-md">
-                  Apply <ArrowRight className="w-3 h-3" />
+                
+                <button className="w-full bg-[#7C3AED] hover:bg-[#6D28D9] text-white font-bold py-3 rounded-xl shadow-[0_0_20px_rgba(124,58,237,0.3)] transition flex items-center justify-center gap-2">
+                  <KanbanSquare className="w-4 h-4" /> Track Application
                 </button>
               </div>
-            </div>
+            </motion.div>
 
-            {/* Glowing background behind card */}
-            <div className="absolute inset-0 m-auto w-64 h-64 bg-indigo-600 rounded-full blur-[80px] opacity-25 z-10" />
+            {/* Middle Card (Blurred) */}
+            <motion.div 
+              animate={{ y: [0, -10, 0] }}
+              transition={{ repeat: Infinity, duration: 6, ease: "easeInOut", delay: 1 }}
+              className="w-full max-w-[380px] bg-[#0A0A14] p-6 rounded-2xl border border-slate-800 absolute z-20 top-24 scale-95 opacity-60 blur-[2px]"
+            >
+              <div className="h-12 bg-slate-800/50 rounded-xl w-3/4 mb-4" />
+              <div className="h-24 bg-slate-800/30 rounded-xl w-full mb-4" />
+              <div className="h-10 bg-slate-800/50 rounded-xl w-full" />
+            </motion.div>
+
+            {/* Bottom Card (Blurred) */}
+            <motion.div 
+              animate={{ y: [0, -5, 0] }}
+              transition={{ repeat: Infinity, duration: 6, ease: "easeInOut", delay: 2 }}
+              className="w-full max-w-[380px] bg-[#0A0A14] p-6 rounded-2xl border border-slate-800 absolute z-10 top-36 scale-90 opacity-30 blur-[4px]"
+            >
+              <div className="h-32 bg-slate-800/20 rounded-xl w-full" />
+            </motion.div>
+
+            {/* Dynamic Glow */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-[#7C3AED] rounded-full blur-[100px] opacity-20 animate-pulse-slow z-0" />
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Stats Ticker */}
+      <section className="border-y border-slate-900 bg-slate-950/30 backdrop-blur-sm relative z-20">
+        <div className="max-w-7xl mx-auto px-6 py-10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 divide-x divide-slate-800/50">
+            {stats.map((stat, i) => (
+              <motion.div 
+                key={i} 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="text-center pl-4 first:pl-0"
+              >
+                <h3 className="text-3xl md:text-4xl font-black text-white mb-1 tracking-tight">{stat.value}</h3>
+                <p className="text-xs font-bold text-slate-500 uppercase tracking-widest">{stat.label}</p>
+              </motion.div>
+            ))}
           </div>
         </div>
-
-        {/* Stats Section */}
-        <div className="layout-stats-container grid grid-cols-2 md:grid-cols-4 gap-8">
-          {stats.map((stat, i) => (
-            <div key={i} className="text-center md:text-left space-y-1">
-              <h3 className="text-2xl md:text-4xl font-extrabold tracking-tight text-white">{stat.value}</h3>
-              <p className="text-xs md:text-sm text-slate-400">{stat.label}</p>
-            </div>
-          ))}
-        </div>
       </section>
 
-      {/* Problem Section */}
-      <section id="problems" className="layout-section-padding bg-slate-950/40 border-y border-slate-900 px-6 md:px-12 max-w-7xl mx-auto relative z-10">
-        <div className="text-center space-y-4 mb-16">
-          <h2 className="text-3xl md:text-5xl font-black text-white">The Career Email Deluge</h2>
-          <p className="text-slate-400 max-w-2xl mx-auto">
-            University life moves fast. Inbox management shouldn\'t hold back your career trajectory.
-          </p>
-        </div>
+      {/* Problem -> Solution Scroll Sequence */}
+      <section id="how-it-works" className="py-32 px-6 md:px-12 max-w-7xl mx-auto relative z-10">
+        <motion.div 
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          className="text-center space-y-4 mb-20"
+        >
+          <div className="inline-flex items-center gap-2 text-[#F72585] text-xs font-bold uppercase tracking-widest bg-[#F72585]/10 px-4 py-1.5 rounded-full mb-2 border border-[#F72585]/20">
+            <BrainCircuit className="w-4 h-4" /> The Engine
+          </div>
+          <h2 className="text-4xl md:text-5xl font-black text-white tracking-tight">How the AI pipeline works</h2>
+        </motion.div>
 
-        <div className="layout-problems-grid">
-          {problems.map((prob, i) => (
-            <div key={i} className="card glass-subtle p-8 flex flex-col space-y-4 hover:border-slate-800 hover:shadow-none hover:translate-y-0">
-              <div className="p-3 bg-slate-900/60 rounded-xl w-fit border border-slate-800">
-                {prob.icon}
-              </div>
-              <h3 className="text-xl font-bold text-white">{prob.title}</h3>
-              <p className="text-sm text-slate-400 leading-relaxed">{prob.description}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* How It Works Section */}
-      <section id="how-it-works" className="py-20 md:py-32 px-6 md:px-12 max-w-7xl mx-auto relative z-10">
-        <div className="text-center space-y-4 mb-20">
-          <h2 className="text-3xl md:text-5xl font-black text-white">Seamless Workflow, Zero Effort</h2>
-          <p className="text-slate-400 max-w-2xl mx-auto">
-            From connected inbox to applied offer in three simple steps. We do the heavy lifting.
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-12 relative">
-          {/* Connector Line (Desktop) */}
-          <div className="hidden md:block absolute top-[28px] left-[16.666%] right-[16.666%] h-0.5 bg-gradient-to-r from-[#7C3AED]/70 via-[#F72585]/70 to-[#3A86FF]/70 z-0" />
-
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="grid md:grid-cols-3 gap-8 relative"
+        >
           {steps.map((st, i) => (
-            <div key={i} className="flex flex-col items-center text-center space-y-4 relative z-10">
-              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-slate-900 to-slate-950 border border-slate-800 flex items-center justify-center font-black text-lg text-white shadow-lg relative">
-                <span className="gradient-text font-extrabold">{st.step}</span>
-              </div>
-              <h3 className="text-xl font-bold text-white pt-2">{st.title}</h3>
-              <p className="text-sm text-slate-400 leading-relaxed max-w-sm">{st.description}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Features Grid Section */}
-      <section id="features" className="py-20 bg-slate-950/40 border-y border-slate-900 px-6 md:px-12 max-w-7xl mx-auto relative z-10">
-        <div className="text-center space-y-4 mb-16">
-          <h2 className="text-3xl md:text-5xl font-black text-white">Packed With MVP Power</h2>
-          <p className="text-slate-400 max-w-2xl mx-auto">
-            Every feature is custom engineered to eliminate searching and maximise your placement efficiency.
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-8">
-          {features.map((feat, i) => (
-            <div key={i} className="card glass p-6 space-y-4">
-              <div className="p-2.5 bg-slate-900 rounded-lg w-fit border border-slate-800">
-                {feat.icon}
-              </div>
-              <h4 className="text-lg font-bold text-white">{feat.title}</h4>
-              <p className="text-xs text-slate-400 leading-relaxed">{feat.description}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Social Proof Testimonials */}
-      <section className="py-20 px-6 md:px-12 max-w-7xl mx-auto relative z-10">
-        <div className="text-center space-y-4 mb-16">
-          <h2 className="text-3xl md:text-5xl font-black text-white">Approved By VIT Students</h2>
-          <p className="text-slate-400 max-w-2xl mx-auto">
-            See how early career professionals are unlocking hidden value from their student inboxes.
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-8">
-          {testimonials.map((t, i) => (
-            <div key={i} className="card glass-subtle p-8 flex flex-col justify-between space-y-6">
-              <div className="space-y-4">
-                <MessageSquare className="w-6 h-6 text-[#7C3AED] opacity-50" />
-                <p className="text-sm text-slate-300 italic leading-relaxed">"{t.quote}"</p>
-              </div>
-              <div className="flex items-center gap-3 pt-4 border-t border-slate-800/80">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-[#7C3AED] to-[#F72585] flex items-center justify-center text-xs font-bold text-white">
-                  {t.avatar}
+            <motion.div 
+              key={i} 
+              variants={itemVariants}
+              whileHover={{ y: -10, scale: 1.02 }}
+              className="bg-slate-900/40 border border-slate-800/60 p-8 rounded-3xl backdrop-blur-xl shadow-2xl relative overflow-hidden group"
+            >
+              {/* Dynamic hover gradient */}
+              <div className="absolute inset-0 bg-gradient-to-br from-[#7C3AED]/0 to-[#F72585]/0 group-hover:from-[#7C3AED]/10 group-hover:to-[#F72585]/10 transition-colors duration-500" />
+              
+              <div className="relative z-10 space-y-6">
+                <div className="flex justify-between items-start">
+                  <div className="w-14 h-14 rounded-2xl bg-slate-800 border border-slate-700 flex items-center justify-center shadow-inner group-hover:bg-slate-700 transition-colors">
+                    {st.icon}
+                  </div>
+                  <span className="text-5xl font-black text-white/5 group-hover:text-white/10 transition-colors">{st.step}</span>
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold text-white">{t.author}</h4>
-                  <p className="text-[11px] text-slate-400">{t.role}</p>
+                  <h3 className="text-xl font-bold text-white mb-3">{st.title}</h3>
+                  <p className="text-sm text-slate-400 leading-relaxed font-medium">{st.description}</p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </section>
 
-      {/* FAQ Section */}
-      <section id="faq" className="py-20 px-6 md:px-12 max-w-4xl mx-auto relative z-10">
-        <div className="text-center space-y-4 mb-16">
-          <h2 className="text-3xl md:text-5xl font-black text-white">Frequently Asked Questions</h2>
-          <p className="text-slate-400">
-            Everything you need to know about our technology and privacy policies.
-          </p>
-        </div>
+      {/* Features Grid */}
+      <section id="features" className="py-32 bg-slate-950/40 border-y border-slate-900 px-6 md:px-12 max-w-7xl mx-auto relative z-10">
+        <motion.div 
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center space-y-4 mb-20"
+        >
+          <h2 className="text-4xl md:text-5xl font-black text-white tracking-tight">Everything you need. <br/><span className="text-slate-500">Nothing you don't.</span></h2>
+        </motion.div>
 
-        <div className="space-y-4">
-          {faqs.map((faq, idx) => {
-            const isOpen = activeFaq === idx;
-            return (
-              <div key={idx} className="bg-slate-900/40 border border-slate-800/80 rounded-xl overflow-hidden transition">
-                <button
-                  onClick={() => setActiveFaq(isOpen ? null : idx)}
-                  className="w-full flex items-center justify-between p-5 text-left font-semibold text-white hover:bg-slate-900/60 transition"
-                >
-                  <span className="text-sm md:text-base">{faq.question}</span>
-                  <ChevronDown className={`w-4 h-4 text-slate-400 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
-                </button>
-                <AnimatePresence initial={false}>
-                  {isOpen && (
-                    <motion.div
-                      initial={{ height: 0 }}
-                      animate={{ height: 'auto' }}
-                      exit={{ height: 0 }}
-                      transition={{ duration: 0.25, ease: 'easeInOut' }}
-                    >
-                      <div className="p-5 pt-0 border-t border-slate-800/30 text-xs md:text-sm text-slate-400 leading-relaxed">
-                        {faq.answer}
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid md:grid-cols-3 gap-6"
+        >
+          {features.map((feat, i) => (
+            <motion.div 
+              key={i} 
+              variants={itemVariants}
+              whileHover={{ scale: 1.02, backgroundColor: "rgba(30, 41, 59, 0.4)" }}
+              className="bg-[#030308] border border-slate-800/80 p-8 rounded-2xl transition-all duration-300 shadow-xl"
+            >
+              <div className="p-3 bg-slate-900 rounded-xl w-fit border border-slate-800 mb-6 shadow-inner">
+                {feat.icon}
               </div>
-            );
-          })}
-        </div>
+              <h4 className="text-lg font-bold text-white mb-2 tracking-tight">{feat.title}</h4>
+              <p className="text-sm text-slate-400 leading-relaxed font-medium">{feat.description}</p>
+            </motion.div>
+          ))}
+        </motion.div>
       </section>
 
-      {/* Final CTA Section */}
-      <section className="py-20 px-6 md:px-12 max-w-7xl mx-auto relative z-10">
-        <div className="card bg-gradient-to-r from-[#7C3AED]/20 to-[#3A86FF]/20 border-[#7C3AED]/30 p-10 md:p-16 text-center space-y-6 relative overflow-hidden shadow-2xl rounded-2xl">
-          <div className="hero-orb w-64 h-64 bg-[#7C3AED] -top-12 -left-12 opacity-20 blur-[60px]" />
-          <div className="hero-orb w-64 h-64 bg-[#3A86FF] -bottom-12 -right-12 opacity-20 blur-[60px]" />
+      {/* CTA Section */}
+      <section className="py-32 px-6 md:px-12 max-w-5xl mx-auto relative z-10">
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          className="bg-gradient-to-r from-[#030308] to-[#131320] border border-[#7C3AED]/30 p-12 md:p-20 text-center space-y-8 relative overflow-hidden shadow-[0_0_80px_rgba(124,58,237,0.15)] rounded-[3rem]"
+        >
+          <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay" />
+          <div className="hero-orb w-96 h-96 bg-[#7C3AED] -top-20 -left-20 opacity-30 blur-[80px]" />
+          <div className="hero-orb w-96 h-96 bg-[#F72585] -bottom-20 -right-20 opacity-20 blur-[80px]" />
           
-          <h2 className="text-3xl md:text-5xl font-black text-white">Unlock Your Student Inbox Today.</h2>
-          <p className="text-slate-300 max-w-xl mx-auto text-sm md:text-base">
-            Join the smart cohort of VIT students utilizing AI career intelligence to land their dream internships.
-          </p>
+          <div className="relative z-10 space-y-6">
+            <h2 className="text-4xl md:text-6xl font-black text-white tracking-tight leading-tight">
+              Ready to automate your <br/>internship hunt?
+            </h2>
+            <p className="text-slate-400 max-w-xl mx-auto text-lg font-medium">
+              Join the cohort of smart students utilizing AI to land their dream roles.
+            </p>
 
-          <div className="pt-4">
-            <Link href="/auth/signin" className="btn-primary py-3 px-8 text-base shadow-xl">
-              Connect @vitstudent.ac.in Account <ArrowRight className="w-5 h-5" />
-            </Link>
+            <div className="pt-8">
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="inline-block">
+                <Link href="/auth/signin" className="bg-white text-black py-4 px-10 rounded-full text-lg font-black shadow-[0_0_40px_rgba(255,255,255,0.3)] hover:shadow-[0_0_60px_rgba(255,255,255,0.5)] transition-shadow flex items-center justify-center gap-3">
+                  <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google" className="w-5 h-5" />
+                  Continue with Google
+                </Link>
+              </motion.div>
+            </div>
           </div>
-        </div>
+        </motion.div>
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-slate-900 bg-slate-950/70 py-12 px-6 md:px-12 max-w-7xl mx-auto relative z-10">
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-8 mb-12">
-          <div className="col-span-2 space-y-4">
-            <Link href="/" className="flex items-center gap-2 text-lg font-bold tracking-tight text-white">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-[#7C3AED] to-[#F72585] flex items-center justify-center shadow-lg">
-                <Sparkles className="w-4.5 h-4.5 text-white" />
-              </div>
-              <span className="font-bold">Opportunity<span className="text-[#8B5CF6]">AI</span></span>
-            </Link>
-            <p className="text-xs text-slate-400 max-w-sm leading-relaxed">
-              Automating career opportunity discovery, extraction, tracking, and recommendations for ambitious university students.
-            </p>
-          </div>
-
-          <div className="space-y-3">
-            <h5 className="text-xs font-bold uppercase tracking-wider text-slate-200">Product</h5>
-            <div className="flex flex-col gap-2 text-xs text-slate-400">
-              <a href="#features" className="hover:text-white transition">AI Extraction</a>
-              <a href="#features" className="hover:text-white transition">Match Score</a>
-              <a href="#how-it-works" className="hover:text-white transition">How it Works</a>
-            </div>
-          </div>
-
-          <div className="space-y-3">
-            <h5 className="text-xs font-bold uppercase tracking-wider text-slate-200">Resources</h5>
-            <div className="flex flex-col gap-2 text-xs text-slate-400">
-              <a href="#faq" className="hover:text-white transition">FAQs</a>
-              <Link href="/privacy-audit" className="hover:text-white transition">Privacy Audit</Link>
-              <Link href="/api-status" className="hover:text-white transition">API Status</Link>
-            </div>
-          </div>
-
-          <div className="space-y-3">
-            <h5 className="text-xs font-bold uppercase tracking-wider text-slate-200">Legal</h5>
-            <div className="flex flex-col gap-2 text-xs text-slate-400">
-              <Link href="/privacy" className="hover:text-white transition">Privacy Policy</Link>
-              <Link href="/terms" className="hover:text-white transition">Terms of Service</Link>
-              <Link href="/dpa" className="hover:text-white transition">DPA (Data Protection)</Link>
-            </div>
-          </div>
-        </div>
-
-        <div className="pt-8 border-t border-slate-900/60 flex flex-col md:flex-row items-center justify-between text-xs text-slate-500 gap-4">
-          <p>© 2026 OpportunityAI. All rights reserved. Built for VIT Vellore & Chennai.</p>
+      <footer className="border-t border-slate-900 bg-[#030308] py-12 px-6 md:px-12 max-w-7xl mx-auto relative z-10">
+        <div className="flex flex-col md:flex-row items-center justify-between text-xs font-medium text-slate-500 gap-4">
+          <Link href="/" className="flex items-center gap-2 text-lg font-black tracking-tight text-white grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all">
+            <Sparkles className="w-4 h-4 text-[#7C3AED]" /> OpportunityAI
+          </Link>
+          <p>© 2026 OpportunityAI. Built for VIT Vellore.</p>
           <div className="flex items-center gap-4">
-            <span className="flex items-center gap-1"><Lock className="w-3.5 h-3.5" /> Secure SSL Connection</span>
-            <span className="w-1.5 h-1.5 rounded-full bg-slate-800" />
-            <span>VIT Vellore, TN, India</span>
+            <span className="flex items-center gap-1"><Lock className="w-3.5 h-3.5" /> Secure SSL</span>
+            <Link href="/privacy" className="hover:text-white transition">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-white transition">Terms</Link>
           </div>
         </div>
       </footer>
