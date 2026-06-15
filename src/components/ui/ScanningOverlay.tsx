@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Sparkles, Terminal, Activity, ShieldCheck, Database, Zap } from 'lucide-react';
 
@@ -27,6 +28,12 @@ function LockIcon(props: any) {
 export default function ScanningOverlay({ isVisible }: { isVisible: boolean }) {
   const [currentTaskIndex, setCurrentTaskIndex] = useState(0);
 
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   useEffect(() => {
     if (!isVisible) {
       setCurrentTaskIndex(0);
@@ -44,7 +51,7 @@ export default function ScanningOverlay({ isVisible }: { isVisible: boolean }) {
     return () => clearInterval(interval);
   }, [isVisible]);
 
-  return (
+  const overlayContent = (
     <AnimatePresence>
       {isVisible && (
         <motion.div 
@@ -93,13 +100,16 @@ export default function ScanningOverlay({ isVisible }: { isVisible: boolean }) {
                 const isCurrent = idx === currentTaskIndex;
                 const isPast = idx < currentTaskIndex;
                 
-                if (idx > currentTaskIndex) return null; // Don't show future tasks
+                // if (idx > currentTaskIndex) return null; // Don't show future tasks
                 
                 return (
                   <motion.div 
                     key={idx}
                     initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
+                    animate={{ 
+                      opacity: idx > currentTaskIndex ? 0 : 1, 
+                      x: idx > currentTaskIndex ? -10 : 0 
+                    }}
                     className={`flex items-center gap-3 text-xs ${isPast ? 'text-[#06D6A0]/50' : 'text-[#06D6A0]'}`}
                   >
                     {isPast ? (
@@ -126,4 +136,7 @@ export default function ScanningOverlay({ isVisible }: { isVisible: boolean }) {
       )}
     </AnimatePresence>
   );
+
+  if (!mounted) return null;
+  return createPortal(overlayContent, document.body);
 }
