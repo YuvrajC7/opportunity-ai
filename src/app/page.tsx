@@ -294,18 +294,25 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true, amount: 0.5 }}
-                className="bg-[#050505]/80 backdrop-blur-3xl border border-white/10 p-12 rounded-[3rem] text-center max-w-4xl w-full shadow-2xl"
+                className="bg-[#050505]/80 backdrop-blur-3xl border border-white/10 p-10 md:p-14 rounded-[3rem] text-center max-w-5xl w-full shadow-2xl"
               >
-                <h2 className="text-5xl md:text-7xl font-black text-[#06D6A0] uppercase tracking-tighter mb-6 drop-shadow-[0_0_30px_rgba(6,214,160,0.5)]">
+                <h2 className="text-4xl md:text-6xl font-black text-[#06D6A0] uppercase tracking-tighter mb-10 drop-shadow-[0_0_30px_rgba(6,214,160,0.5)]">
                   THE COMMAND CENTER
                 </h2>
-                <p className="text-xl text-white/60 font-medium mb-12">
-                  All your extracted internships, perfectly organized on a beautiful Kanban board with automated deadline alerts.
-                </p>
-                <Link href="/auth/signin" className="inline-flex bg-white text-black py-5 px-12 rounded-full text-lg font-black uppercase tracking-widest hover:scale-105 transition-transform items-center gap-4 shadow-xl">
-                  <KanbanSquare className="w-6 h-6" />
-                  Connect Google Workspace
-                </Link>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
+                  <div className="bg-white/5 p-8 rounded-3xl border border-white/10 hover:bg-white/10 transition-colors">
+                    <h3 className="text-sm font-black text-white/50 mb-4 uppercase tracking-widest">The Problem</h3>
+                    <p className="text-lg text-white/80 font-medium leading-relaxed">
+                      Your university inbox is a chaotic mess of thousands of emails. Critical internship deadlines, assessment links, and OA tests get buried and missed every single day.
+                    </p>
+                  </div>
+                  <div className="bg-[#06D6A0]/10 p-8 rounded-3xl border border-[#06D6A0]/20 hover:bg-[#06D6A0]/20 transition-colors shadow-[inset_0_0_20px_rgba(6,214,160,0.1)]">
+                    <h3 className="text-sm font-black text-[#06D6A0] mb-4 uppercase tracking-widest">The Solution</h3>
+                    <p className="text-lg text-[#06D6A0]/90 font-medium leading-relaxed">
+                      Our AI securely scans your inbox in the background, extracts every hidden opportunity, and organizes them perfectly on a beautiful Kanban board with automated deadline alerts.
+                    </p>
+                  </div>
+                </div>
               </motion.div>
             </div>
           </div>
