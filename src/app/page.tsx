@@ -65,15 +65,15 @@ function Vortex() {
               />
             </mesh>
             {/* Sender */}
-            <Text position={[-1.8, 0.8, 0.06]} fontSize={0.3} color="black" anchorX="left" anchorY="middle" maxWidth={3.6} font="https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2">
+            <Text position={[-1.8, 0.8, 0.06]} fontSize={0.3} color="black" anchorX="left" anchorY="middle" maxWidth={3.6}>
               {p.sender}
             </Text>
             {/* Subject */}
-            <Text position={[-1.8, 0.2, 0.06]} fontSize={0.2} color="#333333" anchorX="left" anchorY="middle" maxWidth={3.6} font="https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2">
+            <Text position={[-1.8, 0.2, 0.06]} fontSize={0.2} color="#333333" anchorX="left" anchorY="middle" maxWidth={3.6}>
               {p.subject}
             </Text>
             {/* Snippet */}
-            <Text position={[-1.8, -0.4, 0.06]} fontSize={0.15} color="#666666" anchorX="left" anchorY="middle" maxWidth={3.6} font="https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2">
+            <Text position={[-1.8, -0.4, 0.06]} fontSize={0.15} color="#666666" anchorX="left" anchorY="middle" maxWidth={3.6}>
               {"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."}
             </Text>
           </group>
