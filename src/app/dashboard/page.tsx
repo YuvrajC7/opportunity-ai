@@ -33,6 +33,7 @@ export default function Dashboard() {
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [opportunities, setOpportunities] = useState<Opportunity[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [isScanning, setIsScanning] = useState(false);
   const [error, setError] = useState<string | null>(null);
   
   const [newSkill, setNewSkill] = useState('');
@@ -42,18 +43,19 @@ export default function Dashboard() {
   const overlayStartTime = useRef<number>(0);
 
   useEffect(() => {
-    if (isLoading) {
+    if (isScanning) {
       setShowOverlay(true);
       overlayStartTime.current = Date.now();
     } else {
       const elapsed = Date.now() - overlayStartTime.current;
-      const remaining = Math.max(0, 3500 - elapsed);
+      const remaining = overlayStartTime.current > 0 ? Math.max(0, 3500 - elapsed) : 0;
       const timeout = setTimeout(() => {
         setShowOverlay(false);
+        if (remaining > 0) overlayStartTime.current = 0;
       }, remaining);
       return () => clearTimeout(timeout);
     }
-  }, [isLoading]);
+  }, [isScanning]);
 
   // Extract profile from session
   const userProfile = useMemo(() => ({
@@ -76,12 +78,14 @@ export default function Dashboard() {
       if (!session) return;
       try {
         setIsLoading(true);
+        if (forceRefresh) setIsScanning(true);
         
         if (forceRefresh) {
           const res = await fetch('/api/internships');
           if (res.status === 401) {
             setError('SESSION_EXPIRED');
             setIsLoading(false);
+            if (forceRefresh) setIsScanning(false);
             return;
           }
         }
@@ -118,6 +122,7 @@ export default function Dashboard() {
         console.error('Failed to fetch internships:', err);
       } finally {
         setIsLoading(false);
+        setIsScanning(false);
       }
     }
     const hasScannedThisSession = sessionStorage.getItem('hasScannedThisSession');
