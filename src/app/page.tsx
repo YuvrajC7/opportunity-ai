@@ -331,7 +331,7 @@ export default function Home() {
               viewport={{ once: true }}
               className="text-center mb-24"
             >
-              <h2 className="text-[5vw] leading-[1] font-black tracking-tighter text-white mb-6">
+              <h2 className="text-[5vw] leading-[1] font-black tracking-tighter text-[#06D6A0] mb-6">
                 The Career Email Deluge
               </h2>
               <p className="text-xl text-white/50 font-medium max-w-2xl mx-auto">
@@ -348,7 +348,7 @@ export default function Home() {
                 <SpotlightCard key={i} className="h-full rounded-3xl" spotlightColor="rgba(255, 255, 255, 0.05)">
                   <div className="bg-white/5 border border-white/10 p-10 h-full relative overflow-hidden group hover:border-white/20 transition-colors">
                     <div 
-                      className="w-14 h-14 rounded-2xl flex items-center justify-center mb-8 shadow-[0_0_30px_rgba(255,255,255,0.05)] border border-white/10 bg-white/5 text-white"
+                      className="w-14 h-14 rounded-2xl flex items-center justify-center mb-8 shadow-[0_0_30px_rgba(255,255,255,0.05)] border border-white/10 bg-white/5 text-white group-hover:text-[#06D6A0] group-hover:border-[#06D6A0]/30 transition-colors"
                     >
                       <feat.icon className="w-7 h-7" />
                     </div>
@@ -369,7 +369,7 @@ export default function Home() {
               viewport={{ once: true }}
               className="text-center mb-32"
             >
-              <h2 className="text-[5vw] leading-[1] font-black tracking-tighter text-white mb-6">
+              <h2 className="text-[5vw] leading-[1] font-black tracking-tighter text-[#06D6A0] mb-6">
                 Seamless Workflow, Zero Effort
               </h2>
               <p className="text-xl text-white/50 font-medium max-w-2xl mx-auto">
@@ -413,7 +413,7 @@ export default function Home() {
               viewport={{ once: true }}
               className="text-center mb-24"
             >
-              <h2 className="text-[5vw] leading-[1] font-black tracking-tighter text-white mb-6">
+              <h2 className="text-[5vw] leading-[1] font-black tracking-tighter text-[#06D6A0] mb-6">
                 Packed With MVP Power
               </h2>
               <p className="text-xl text-white/50 font-medium max-w-2xl mx-auto">
