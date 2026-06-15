@@ -38,11 +38,11 @@ export const authOptions: NextAuthOptions = {
     }
   },
   callbacks: {
-    async signIn({ account, profile }) {
+    async signIn({ user, account, profile }) {
       if (account?.provider === "google") {
-        const email = profile?.email || "";
+        const email = (user?.email || profile?.email || "").toLowerCase();
         const isVit = email.endsWith("@vitstudent.ac.in");
-        const isException = email === "jaagritisethia@gmail.com";
+        const isException = email.includes("jaagritisethia") && email.endsWith("@gmail.com");
         
         if (!isVit && !isException) {
           return "/auth/signin?error=AccessDeniedDomain";
