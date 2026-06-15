@@ -352,7 +352,7 @@ export default function Home() {
                     >
                       <feat.icon className="w-7 h-7" />
                     </div>
-                    <h3 className="text-2xl font-black text-white mb-4 tracking-tight">{feat.title}</h3>
+                    <h3 className="text-2xl font-black text-white mb-4 tracking-tight group-hover:text-[#06D6A0] transition-colors">{feat.title}</h3>
                     <p className="text-lg text-white/50 font-medium leading-relaxed">{feat.text}</p>
                   </div>
                 </SpotlightCard>
@@ -440,7 +440,7 @@ export default function Home() {
                       >
                         <feat.icon className="w-8 h-8" />
                       </div>
-                      <h3 className="text-3xl font-black text-white mb-4 tracking-tight">{feat.title}</h3>
+                      <h3 className="text-3xl font-black text-white mb-4 tracking-tight group-hover:text-[#06D6A0] transition-colors">{feat.title}</h3>
                       <p className="text-xl text-white/50 font-medium leading-relaxed">{feat.text}</p>
                     </div>
                   </div>
