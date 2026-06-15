@@ -255,7 +255,7 @@ export default function Home() {
           </span>
         </div>
         <Link href="/auth/signin" className="bg-white text-black px-8 py-3.5 rounded-full text-sm font-black uppercase tracking-widest hover:bg-gray-200 transition-colors pointer-events-auto shadow-[0_0_20px_rgba(255,255,255,0.2)]">
-          Launch App
+          ACCESS PORTAL
         </Link>
       </nav>
 
@@ -268,9 +268,9 @@ export default function Home() {
       <div className="relative z-10 w-full">
         
         {/* 3D Intro Padding Spacer */}
-        <div className="h-[400vh] w-full pointer-events-none flex flex-col justify-between pt-[40vh] pb-[40vh]">
+        <div className="w-full pointer-events-none flex flex-col">
           
-          <div className="w-full flex flex-col items-center text-center px-4 mix-blend-difference text-white">
+          <div className="h-screen w-full flex flex-col items-center justify-center text-center px-4 mix-blend-difference text-white">
             <h1 className="text-[12vw] leading-none font-black text-transparent -webkit-text-stroke-[2px] -webkit-text-stroke-white/50 uppercase tracking-tighter">
               SCROLL
             </h1>
@@ -280,31 +280,34 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="w-full flex items-center justify-center px-12 md:px-32 mix-blend-difference text-white">
+          <div className="h-[150vh] w-full flex items-center justify-center px-12 md:px-32 mix-blend-difference text-white">
             <h2 className="text-[10vw] leading-none font-black uppercase tracking-tighter text-transparent -webkit-text-stroke-[2px] -webkit-text-stroke-white/50">
               10,000 EMAILS.
             </h2>
           </div>
 
-          <div className="w-full flex flex-col items-center justify-end pb-12 px-4 pointer-events-auto">
-            <motion.div 
-              initial={{ opacity: 0, y: 50, scale: 0.9 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: true, amount: 0.5 }}
-              className="bg-[#050505]/80 backdrop-blur-3xl border border-white/10 p-12 rounded-[3rem] text-center max-w-4xl w-full"
-            >
-              <h2 className="text-5xl md:text-7xl font-black text-[#06D6A0] uppercase tracking-tighter mb-6 drop-shadow-[0_0_30px_rgba(6,214,160,0.5)]">
-                THE COMMAND CENTER
-              </h2>
-              <p className="text-xl text-white/60 font-medium mb-12">
-                All your extracted internships, perfectly organized on a beautiful Kanban board with automated deadline alerts.
-              </p>
-              <Link href="/auth/signin" className="inline-flex bg-white text-black py-5 px-12 rounded-full text-lg font-black uppercase tracking-widest hover:scale-105 transition-transform items-center gap-4 shadow-xl">
-                <KanbanSquare className="w-6 h-6" />
-                Connect Google Workspace
-              </Link>
-            </motion.div>
+          {/* Sticky Command Center Section */}
+          <div className="h-[200vh] relative w-full pointer-events-auto">
+            <div className="sticky top-0 h-screen w-full flex flex-col items-center justify-center px-4">
+              <motion.div 
+                initial={{ opacity: 0, y: 50, scale: 0.9 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true, amount: 0.5 }}
+                className="bg-[#050505]/80 backdrop-blur-3xl border border-white/10 p-12 rounded-[3rem] text-center max-w-4xl w-full shadow-2xl"
+              >
+                <h2 className="text-5xl md:text-7xl font-black text-[#06D6A0] uppercase tracking-tighter mb-6 drop-shadow-[0_0_30px_rgba(6,214,160,0.5)]">
+                  THE COMMAND CENTER
+                </h2>
+                <p className="text-xl text-white/60 font-medium mb-12">
+                  All your extracted internships, perfectly organized on a beautiful Kanban board with automated deadline alerts.
+                </p>
+                <Link href="/auth/signin" className="inline-flex bg-white text-black py-5 px-12 rounded-full text-lg font-black uppercase tracking-widest hover:scale-105 transition-transform items-center gap-4 shadow-xl">
+                  <KanbanSquare className="w-6 h-6" />
+                  Connect Google Workspace
+                </Link>
+              </motion.div>
+            </div>
           </div>
 
         </div>
@@ -424,8 +427,24 @@ export default function Home() {
             </motion.div>
           </section>
 
-          <footer className="bg-[#020202] py-12 px-6 md:px-12 border-t border-white/10 text-white">
-            <div className="max-w-[1600px] mx-auto flex flex-col md:flex-row items-center justify-between text-sm font-bold text-white/40 uppercase tracking-widest gap-6">
+          <footer className="bg-[#020202] py-20 px-6 md:px-12 border-t border-white/10 text-white flex flex-col items-center gap-16">
+            
+            <div className="text-center max-w-3xl flex flex-col items-center gap-8">
+              <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter text-white">
+                READY TO ENTER THE VORTEX?
+              </h2>
+              <p className="text-xl text-white/60 font-medium">
+                Connect your Google Workspace in one click and let the AI extract every hidden opportunity from your inbox instantly.
+              </p>
+              <Link href="/auth/signin" className="inline-flex bg-[#06D6A0] text-black py-5 px-12 rounded-full text-lg font-black uppercase tracking-widest hover:scale-105 hover:bg-white transition-all items-center gap-4 shadow-[0_0_30px_rgba(6,214,160,0.4)]">
+                <KanbanSquare className="w-6 h-6" />
+                Connect Google Workspace
+              </Link>
+            </div>
+
+            <div className="w-full h-px bg-white/10"></div>
+
+            <div className="max-w-[1600px] w-full mx-auto flex flex-col md:flex-row items-center justify-between text-sm font-bold text-white/40 uppercase tracking-widest gap-6">
               <Link href="/" className="flex items-center gap-3 text-2xl font-black tracking-tighter text-white">
                 <SparklesIcon className="w-6 h-6 text-[#06D6A0]" /> OPPORTUNITY<span className="opacity-50">AI</span>
               </Link>
