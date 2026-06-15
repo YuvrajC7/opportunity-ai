@@ -246,16 +246,16 @@ export default function Home() {
   return (
     <div className="w-full bg-[#050505] selection:bg-[#06D6A0]/30 selection:text-white">
       
-      <nav className="fixed top-0 left-0 right-0 z-[100] p-6 md:p-12 flex items-center justify-between pointer-events-none">
-        <div className="flex items-center gap-3 pointer-events-auto">
-          <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center">
+      <nav className="fixed top-0 left-0 right-0 z-[100] p-6 md:p-12 flex items-center justify-between pointer-events-none mix-blend-difference">
+        <Link href="/" className="flex items-center gap-3 pointer-events-auto group">
+          <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center group-hover:scale-105 transition-transform">
             <SparklesIcon className="w-6 h-6 text-black" />
           </div>
-          <span className="font-black text-2xl tracking-tighter text-white uppercase hidden sm:block shadow-black drop-shadow-lg">
+          <span className="font-black text-2xl tracking-tighter text-white uppercase hidden sm:block">
             Opportunity<span className="opacity-50">AI</span>
           </span>
-        </div>
-        <Link href="/auth/signin" className="bg-white text-black px-8 py-3.5 rounded-full text-sm font-black uppercase tracking-widest hover:bg-gray-200 transition-colors pointer-events-auto shadow-[0_0_20px_rgba(255,255,255,0.2)]">
+        </Link>
+        <Link href="/auth/signin" className="bg-white text-black px-8 py-3.5 rounded-full text-sm font-black uppercase tracking-widest hover:scale-105 transition-transform pointer-events-auto">
           ACCESS PORTAL
         </Link>
       </nav>
@@ -545,8 +545,9 @@ export default function Home() {
             <div className="w-full h-px bg-white/10"></div>
 
             <div className="max-w-[1600px] w-full mx-auto flex flex-col md:flex-row items-center justify-between text-sm font-bold text-white/40 uppercase tracking-widest gap-6">
-              <Link href="/" className="flex items-center gap-3 text-2xl font-black tracking-tighter text-white">
-                <SparklesIcon className="w-6 h-6 text-[#06D6A0]" /> OPPORTUNITY<span className="opacity-50">AI</span>
+              <Link href="/" className="flex items-center gap-3 text-2xl font-black tracking-tighter text-white hover:opacity-80 transition-opacity">
+                <SparklesIcon className="w-6 h-6 text-[#06D6A0]" />
+                <span className="tracking-tighter">OPPORTUNITY<span className="opacity-50">AI</span></span>
               </Link>
               <p>© 2026. THE FUTURE OF RECRUITMENT.</p>
               <div className="flex items-center gap-8">
