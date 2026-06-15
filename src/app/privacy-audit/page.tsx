@@ -18,11 +18,11 @@ export default function PrivacyAudit() {
           <div className="w-12 h-12 rounded-xl bg-[#06D6A0]/10 flex items-center justify-center mb-6">
             <SearchCheck className="w-6 h-6 text-[#48E5C2]" />
           </div>
-          <h1 className="text-3xl md:text-5xl font-black text-white">Privacy Audit Logs</h1>
-          <p className="text-sm text-slate-500">Public transparency report</p>
+          <h1 className="text-4xl md:text-6xl font-black text-[#06D6A0]">Privacy Audit Logs</h1>
+          <p className="text-base text-slate-500">Public transparency report</p>
         </div>
 
-        <div className="prose prose-invert max-w-none space-y-6 text-sm leading-relaxed">
+        <div className="prose prose-invert max-w-none space-y-6 text-lg leading-relaxed">
           <p>
             We believe in radical transparency. Here you can find our latest internal privacy audit reports verifying our zero-retention policy for user emails.
           </p>

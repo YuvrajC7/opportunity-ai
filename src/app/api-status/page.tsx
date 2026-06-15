@@ -18,8 +18,8 @@ export default function APIStatus() {
           <div className="w-12 h-12 rounded-xl bg-[#06D6A0]/10 flex items-center justify-center mb-6">
             <Activity className="w-6 h-6 text-[#06D6A0]" />
           </div>
-          <h1 className="text-3xl md:text-5xl font-black text-white">System Status</h1>
-          <p className="text-sm text-slate-500">Real-time status of OpportunityAI services.</p>
+          <h1 className="text-4xl md:text-6xl font-black text-[#06D6A0]">System Status</h1>
+          <p className="text-base text-slate-500">Real-time status of OpportunityAI services.</p>
         </div>
 
         <div className="space-y-4 mt-8">
