@@ -42,7 +42,7 @@ export const authOptions: NextAuthOptions = {
       if (account?.provider === "google") {
         const email = profile?.email || "";
         const isVit = email.endsWith("@vitstudent.ac.in");
-        const isException = email === "jaagriti.2503110038@muj.manipal.edu";
+        const isException = email === "jaagritisethia@gmail.com";
         
         if (!isVit && !isException) {
           return "/auth/signin?error=AccessDeniedDomain";
