@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/og-image.png",
+        url: "https://opportunity-ai-delta.vercel.app/og-image.png",
         width: 1200,
         height: 630,
         alt: "OpportunityAI — Never Miss a Career-Defining Opportunity Again",
@@ -54,6 +54,12 @@ export const metadata: Metadata = {
     title: "OpportunityAI — AI-Powered Student Career Intelligence",
     description:
       "Your university inbox is full of career gold. OpportunityAI finds it for you.",
+    images: ["https://opportunity-ai-delta.vercel.app/og-image.png"],
+  },
+  icons: {
+    icon: "/icon.png",
+    shortcut: "/icon.png",
+    apple: "/icon.png",
   },
   robots: {
     index: true,
